@@ -150,4 +150,35 @@
         {% include "hostnamectl.html" %}
     </div>
 </section>
+
+<section class="my-4">
+    <div class="row">
+        <!-- ss -ntl -->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    $ ss -ntl
+                </div>
+                <div class="card-body">
+                    <pre>{{ ss }}</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    $ iwconfig
+                </div>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+
 {% endblock content %}

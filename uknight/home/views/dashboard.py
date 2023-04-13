@@ -55,6 +55,14 @@ def routing_table():
         route_table = routes.read()
     return route_table
 
+def ss():
+    """
+    """
+    ss_file = os.path.join(settings.SHELL_SCRIPT_DIRS, "ss.out")
+    with open(ss_file) as file:
+        ss = file.read()
+    return ss    
+
 
 class DashboardView(TemplateView):
     template_name = "home.html"
@@ -72,13 +80,14 @@ class DashboardView(TemplateView):
         context["system_info"] = {"kernel": subprocess.check_output(["uname", "-r"]).decode("utf-8"),
                                   "uptime": subprocess.check_output(["uptime", "-p"]).decode("utf-8")}
 
-        context["routing_table"] = routing_table()
         context["disk_usage"] = disk_usage()
         context["disk_free"] = disk_free()
         context["free_memory_data"] = free_memory()
+        context["hostnamectl"] = hostnamectl()
         context["ip_address"] = ip_address()
         context["iw_config"] = iw_config()
-        context["hostnamectl"] = hostnamectl()
+        context["routing_table"] = routing_table()
+        context["ss"] = ss()
 
 
         # shows a listing (5) of last logged in users

@@ -22,12 +22,17 @@ hostnamectl > "$output_dir/hostnamectl.out"
 # last
 last -n 5 --dns > "$output_dir/last.out"
 
+# route
+route > "$output_dir/route.out"
+
+# ss
+ss -ntl > "$output_dir/ss.out"
+
 # ip
 ip -s -h a > "$output_dir/ip.out"
 
 # iwconfig
 iwconfig > "$output_dir/iwconfig.out"
 
-# route
-route > "$output_dir/route.out"
+
 
