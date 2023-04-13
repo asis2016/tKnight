@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-warning">
+            <!-- todo -->
+            $ df -h
+            <p class="text-primary mb-0">
+                10 packages can be upgraded. Run "apt list --upgradable" to see them.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Top info -->
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                # whoami <br>
+                {{ whoami }}
+            </div>
+        </div>
+    </div>
+     <div class="col">
+        <div class="card">
+            yo
+        </div>
+    </div>
+     <div class="col">
+        <div class="card">
+            <div class="card-body">
+                # curl ifconfig.me <br>
+                {{ curl_ifconfig_dot_me }}
+            </div>
+        </div>
+    </div>
+     <div class="col">
+        <div class="card">
+            yo
+        </div>
+    </div>
+</div>
+
+<section class="my-4">
+    <div class="row">
+        <div class="col">
+    a
+        </div>
+
+        <!-- neofetch -->
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-4">
+    <div class="row">
+        <div class="col">
+    a
+        </div>
+
+        <!-- neofetch -->
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-4">
+
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    $ sudo du / -h -d 1 > out/du.out
+                </div>
+                <div class="card-body">
+                    <pre>{{ disk_usage }}</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    $ free -ht
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <pre>{{ free_memory_data }}</pre>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    $ last -n 5 --dns
+                </div>
+                <div class="card-body">
+                    <pre>{{ last_logged_users }}</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    $ route
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <pre>{{ routing_table }}</pre>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="my-4">
+    <div class="row">
+        {% include "df.html" %}
+        {% include "ip.html" %}
+    </div>
+</section>
+
+<section class="my-4">
+    <div class="row">
+        {% include "iw_config.html" %}
+        {% include "hostnamectl.html" %}
+    </div>
+</section>
+{% endblock content %}
