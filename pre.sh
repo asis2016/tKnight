@@ -22,6 +22,9 @@ hostnamectl > "$output_dir/hostnamectl.out"
 # last
 last -n 5 --dns > "$output_dir/last.out"
 
+# ps
+ps > "$output_dir/ps.out"
+
 # route
 route > "$output_dir/route.out"
 

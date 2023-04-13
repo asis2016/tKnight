@@ -21,27 +21,25 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                # whoami <br>
+                $ whoami <br>
                 {{ whoami }}
             </div>
         </div>
     </div>
      <div class="col">
         <div class="card">
-            yo
-        </div>
-    </div>
-     <div class="col">
-        <div class="card">
             <div class="card-body">
-                # curl ifconfig.me <br>
-                {{ curl_ifconfig_dot_me }}
+                $ uptime <br>
+                {{ uptime }}
             </div>
         </div>
     </div>
      <div class="col">
         <div class="card">
-            yo
+            <div class="card-body">
+                $ curl ifconfig.me <br>
+                {{ curl_ifconfig_dot_me }}
+            </div>
         </div>
     </div>
 </div>
@@ -168,10 +166,10 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    $ iwconfig
+                    $ ps
                 </div>
                 <div class="card-body">
-                    
+                    <pre>{{ ps }}</pre>
                 </div>
             </div>
         </div>

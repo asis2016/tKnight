@@ -47,6 +47,15 @@ def hostnamectl():
     return hostnamectl
 
 
+def ps():
+    """
+    """
+    ps_file = os.path.join(settings.SHELL_SCRIPT_DIRS, "ps.out")
+    with open(ps_file) as file:
+        ps = file.read()
+    return ps
+
+
 def routing_table():
     """ $ route > show the IP routing table. """
     route_r_file = os.path.join(settings.SHELL_SCRIPT_DIRS, "route.out")
@@ -86,8 +95,10 @@ class DashboardView(TemplateView):
         context["hostnamectl"] = hostnamectl()
         context["ip_address"] = ip_address()
         context["iw_config"] = iw_config()
+        context["ps"] = ps()
         context["routing_table"] = routing_table()
         context["ss"] = ss()
+        context["uptime"] = subprocess.check_output(["uptime"]).decode("utf-8")
 
 
         # shows a listing (5) of last logged in users
