@@ -110,7 +110,7 @@ class DashboardView(TemplateView):
         context["uptime"] = subprocess.check_output(["uptime"]).decode("utf-8")
 
         # systemctl
-        systemctl_is_active()
+        #systemctl_is_active()
 
 
         # shows a listing (5) of last logged in users
