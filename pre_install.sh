@@ -1,2 +1,2 @@
-sudo apt install net-tools
-sudo apt install wireless-tools
+sudo apt -y install net-tools
+sudo apt -y install wireless-tools
