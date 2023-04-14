@@ -70,7 +70,16 @@ def ss():
     ss_file = os.path.join(settings.SHELL_SCRIPT_DIRS, "ss.out")
     with open(ss_file) as file:
         ss = file.read()
-    return ss    
+    return ss
+
+# todo
+def systemctl_is_active():
+    """
+    """
+    services = ["docker", "apache2"]
+    for service in services:
+        x = subprocess.check_output(["systemctl", "is-active", service]).decode("utf-8")
+        print(x)
 
 
 class DashboardView(TemplateView):
@@ -99,6 +108,9 @@ class DashboardView(TemplateView):
         context["routing_table"] = routing_table()
         context["ss"] = ss()
         context["uptime"] = subprocess.check_output(["uptime"]).decode("utf-8")
+
+        # systemctl
+        systemctl_is_active()
 
 
         # shows a listing (5) of last logged in users
