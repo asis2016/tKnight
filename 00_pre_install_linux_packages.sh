@@ -14,6 +14,7 @@ packages=(
     apache2
     cron
     elinks
+    git
     iputils-ping
     jq
     ldap-utils
