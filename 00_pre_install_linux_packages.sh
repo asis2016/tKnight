@@ -23,6 +23,7 @@ packages=(
     mysql-server
     net-tools
     nmap
+    python3.10-venv
     python3-pytest
     slapd
     tmux
@@ -32,6 +33,7 @@ packages=(
     wireless-tools
 )
 
+# Install packages (if not installed)
 for package in "${packages[@]}"
 do
     if ! dpkg -s "$package" > /dev/null 2>&1; then
@@ -42,9 +44,5 @@ do
     fi
 done
 
-
-
-
-
-
- 
+# Upgrade the system
+sudo apt -y upgrade

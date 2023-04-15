@@ -17,7 +17,7 @@ df / -h > "$output_dir/df.out"
 dpkg --list | tail -n +4 > "$output_dir/dpkg.out"
 
 # du
-#sudo du / -h -d 1 > "$output_dir/du.out"
+sudo du / -h -d 1 > "$output_dir/du.out"
 
 # free
 free -ht > "$output_dir/free.out"

@@ -21,6 +21,12 @@ $ source venv/bin/activate
 (venv) $ ./start.sh
 ```
 
+## .gitignore
+
+```
+.gitignore
+venv
+```
 
 
 
