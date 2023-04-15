@@ -8,7 +8,7 @@
 # URL: https://github.com/asis2016/u_knight 
 
 # Rename .env.bak to .env
-mv ./.env.bak  ./.env
+cat ./.env.bak  > ./.env
 
 #Read .env
 source ./.env
