@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
-    'ds.apps.DsConfig'
+    'ldap.apps.LdapConfig',
+    'ds.apps.DsConfig',
+    'systemctl.apps.SystemctlConfig'
 ]
 
 MIDDLEWARE = [
