@@ -28,7 +28,7 @@ packages=(
     slapd
     tmux
     tree
-    vi
+    vim
     wget
     wireless-tools
 )

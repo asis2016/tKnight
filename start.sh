@@ -14,4 +14,6 @@ cat ./.env.bak  > ./.env
 source ./.env
 
 #Start the project
-python3 uknight/manage.py runserver
+python3  uknight/manage.py  runserver  $UKNIGHT_HOST:$UKNIGHT_PORT
+
+#
