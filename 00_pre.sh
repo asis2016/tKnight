@@ -46,5 +46,7 @@ ip -s -h a > "$output_dir/ip.out"
 # iwconfig
 iwconfig > "$output_dir/iwconfig.out"
 
+## 
+
 
 

@@ -17,7 +17,12 @@ $ source venv/bin/activate
 
 ## Start the project
 
-```
+`.env.bak` is important before you start the project. Hence, fill out .env with relevant information.
+
+Note: `.env.bak` will be converted to `.env`
+
+Now, start the project:
+```bash
 (venv) $ ./start.sh
 ```
 
