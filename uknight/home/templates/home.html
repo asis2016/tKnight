@@ -2,7 +2,47 @@
 {% load static %}
 
 {% block content %}
-
+<!-- Info boxes -->
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cube"></i></span>
+        <div class="info-box-content">
+            <span class="info-box-text">Installed packages</span>
+            <span class="info-box-number">{{ total_packages_installed }}</span>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+        <div class="info-box-content">
+            <span class="info-box-text">Likes</span>
+            <span class="info-box-number">41,410</span>
+        </div>
+        </div>
+    </div>
+    <div class="clearfix hidden-md-up"></div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+        <div class="info-box-content">
+            <span class="info-box-text">Sales</span>
+            <span class="info-box-number">760</span>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-globe-asia"></i></span>
+        <div class="info-box-content">
+            <span class="info-box-text">What is my IP?</span>
+            <span class="info-box-number">{{ curl_ifconfig_dot_me }}</span>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Ends Info boxes -->
 
 <div class="row">
     <div class="col">
@@ -46,34 +86,12 @@
 
 <section class="my-4">
     <div class="row">
-        <div class="col">
-    a
-        </div>
+        <div class="col-lg-8">
 
-        <!-- neofetch -->
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    
-                </div>
-            </div>
         </div>
-    </div>
-</section>
-
-<section class="my-4">
-    <div class="row">
-        <div class="col">
-    a
-        </div>
-
-        <!-- neofetch -->
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    
-                </div>
-            </div>
+        <div class="col-lg-4">
+            {%include "systemctl_quick_info.html" %}
+            {%include "ps.html" %}
         </div>
     </div>
 </section>
@@ -84,7 +102,9 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-header">
-                    $ sudo du / -h -d 1 > out/du.out
+                    <h3 class="card-title">
+                        $ sudo du / -h -d 1 > out/du.out
+                    </h3>
                 </div>
                 <div class="card-body">
                     <pre>{{ disk_usage }}</pre>
@@ -164,14 +184,7 @@
         </div>
 
         <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    $ ps
-                </div>
-                <div class="card-body">
-                    <pre>{{ ps }}</pre>
-                </div>
-            </div>
+            
         </div>
         
     </div>

@@ -2,6 +2,8 @@ import os
 from django.views.generic import TemplateView
 from django.conf import settings
 import subprocess
+import json
+from systemctl.views import quick_systemctl_info
 
 def ip_address():
     """ $ ip -s -h a > Linux IPv4 protocol implementation."""
@@ -72,14 +74,23 @@ def ss():
         ss = file.read()
     return ss
 
+
+def total_packages_installed():
+    """
+    $ dpkg --list | wc -l
+    """
+    resp = subprocess.check_output(["dpkg", "--list"])
+    count = len(resp.decode().split('\n')) - 1
+    return count
+
 # todo
-def systemctl_is_active():
-    """
-    """
-    services = ["docker", "apache2"]
-    for service in services:
-        x = subprocess.check_output(["systemctl", "is-active", service]).decode("utf-8")
-        print(x)
+# def systemctl_is_active():
+#     """
+#     """
+#     services = ["docker", "apache2"]
+#     for service in services:
+#         x = subprocess.check_output(["systemctl", "is-active", service]).decode("utf-8")
+#         print(x)
 
 
 class DashboardView(TemplateView):
@@ -92,8 +103,8 @@ class DashboardView(TemplateView):
         context["whoami"] = subprocess.check_output(["whoami"]).decode("utf-8")
         context["curl_ifconfig_dot_me"] = subprocess.check_output(["curl", "ifconfig.me"]).decode("utf-8")
 
-        context["apache_is_active"] = subprocess.check_output(
-            ["systemctl", "is-active", "--quiet", "apache2", "&&", "echo", "active"]).decode("utf-8")
+        #context["apache_is_active"] = subprocess.check_output(["systemctl", "is-active", "--quiet", "apache2", "&&", "echo", "active"]).decode("utf-8")
+        #context["is_apache2_active"] = subprocess.check_output(["systemctl", "is-active", "apache2"]).decode("utf-8")
 
         context["system_info"] = {"kernel": subprocess.check_output(["uname", "-r"]).decode("utf-8"),
                                   "uptime": subprocess.check_output(["uptime", "-p"]).decode("utf-8")}
@@ -107,6 +118,9 @@ class DashboardView(TemplateView):
         context["ps"] = ps()
         context["routing_table"] = routing_table()
         context["ss"] = ss()
+        context["top_services"] = quick_systemctl_info()
+
+        context["total_installed_packages"] = total_packages_installed()
         context["uptime"] = subprocess.check_output(["uptime"]).decode("utf-8")
 
         # systemctl
