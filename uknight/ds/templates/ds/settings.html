@@ -1,0 +1,81 @@
+<!-- json.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{ data }}
+<section>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="title">Directory service connection settings</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Connection name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" value="{{ json_data.connection_name }}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Host</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.host }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Port</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.port }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Encryption method</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.encryption_method }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Connection time out</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.connection_time_out }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Authentication method</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.authentication_method }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Authentication bind dn</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.authentication_bind_dn }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Authentication bind dn password</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" value="{{ json_data.authentication_bind_password }}">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  
+
+
+
+  <!-- {{ json_data }} -->
+
+  <div>
+    {{ json_data.connection_name }}
+    {% for i in json_data %}
+        {{ i.1 }}
+    {% endfor %}
+  </div>
+{% endblock %}

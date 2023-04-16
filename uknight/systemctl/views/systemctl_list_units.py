@@ -6,7 +6,7 @@ from django.conf import settings
 class SystemctlView(TemplateView):
     """
     """
-    template_name = "index.html"
+    template_name = "systemctl/index.html"
 
     def get_context_data(self, *args, **kwargs):
         context = super(SystemctlView, self).get_context_data(*args, **kwargs)

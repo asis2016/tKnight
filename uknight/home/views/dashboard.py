@@ -76,59 +76,52 @@ def ss():
 
 
 def total_packages_installed():
-    """
-    $ dpkg --list | wc -l
-    """
-    resp = subprocess.check_output(["dpkg", "--list"])
-    count = len(resp.decode().split('\n')) - 1
-    return count
+    cmd = "dpkg --list | wc -l"
+    resp = subprocess.check_output(cmd, shell=True)
+    return resp.decode()
 
-# todo
-# def systemctl_is_active():
-#     """
-#     """
-#     services = ["docker", "apache2"]
-#     for service in services:
-#         x = subprocess.check_output(["systemctl", "is-active", service]).decode("utf-8")
-#         print(x)
+
+def uptime():
+    resp = subprocess.check_output(["uptime", "-s"]).decode("utf-8")
+    return resp
+
+
+def whoami():
+    resp = subprocess.check_output(["whoami"]).decode("utf-8")
+    return resp
+
+def curl_ifconfig_me():
+    resp = subprocess.check_output(["curl", "ifconfig.me"]).decode("utf-8")
+    return resp
+
+
+def last_logged_users():
+    """Shows a listing (5) of last logged in users."""
+    with open(os.path.join(settings.SHELL_SCRIPT_DIRS, "last.out"), "r") as f:
+        users = f.read()
+    return users
 
 
 class DashboardView(TemplateView):
-    template_name = "home.html"
+    template_name = "home/index.html"
 
     print(settings.SHELL_SCRIPT_DIRS)
 
     def get_context_data(self, *args, **kwargs):
         context = super(DashboardView, self).get_context_data(*args, **kwargs)
-        context["whoami"] = subprocess.check_output(["whoami"]).decode("utf-8")
-        context["curl_ifconfig_dot_me"] = subprocess.check_output(["curl", "ifconfig.me"]).decode("utf-8")
-
-        #context["apache_is_active"] = subprocess.check_output(["systemctl", "is-active", "--quiet", "apache2", "&&", "echo", "active"]).decode("utf-8")
-        #context["is_apache2_active"] = subprocess.check_output(["systemctl", "is-active", "apache2"]).decode("utf-8")
-
-        context["system_info"] = {"kernel": subprocess.check_output(["uname", "-r"]).decode("utf-8"),
-                                  "uptime": subprocess.check_output(["uptime", "-p"]).decode("utf-8")}
-
-        context["disk_usage"] = disk_usage()
+        context["curl_ifconfig_me"] = curl_ifconfig_me()
         context["disk_free"] = disk_free()
+        context["disk_usage"] = disk_usage()
         context["free_memory_data"] = free_memory()
         context["hostnamectl"] = hostnamectl()
         context["ip_address"] = ip_address()
         context["iw_config"] = iw_config()
+        context["last_logged_users"] = last_logged_users()
         context["ps"] = ps()
         context["routing_table"] = routing_table()
         context["ss"] = ss()
         context["top_services"] = quick_systemctl_info()
-
         context["total_installed_packages"] = total_packages_installed()
-        context["uptime"] = subprocess.check_output(["uptime"]).decode("utf-8")
-
-        # systemctl
-        #systemctl_is_active()
-
-
-        # shows a listing (5) of last logged in users
-        with open(os.path.join(settings.SHELL_SCRIPT_DIRS, "last.out"), "r") as f:
-            context["last_logged_users"] = f.read()
-
+        context["uptime"] = uptime()
+        context["whoami"] = whoami()
         return context

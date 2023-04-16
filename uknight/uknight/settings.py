@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'ldap.apps.LdapConfig',
     'ds.apps.DsConfig',
-    'systemctl.apps.SystemctlConfig'
+    'systemctl.apps.SystemctlConfig',
+    'documentation.apps.DocumentationConfig'
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 SHELL_SCRIPT_DIRS = os.path.join(BASE_DIR, 'out')
+DATA_DIRS = os.path.join(BASE_DIR, '00_data')
+ENV = os.path.join(BASE_DIR, "..", ".env")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

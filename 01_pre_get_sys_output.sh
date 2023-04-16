@@ -17,7 +17,7 @@ df / -h > "$out_dir/df.out"
 dpkg --list | tail -n +4 > "$out_dir/dpkg.out"
 
 # du
-sudo du / -h -d 1 > "$out_dir/du.out"
+sudo du  / -h -d 1 --total > "$out_dir/du.out"
 
 # free
 free -ht > "$out_dir/free.out"
@@ -40,13 +40,14 @@ ss -ntl > "$out_dir/ss.out"
 # ssh
 ssh -V > "$out_dir/ssh.out"
 
-
-
 # ip
 ip -s -h a > "$out_dir/ip.out"
 
 # iwconfig
 iwconfig > "$out_dir/iwconfig.out"
+
+#whoami
+whoami > "$out_dir/whoami.out"
 
 #
 #

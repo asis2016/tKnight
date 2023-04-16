@@ -13,6 +13,9 @@ cat ./.env.bak  > ./.env
 #Read .env
 source ./.env
 
+#Start venv
+source venv/bin/activate
+
 #Start the project
 python3  uknight/manage.py  runserver  $UKNIGHT_HOST:$UKNIGHT_PORT
 
