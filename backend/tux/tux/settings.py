@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'traceroute.apps.TracerouteConfig',
     'speedtestapi.apps.SpeedtestapiConfig',
     'process.apps.ProcessConfig',
+    'whoami.apps.WhoamiConfig',
 
     #3rd party
     'rest_framework',
