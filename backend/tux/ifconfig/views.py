@@ -12,6 +12,7 @@ def get_ifconfig(request):
     Return just the default interface device dictionary.
     '''
     data = ifcfg.default_interface()
+    # data = ifcfg.interfaces()
     serializer = IfconfigSerializer(data={'data':data})
     if serializer.is_valid():
-        return Response(serializer.data.values())
+        return Response(serializer.data)

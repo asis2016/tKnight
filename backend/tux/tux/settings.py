@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sensors.apps.SensorsConfig',
     'disk.apps.DiskConfig',
     'ifconfig.apps.IfconfigConfig',
+    'ipscanner.apps.IpscannerConfig',
     'systeminfo.apps.SysteminfoConfig',
     'traceroute.apps.TracerouteConfig',
     'speedtestapi.apps.SpeedtestapiConfig',

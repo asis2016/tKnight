@@ -1,11 +1,17 @@
 
 /**
+ * CONSTANTS
+ */
+
+BASE_API_URL = 'http://127.0.0.1:8000/api/v1'
+
+/**
  * fetchData
  */
 function fetchData(apiUrl) {
   return new Promise(function (resolve, reject) {
     let settings = {
-      "url": "http://127.0.0.1:8000/api/v1" + apiUrl,
+      "url": BASE_API_URL + apiUrl,
       "method": "GET",
       "timeout": 0,
     };
