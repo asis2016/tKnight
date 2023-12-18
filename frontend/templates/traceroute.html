@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row" id="tuxTraceRoute">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Traceroute</h4>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>IP</th>
+                                        <th>Longitude</th>
+                                        <th>Latitude</th>
+                                        <th>City</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div id='myDiv'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_script %}
+<script src='https://cdn.plot.ly/plotly-2.27.0.min.js'>
+</script>
+
+<script>
+
+    /**
+     * fetchData
+     */
+    function fetchData(apiUrl) {
+        return new Promise(function (resolve, reject) {
+            let settings = {
+                "url": "http://127.0.0.1:8000/api/v1" + apiUrl,
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({
+                    "hostname": "amaharjan.de"
+                }),
+            };
+
+            $.ajax(settings).done(function (response) {
+                resolve(response);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                reject(errorThrown);
+            });
+        });
+    }
+
+    /**
+     * processes
+     */
+    fetchData("/traceroute/").then(function (response) {
+        var routeTableTbody = $("#tuxTraceRoute table tbody");
+        $.each(response["data"], function (index, item) {
+            var newRow = $("<tr>");
+
+            // Append cells to the row
+            newRow.append("<td><i class='flag-icon flag-icon-" + item['country_code'].toLowerCase() + "'></i></td>");
+            newRow.append("<td>" + item['ip'] + "</td>");
+            newRow.append("<td>" + item['lon'] + "</td>");
+            newRow.append("<td>" + item['lat'] + "</td>");
+            newRow.append("<td>" + item['city'] + "</td>");
+            newRow.append("</tr>");
+
+            // Append the row to the tbody
+            routeTableTbody.append(newRow);
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+    // var data = [{
+    //     type: 'scattergeo',
+    //     name: "ashish",
+    //     text: "belgium",
+    //     lat: [40.7127, 51.5072],
+    //     lon: [-74.0059, 0.1275],
+    //     mode: 'markers+lines',
+    //     line: {
+    //         width: 2,
+    //         color: 'blue'
+    //     }
+    // },
+    // {
+    //     type: 'scattergeo',
+    //     lat: [30.7127, 51.5072],
+    //     lon: [-25.0059, 0.1275],
+    //     mode: 'markers+lines',
+    //     line: {
+    //         width: 2,
+    //         color: 'blue'
+    //     }
+    // }];
+
+    // var layout = {
+    //     title: 'London to NYC Great Circle',
+    //     showlegend: true,
+    //     geo: {
+
+    //         showland: true,
+    //         showlakes: true,
+    //         landcolor: 'rgb(204, 204, 204)',
+    //         countrycolor: 'rgb(204, 204, 204)',
+    //         lakecolor: 'rgb(255, 255, 255)',
+
+    //         coastlinewidth: 2,
+    //         lataxis: {
+    //             range: [20, 60],
+    //             showgrid: true,
+    //             tickmode: 'linear',
+    //             dtick: 10
+    //         },
+    //         lonaxis: {
+    //             range: [-100, 20],
+    //             showgrid: true,
+    //             tickmode: 'linear',
+    //             dtick: 20
+    //         }
+    //     }
+    // };
+
+    // Plotly.newPlot('myDiv', data, layout);
+
+
+
+</script>
+{% endblock %}

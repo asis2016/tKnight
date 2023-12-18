@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row" id="processes">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-2 mt-2 card-title">Processes</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <th> PID </th>
+                                <th> Process name </th>
+                                <th> Terminal </th>
+                                <th> No. of threads </th>
+                                <th> Started time </th>
+                                <th> Status </th>
+                                <th> User </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_script %}
+<script>
+
+    /**
+     * fetchData
+     */
+    function fetchData(apiUrl) {
+        return new Promise(function (resolve, reject) {
+            let settings = {
+                "url": "http://127.0.0.1:8000/api/v1" + apiUrl,
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                resolve(response);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                reject(errorThrown);
+            });
+        });
+    }
+
+    /**
+     * processes
+     */
+    fetchData("/processes/").then(function (response) {
+        var tbody = $("#processes tbody");
+
+        $.each(response["data"], function (index, item) {
+            var newRow = $("<tr>");
+
+            // Append cells to the row
+            newRow.append("<td>" + item["pid"] + "</td>");
+            newRow.append("<td>" + item["process_name"] + "</td>");
+            newRow.append("<td>" + item["terminal"] + "</td>");
+            newRow.append("<td>" + item["num_threads"] + "</td>");
+            newRow.append("<td>" + item["created_time"] + "</td>");
+            newRow.append("<td>" + item["status"] + "</td>");
+            newRow.append("<td>" + item["username"] + "</td>");
+            newRow.append("</tr>");
+
+            // Append the row to the tbody
+            tbody.append(newRow);
+        });
+    });
+</script>
+{% endblock %}
