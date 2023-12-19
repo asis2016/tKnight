@@ -14,7 +14,7 @@
                                     Starting IP address
                                 </label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="startIPAddressSelectTag">
+                                    <select class="form-control text-white" id="startIPAddressSelectTag">
                                     </select>
                                 </div>
                             </div>
@@ -23,7 +23,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Last IP address</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="lastIPAddressSelectTag">
+                                    <select class="form-control text-white" id="lastIPAddressSelectTag">
                                     </select>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                         newRow.append(`<td>${item['ttl']}</td>`);
                         newRow.append(`<td>${item['time']} ms</td>`);
                         newRow.append(`<td><div class='badge badge-outline-success'>Yes</div></td>`);
-                        newRow.append(`<td><div class='badge badge-outline-warning'>Scan ports</div></td>`);
+                        newRow.append(`<td><a href="/portscanner?ip=${item['ip']}" class='btn btn-warning'>Scan ports</a></td>`);
                     } else {
                         newRow.append(`<td>-</td>`);
                         newRow.append(`<td>-</td>`);

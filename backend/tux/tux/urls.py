@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from whoami.views import get_whoami
 from ipscanner.views import post_ipscanner
+from portscanner.views import post_portscanner
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,4 +16,5 @@ urlpatterns = [
 
     path('api/v1/whoami/', get_whoami),
     path('api/v1/ipscanner/', post_ipscanner),
+    path('api/v1/portscanner/', post_portscanner),
 ]

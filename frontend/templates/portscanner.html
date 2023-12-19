@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- result -->
+<div class="row" id="tuxPortScannerResult">
+    <div class="col-12 text-center col1">
+        <div class="spinner-border text-primary spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div>
+            <p>
+                Port scanning on {{ ip }}
+            </p>
+            <p>
+                It may take some time.
+            </p>
+            <p>
+                Please wait...
+            </p>
+        </div>
+    </div>
+    <div class="offset-md-0 col-md-6 grid-margin col2 d-none">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="m-2">
+                    Port scanner
+                </h4>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Target IP
+                                </td>
+                                <td>
+                                    {{ ip }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Scan ports
+                                </td>
+                                <td>
+                                    1-65535
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Open ports
+                                </td>
+                                <td class="openPortList">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning">
+                                        Run NMap (warning: advanced)
+                                    </button>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_script %}
+
+<script>
+    $.ajax({
+        url: BASE_API_URL + '/portscanner/',
+        dataType: 'json',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify({
+            'target_IP': '{{ ip }}'
+        }),
+        success: function (result) {
+            // Make .col1 display none
+            $('#tuxPortScannerResult .col1').attr('style', 'display: none !important');
+
+            // Make .col2 display block
+            $('#tuxPortScannerResult .col2').attr('style', 'display: block !important');
+
+            if (result['totalOpenPorts'] >= 1) {
+
+                let newUl = $('<ul>');
+
+                $.each(result['data'], function (index, item) {
+                    newUl.append(`<li class='p-2'>${item}</li>`);
+                });
+
+                $('#tuxPortScannerResult .openPortList').append(newUl);
+
+            } else {
+                $('#tuxPortScannerResult .openPortList').append('No ports are opened.');
+            };
+
+
+        },
+        error: function () {
+            console.error('Failed to fetch external IP address');
+        }
+    });
+</script>
+
+{% endblock %}

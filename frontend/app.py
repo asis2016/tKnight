@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -15,6 +15,14 @@ def environ():
 @app.route('/ipscanner')
 def ipscanner():
     return render_template('ipscanner.html')
+
+
+@app.route('/portscanner')
+def portscanner():
+    # get ip query string
+    ip = request.args.get('ip')
+
+    return render_template('portscanner.html', ip=ip)
 
 
 @app.route('/processes')
