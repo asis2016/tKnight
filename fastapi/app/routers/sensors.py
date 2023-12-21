@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.get('/sensors/temperature/', tags=['Sensors'])
-async def sensors_temperature():
+async def read_sensors_temperature():
     '''
     Return hardware temperatures.
     '''
@@ -16,7 +16,7 @@ async def sensors_temperature():
 
 
 @router.get('/sensors/battery/', tags=['Sensors'])
-async def sensors_battey():
+async def read_sensors_battey():
     '''
     Return battery information.
     '''
@@ -27,7 +27,7 @@ async def sensors_battey():
 
 
 @router.get('/sensors/fan/', tags=['Sensors'])
-async def sensors_fan():
+async def read_sensors_fan():
     '''
     Return fan information.
     '''
