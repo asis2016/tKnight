@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import disk, environ, ip_scanner, ps, sensors 
+from app.routers import disk, environ, ip_scanner, ps, sensors, whoami
 
 app = FastAPI()
 
@@ -15,6 +15,7 @@ app.include_router(environ.router)
 app.include_router(ip_scanner.router)
 app.include_router(ps.router)
 app.include_router(sensors.router)
+app.include_router(whoami.router)
 
 
 # @app.get("/")
