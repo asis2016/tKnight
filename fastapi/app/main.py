@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import environ, ip_scanner, ps, sensors 
+from app.routers import disk, environ, ip_scanner, ps, sensors 
 
 app = FastAPI()
 
@@ -10,6 +10,7 @@ origins = [
     "http://127.0.0.1:8000",
 ]
 
+app.include_router(disk.router)
 app.include_router(environ.router)
 app.include_router(ip_scanner.router)
 app.include_router(ps.router)
