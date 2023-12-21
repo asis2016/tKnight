@@ -21,7 +21,6 @@ def ipscanner():
 def portscanner():
     # get ip query string
     ip = request.args.get('ip')
-
     return render_template('portscanner.html', ip=ip)
 
 
@@ -31,7 +30,7 @@ def processes():
 
 
 @app.route('/traceroute')
-def trace_route():
+def traceroute():
     return render_template('traceroute.html')
 
 

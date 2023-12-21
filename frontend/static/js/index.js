@@ -64,7 +64,7 @@ $(document).ready(function () {
         $("#tuxSpeedTest .txtPing").text("running speed test ...");
 
         $.ajax({
-            url: 'http://127.0.0.1:8000/api/v1/speedtestapi/',
+            url: BASE_API_URL + '/speedtestapi/',
             dataType: 'json',
             success: function (data) {
                 let ping = data[0].ping

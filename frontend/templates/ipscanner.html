@@ -101,7 +101,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScan">I agree</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">I agree</button>
             </div>
         </div>
     </div>
@@ -142,9 +142,9 @@
     });
 
     /**
-     *  for startIPScan
+     *  for startIPScanSubmitBtn
      */
-    $('#startIPScan').on('click', function () {
+    $('#startIPScanSubmitBtn').on('click', function () {
         // Make .spinner visible
         $('#tuxIPScannerResult .spinner').attr('style', 'visibility: visible !important');
         let startIP = $('#startIPAddressSelectTag option:selected').text()

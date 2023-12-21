@@ -17,13 +17,14 @@ def post_portscanner(request):
     '''
 
     # Check if IP parameters are present in the POST request
-    target_IP = request.data.get('target_IP')
+    #target_IP = request.data.get('target_IP')
+    target_IP = "shehabshalan.com"
 
     if not target_IP:
         return Response({'error': 'target_IP parameter is expected.'})
 
-    START_PORT = 1
-    END_PORT = 65535
+    START_PORT = 21
+    END_PORT = 80
     open_ports = []
 
     port = START_PORT

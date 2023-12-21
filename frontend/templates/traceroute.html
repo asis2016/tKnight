@@ -1,8 +1,71 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row" id="tuxTraceRoute">
-    <div class="col-12">
+<!-- tuxTraceRouteForm -->
+<div class="row" id="tuxTraceRouteForm">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Traceroute</h4>
+                <form class="form-sample">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">
+                                    Hostname
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control text-white" id="traceRouteInput"
+                                        placeholder="e.g., www.amaharjan.de" value="www.amaharjan.de">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"> Log this traceroute
+                                <i class="input-helper"></i>
+                                <i class="input-helper"></i></label>
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: right;">
+                        <div class="form-check">
+                            <button type="submit" class="btn btn-primary me-2" id="traceRouteSubmitBtn">
+                                Traceroute now</button>
+                            <a class="btn btn-danger me-2" href="{{ url_for('index') }}">Cancel and go back!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- tuxTraceRouteResult -->
+<div class="row" id="tuxTraceRouteResult">
+    <!-- spinner -->
+    <div class="col-12 text-center col1 d-none">
+        <div class="spinner-border text-primary spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div>
+            <p>
+                Tracerouting on <span class="hostname"></span>
+            </p>
+            <p>
+                It may take some time.
+            </p>
+            <p>
+                Please wait...
+            </p>
+        </div>
+    </div>
+    <div class="col-12 col2 d-none">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Traceroute</h4>
@@ -14,9 +77,10 @@
                                     <tr>
                                         <th></th>
                                         <th>IP</th>
-                                        <th>Longitude</th>
                                         <th>Latitude</th>
-                                        <th>City</th>
+                                        <th>Longitude</th>
+                                        <th>Location</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,113 +103,124 @@
 </script>
 
 <script>
+    $('#traceRouteSubmitBtn').on('click', function () {
 
-    /**
-     * fetchData
-     */
-    function fetchData(apiUrl) {
-        return new Promise(function (resolve, reject) {
-            let settings = {
-                "url": "http://127.0.0.1:8000/api/v1" + apiUrl,
-                "method": "POST",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "data": JSON.stringify({
-                    "hostname": "amaharjan.de"
-                }),
-            };
+        let hostname = $('#traceRouteInput').val();
+        $('#tuxTraceRouteResult .col1').removeClass('d-none');
+        $('#tuxTraceRouteResult .col1 span').text(hostname)
 
-            $.ajax(settings).done(function (response) {
-                resolve(response);
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                reject(errorThrown);
-            });
-        });
-    }
+        $.ajax({
+            url: BASE_API_URL + '/traceroute/',
+            dataType: 'json',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                'hostname': hostname
+            }),
+            success: function (result) {
 
-    /**
-     * processes
-     */
-    fetchData("/traceroute/").then(function (response) {
-        var routeTableTbody = $("#tuxTraceRoute table tbody");
-        $.each(response["data"], function (index, item) {
-            var newRow = $("<tr>");
+                $('#tuxTraceRouteResult .col1').addClass('d-none');
+                $('#tuxTraceRouteResult .col2').removeClass('d-none');
 
-            // Append cells to the row
-            newRow.append("<td><i class='flag-icon flag-icon-" + item['country_code'].toLowerCase() + "'></i></td>");
-            newRow.append("<td>" + item['ip'] + "</td>");
-            newRow.append("<td>" + item['lon'] + "</td>");
-            newRow.append("<td>" + item['lat'] + "</td>");
-            newRow.append("<td>" + item['city'] + "</td>");
-            newRow.append("</tr>");
+                let tbody = $('#tuxTraceRouteResult table tbody');
 
-            // Append the row to the tbody
-            routeTableTbody.append(newRow);
+                $.each(result['data'], function (index, item) {
+                    let newRow = $('<tr>');
+
+                    // Append cells to the row
+                    newRow.append(`<td><span class="badge bg-success rounded-pill">${index + 1}</span></td>`);
+                    newRow.append('<td>' + item['ip'] + '</td>');
+                    newRow.append('<td>' + item['lat'] + '</td>');
+                    newRow.append('<td>' + item['lon'] + '</td>');
+                    newRow.append(`<td>${item['city']} <i class='flag-icon flag-icon-${item['country_code'].toLowerCase()}'></i></td>`);
+                    newRow.append('</tr>');
+
+                    // Append the row to the tbody
+                    tbody.append(newRow);
+                });
+
+                // for visualization
+                plotMap(result['data'], hostname);
+            },
+            error: function () {
+                console.error('Failed to fetch external IP address');
+            }
         });
     });
 
 
+    /**
+     * Plot map 
+     */
+    const plotMap = (data, hostname) => {
 
+        let dataList = [];
 
+        // Iterate over the array to create the desired output format
+        for (let i = 0; i < data.length - 1; i++) {
+            let startLocation = data[i];
+            let endLocation = data[i + 1];
 
+            let route = {
+                type: 'scattergeo',
+                name: `R${i + 1}`,
+                text: `${startLocation.city} to ${endLocation.city}`,
+                lon: [startLocation.lon, endLocation.lon],
+                lat: [startLocation.lat, endLocation.lat],
+                mode: 'markers+lines',
+                line: {
+                    width: 2,
+                    color: '#dc3545'
+                }
+            };
 
+            dataList.push(route);
+        }
 
+        var layout = {
+            title: {
+                'text': 'Traceroute for ' + hostname,
+                font: {
+                    color: '#fff'
+                }
+            },
+            showlegend: true,
+            legend: {
+                font: {
+                    color: '#fff'
+                }
+            },
+            plot_bgcolor: "##191c24",
+            paper_bgcolor: "#191c24",
+            geo: {
+                resolution: 300,
+                showland: true,
+                showlakes: true,
+                landcolor: '#28a745',
+                lakecolor: '#007bff',
+                projection: {
+                    type: 'equirectangular'
+                },
+                coastlinewidth: 1,
+                lataxis: {
+                    range: [20, 60],
+                    tickmode: 'linear',
+                    dtick: 10
+                },
+                lonaxis: {
+                    range: [-100, 20],
+                    tickmode: 'linear',
+                    dtick: 20
+                },
+                bgcolor: '#007bff',
 
+            }
+        };
 
-
-    // var data = [{
-    //     type: 'scattergeo',
-    //     name: "ashish",
-    //     text: "belgium",
-    //     lat: [40.7127, 51.5072],
-    //     lon: [-74.0059, 0.1275],
-    //     mode: 'markers+lines',
-    //     line: {
-    //         width: 2,
-    //         color: 'blue'
-    //     }
-    // },
-    // {
-    //     type: 'scattergeo',
-    //     lat: [30.7127, 51.5072],
-    //     lon: [-25.0059, 0.1275],
-    //     mode: 'markers+lines',
-    //     line: {
-    //         width: 2,
-    //         color: 'blue'
-    //     }
-    // }];
-
-    // var layout = {
-    //     title: 'London to NYC Great Circle',
-    //     showlegend: true,
-    //     geo: {
-
-    //         showland: true,
-    //         showlakes: true,
-    //         landcolor: 'rgb(204, 204, 204)',
-    //         countrycolor: 'rgb(204, 204, 204)',
-    //         lakecolor: 'rgb(255, 255, 255)',
-
-    //         coastlinewidth: 2,
-    //         lataxis: {
-    //             range: [20, 60],
-    //             showgrid: true,
-    //             tickmode: 'linear',
-    //             dtick: 10
-    //         },
-    //         lonaxis: {
-    //             range: [-100, 20],
-    //             showgrid: true,
-    //             tickmode: 'linear',
-    //             dtick: 20
-    //         }
-    //     }
-    // };
-
-    // Plotly.newPlot('myDiv', data, layout);
+        Plotly.newPlot('myDiv', dataList, layout);
+    }
 
 
 
