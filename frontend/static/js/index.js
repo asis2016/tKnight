@@ -1,5 +1,8 @@
-$(document).ready(function () {
+/**
+ * Author: amaharjan.de
+ */
 
+$(document).ready(function () {
 
     /**
      * for tuxBoottime

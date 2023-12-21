@@ -1,10 +1,8 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-
 import re
 import subprocess
-
 
 router = APIRouter()
 
@@ -26,7 +24,7 @@ async def ip_scanner(start_ip: str, end_ip: str):
     ip = int(start_ip_suffix)
 
     while ip <= int(end_ip_suffix):
-        ip_address = f"{'.'.join(start_ip.split('.')[:3])}.{ip}"
+        ip_address = f'{".".join(start_ip.split(".")[:3])}.{ip}'
 
         try:
             print(f'Scanning for IP {ip_address}')
@@ -53,42 +51,4 @@ async def ip_scanner(start_ip: str, end_ip: str):
         ip_alive_list.append(result)
         ip +=1
 
-
-    
-    
-
-
-    return {"start_ip": start_ip, "end_ip": end_ip}
-    #return { 'result': 'result' }
-
-
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-
-# 
-# 
-
-
-# @api_view(['POST'])
-# def post_ipscanner(request):
-#     '''
-#     
-#     '''
-
-#     
-#     
-#     
-#     
-
-#     
-
-#     
-
-#     
-#         
-
-#         
-
-#     return Response({'data': ip_alive_list})
-    
-
+    return {'result': ip_alive_list}
