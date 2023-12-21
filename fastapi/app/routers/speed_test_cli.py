@@ -1,14 +1,13 @@
 __author__ = 'amaharjan.de'
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from .serializers import SpeedtestapiSerializer
-
+from fastapi import APIRouter
 import subprocess
 
+router = APIRouter()
 
-@api_view(['GET'])
-def get_speedtest(request):
+
+@router.get('/speed-test/', tags=['Networking'])
+def read_speed_test_cli():
     '''
     Return internet speed test, i.e., upload, download and ping time taken.
     '''
@@ -23,7 +22,4 @@ def get_speedtest(request):
             key, value = line.split(': ')
             result[key.lower()] = value
 
-    serializer = SpeedtestapiSerializer(data={'data':result})
-    if serializer.is_valid():
-        return Response(serializer.data.values())
-
+    return {'result': result}

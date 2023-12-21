@@ -33,48 +33,35 @@
 
 {% block custom_script %}
 <script>
-
-    /**
-     * fetchData
-     */
-    function fetchData(apiUrl) {
-        return new Promise(function (resolve, reject) {
-            let settings = {
-                "url": BASE_API_URL + apiUrl,
-                "method": "GET",
-                "timeout": 0,
-            };
-
-            $.ajax(settings).done(function (response) {
-                resolve(response);
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                reject(errorThrown);
-            });
-        });
-    }
-
     /**
      * processes
      */
-    fetchData("/processes/").then(function (response) {
-        var tbody = $("#processes tbody");
+    $.ajax({
+        url: BASE_API_URL + '/ps/',
+        dataType: 'json',
+        success: function (response) {
+            var tbody = $('#processes tbody');
 
-        $.each(response["data"], function (index, item) {
-            var newRow = $("<tr>");
+            $.each(response['result'], function (index, item) {
+                var newRow = $('<tr>');
 
-            // Append cells to the row
-            newRow.append("<td>" + item["pid"] + "</td>");
-            newRow.append("<td>" + item["process_name"] + "</td>");
-            newRow.append("<td>" + item["terminal"] + "</td>");
-            newRow.append("<td>" + item["num_threads"] + "</td>");
-            newRow.append("<td>" + item["created_time"] + "</td>");
-            newRow.append("<td>" + item["status"] + "</td>");
-            newRow.append("<td>" + item["username"] + "</td>");
-            newRow.append("</tr>");
+                // Append cells to the row
+                newRow.append('<td>' + item['pid'] + '</td>');
+                newRow.append('<td>' + item['process_name'] + '</td>');
+                newRow.append('<td>' + item['terminal'] + '</td>');
+                newRow.append('<td>' + item['num_threads'] + '</td>');
+                newRow.append('<td>' + item['created_time'] + '</td>');
+                newRow.append('<td>' + item['status'] + '</td>');
+                newRow.append('<td>' + item['username'] + '</td>');
+                newRow.append('</tr>');
 
-            // Append the row to the tbody
-            tbody.append(newRow);
-        });
+                // Append the row to the tbody
+                tbody.append(newRow);
+            });
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
     });
 </script>
 {% endblock %}
