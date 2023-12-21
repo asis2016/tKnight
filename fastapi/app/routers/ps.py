@@ -1,11 +1,11 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-
 import psutil
 import datetime
 
 router = APIRouter()
+
 
 @router.get('/ps/', tags=['System Info'])
 def read_ps():

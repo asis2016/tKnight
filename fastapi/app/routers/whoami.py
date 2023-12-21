@@ -1,10 +1,10 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-
 import subprocess
 
 router = APIRouter()
+
 
 @router.get('/whoami/', tags=['System Info'])
 def read_whoami():

@@ -1,7 +1,6 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-
 import psutil
 import subprocess
 import re

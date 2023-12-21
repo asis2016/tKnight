@@ -1,11 +1,10 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-
 import psutil
 
-
 router = APIRouter()
+
 
 @router.get('/sensors/temperature/', tags=['Sensors'])
 async def sensors_temperature():
