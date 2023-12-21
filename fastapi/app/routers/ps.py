@@ -1,15 +1,14 @@
 __author__ = 'amaharjan.de'
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from .serializers import ProcessSerializer
+from fastapi import APIRouter
 
 import psutil
 import datetime
 
+router = APIRouter()
 
-@api_view(['GET'])
-def get_processes(request):
+@router.get('/ps/', tags=['System Info'])
+def read_ps():
     '''
     Return processes of the OS.
     '''
@@ -28,19 +27,8 @@ def get_processes(request):
             }
             processes_list.append(processes)
 
-    serializer = ProcessSerializer(data={'data':processes_list})
-    if serializer.is_valid():
-        return Response(serializer.data)
+    return {'result': processes_list}
     
 
-@api_view(['GET'])
-def get_environ(request):
-    '''
-    Return all environment variables of the OS.
-    '''
-    env  = psutil.Process().environ()
-    serializer = ProcessSerializer(data={'data':env})
-    if serializer.is_valid():
-        return Response(serializer.data)
 
 
