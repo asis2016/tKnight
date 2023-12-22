@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import boottime, disk, environ, ifconfig, ip_scanner, ps, sensors, speed_test_cli, traceroute, users, whoami
+from app.routers import boottime, disk, environ, ifconfig, ip_scanner, port_scanner, ps, sensors, speed_test_cli, traceroute, users, whoami
 
 app = FastAPI()
 
@@ -24,6 +24,7 @@ app.include_router(disk.router)
 app.include_router(environ.router)
 app.include_router(ifconfig.router)
 app.include_router(ip_scanner.router)
+app.include_router(port_scanner.router)
 app.include_router(ps.router)
 app.include_router(sensors.router)
 app.include_router(speed_test_cli.router)
