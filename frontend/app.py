@@ -7,6 +7,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/documentation')
+def documentation():
+    return render_template('documentation.html')
+
+
 @app.route('/environ')
 def environ():
     return render_template('environ.html')
