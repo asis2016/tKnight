@@ -30,14 +30,14 @@ $ pip install -r requirements.txt
 ```
 
 ## Running tKnight
-### 1. Running the backend
+### 1. Backend
 ```bash
 $ cd backend
 $ source venv/bin/activate
 (venv) backend$ ./start.sh
 ```
 
-### 2. Running the frontend
+### Rrontend
 ```bash
 $ cd frontend
 $ source venv/bin/activate
