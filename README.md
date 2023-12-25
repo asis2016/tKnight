@@ -1,17 +1,18 @@
 # Introduction
-
 Tux Knight (tKnight) is a Linux administration monitoring software made in Django and Flask.
 
-## Setting up tKnight
+## Tech Stack
+- Python, FastAPI, HTML/CSS, JavaScript, jQuery, Shell script
 
-### Setting up backend
+## Setting up tKnight
+### 1. Setting up backend
 ```bash
 $ cd backend
 $ python -m venv venv
 $ pip install -r requirements.txt
 ```
 
-### Setting up backend
+### 2. Setting up backend
 ```bash
 $ cd backend
 $ python -m venv venv
@@ -19,8 +20,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Running tKnight
-
-### Running the backend
+### 1. Running the backend
 ```bash
 $ cd backend
 $ source venv/bin/activate
@@ -28,30 +28,111 @@ $ cd tux
 $ python manage.py runserver
 ```
 
-
-### Running the frontend
+### 2. Running the frontend
 ```bash
 $ cd frontend
 $ source venv/bin/activate
 $ flask run --port 9002
 ```
 
+## API Reference
+### Get Boottime
+```http
+  GET /boottime/
+```
 
-## REST APIs
+### Get Disk partition info
+```http
+  GET /disks/partition
+```
 
-### Disk
-- GET [/api/v1/disks/usage](http://127.0.0.1:8000/api/v1/disks/usage)
-- GET [/api/v1/disks/partition](http://127.0.0.1:8000/api/v1/disks/partition)
+### Get Disk usage info
+```http
+  GET /disks/usage
+```
 
-### Process
-- GET [/api/v1/processes/](http://127.0.0.1:8000/api/v1/processes/)
-- GET [/api/v1/processes/environ](http://127.0.0.1:8000/api/v1/processes/environ)
+### Get Environment variables
+```http
+  GET /environ/
+```
 
-### Sensors
-- GET [/api/v1/sensors/temperature](http://127.0.0.1:8000/api/v1/sensors/temperature)
-- GET [/api/v1/sensors/battery](http://127.0.0.1:8000/api/v1/sensors/battery)
-- GET [/api/v1/sensors/fans](http://127.0.0.1:8000/api/v1/sensors/fans)
+### Get ifconfig
+```http
+  GET /ifconfig/
+```
 
-### Systeminfo
-- GET [/api/v1/sysinfo/boottime](http://127.0.0.1:8000/api/v1/sysinfo/boottime)
-- GET [/api/v1/sysinfo/users](http://127.0.0.1:8000/api/v1/sysinfo/users)
+### Get all running Processes
+```http
+  GET /ps/
+```
+
+### Get Battery sensors  
+```http
+  GET /sensors/battery/
+```
+
+### Get Fan sensors  
+```http
+  GET /sensors/fan/
+```
+
+### Get Temperature sensors  
+```http
+  GET /sensors/temperature/
+```
+
+### Post Scan IP
+```http
+  POST /scan-ip/?start_ip=192.168.0.1&end_ip=192.168.0.254
+```
+| Key | Value     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `start_ip`  | `string` | start_ip is required. |
+| `end_ip`  | `string` | end_ip is required. |
+
+### Post Scan port
+```http
+  POST /scan-port/?hostname=example.com
+```
+| Key | Value     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `hostname`  | `string` | Hostname is required. |
+
+### Get Speedtest
+```http
+  GET /speed-test/
+```
+
+### Post Traceroute
+```http
+  POST /traceroute/?hostname=example.com
+```
+| Key | Value     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `hostname`  | `string` | Hostname is required. |
+
+### Get users
+```http
+  GET /users/
+```
+
+### Get whoami
+```http
+  GET /whoami/
+```
+
+
+## Demo
+WIP
+
+## Contributing
+Contributions are always welcome! Please, contact to hello@amaharjan.de
+
+## License
+[MIT](./LICENSE)
+
+## References
+- [Corona Admin template](https://www.bootstrapdash.com/product/corona-admin-template)
+
+
+
