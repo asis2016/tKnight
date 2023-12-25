@@ -5,6 +5,22 @@
 $(document).ready(function () {
 
     /**
+     * for tuxOSRelease
+     */
+    $.ajax({
+        url: BASE_API_URL + '/os-release/',
+        dataType: 'json',
+        success: function (response) {
+            $("#tuxOSRelease h3").text(response['result']['NAME']);
+            $("#tuxOSRelease p").text('v.' + response['result']['VERSION_ID']);
+            $("#tuxOSRelease h6").text(response['result']['VARIANT']);
+        },
+        error: function () {
+            console.error("Error fetching data:", error);
+        }
+    });
+
+    /**
      * for tuxBoottime
      */
     $.ajax({

@@ -72,6 +72,11 @@ Now, browse http://127.0.0.1:9002/
   GET /ifconfig/
 ```
 
+#### Get OS information
+```http
+  GET /os-release/
+```
+
 #### Get all running Processes
 ```http
   GET /ps/
