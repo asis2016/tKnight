@@ -1,6 +1,16 @@
 # Introduction
 Tux Knight (tKnight) is a Linux administration monitoring software made in Django and Flask.
 
+## TOC
+[I. Tech Stack](#tech-stack)<br>
+[II. Setting up tKnight](#setting-up-tknight)<br>
+[III. Running tKnight](#running-tknight)<br>
+[IV. API Reference](#api-reference)<br>
+[v. Demo](#demo)<br>
+[VI. Contributing](#contributing)<br>
+[VII. License](#license)<br>
+[VIII. References](#references)<br>
+
 ## Tech Stack
 - Python, FastAPI, HTML/CSS, JavaScript, jQuery, Shell script
 
