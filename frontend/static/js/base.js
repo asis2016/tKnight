@@ -60,18 +60,14 @@ $(document).ready(function () {
 
                 $.each(response['result'], function (index, item) {
                     let newRow = $('<tr>');
+                    
                     if (item['aliveStatus']) {
                         newRow.append(`<td>${item}</td>`);
                         newRow.append(`<td>${item}</td>`);
-
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#46c35f" class="bi bi-circle-fill" viewBox="0 0 16 16"> <circle cx="8" cy="8" r="8" /></svg>1, 5, 7, 8, 10, 12, 20, 200</td>
                     }
+
                     tbody.append(newRow);
                 });
-
-
-
-
             },
             error: function () {
                 console.error("Error fetching data:", error);
