@@ -177,18 +177,13 @@
 
                 $.each(response['result'], function (index, item) {
                     let newRow = $('<tr>');
-                    newRow.append(`<td>${item['ip']}</td>`);
-
+                    
                     if (item['aliveStatus']) {
+                        newRow.append(`<td>${item['ip']}</td>`);
                         newRow.append(`<td>${item['ttl']}</td>`);
                         newRow.append(`<td>${item['time']} ms</td>`);
                         newRow.append(`<td><div class='badge badge-outline-success'>Yes</div></td>`);
                         newRow.append(`<td><a href="/scan-port?hostname=${item['ip']}" class='btn btn-warning'>Scan ports</a></td>`);
-                    } else {
-                        newRow.append(`<td>-</td>`);
-                        newRow.append(`<td>-</td>`);
-                        newRow.append(`<td><div class='badge badge-outline-danger'>No</div></td>`);
-                        newRow.append(`<td></td>`);
                     }
 
                     // Append the row to the tbody
