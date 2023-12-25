@@ -1,12 +1,12 @@
 # Introduction
-Tux Knight (tKnight) is a Linux administration monitoring software made in Django and Flask.
+Tux Knight (tKnight) is a Linux administration monitoring software made in FastAPI and Flask.
 
 ## TOC
 [I. Tech Stack](#tech-stack)<br>
 [II. Setting up tKnight](#setting-up-tknight)<br>
 [III. Running tKnight](#running-tknight)<br>
 [IV. API Reference](#api-reference)<br>
-[v. Demo](#demo)<br>
+[V. Demo](#demo)<br>
 [VI. Contributing](#contributing)<br>
 [VII. License](#license)<br>
 [VIII. References](#references)<br>
@@ -46,52 +46,52 @@ $ flask run --port 9002
 ```
 
 ## API Reference
-### Get Boottime
+#### Get Boottime
 ```http
   GET /boottime/
 ```
 
-### Get Disk partition info
+#### Get Disk partition info
 ```http
   GET /disks/partition
 ```
 
-### Get Disk usage info
+#### Get Disk usage info
 ```http
   GET /disks/usage
 ```
 
-### Get Environment variables
+#### Get Environment variables
 ```http
   GET /environ/
 ```
 
-### Get ifconfig
+#### Get ifconfig
 ```http
   GET /ifconfig/
 ```
 
-### Get all running Processes
+#### Get all running Processes
 ```http
   GET /ps/
 ```
 
-### Get Battery sensors  
+#### Get Battery sensors  
 ```http
   GET /sensors/battery/
 ```
 
-### Get Fan sensors  
+#### Get Fan sensors  
 ```http
   GET /sensors/fan/
 ```
 
-### Get Temperature sensors  
+#### Get Temperature sensors  
 ```http
   GET /sensors/temperature/
 ```
 
-### Post Scan IP
+#### Post Scan IP
 ```http
   POST /scan-ip/?start_ip=192.168.0.1&end_ip=192.168.0.254
 ```
@@ -100,7 +100,7 @@ $ flask run --port 9002
 | `start_ip`  | `string` | start_ip is required. |
 | `end_ip`  | `string` | end_ip is required. |
 
-### Post Scan port
+#### Post Scan port
 ```http
   POST /scan-port/?hostname=example.com
 ```
@@ -108,12 +108,12 @@ $ flask run --port 9002
 | :-------- | :------- | :-------------------------------- |
 | `hostname`  | `string` | Hostname is required. |
 
-### Get Speedtest
+#### Get Speedtest
 ```http
   GET /speed-test/
 ```
 
-### Post Traceroute
+#### Post Traceroute
 ```http
   POST /traceroute/?hostname=example.com
 ```
@@ -121,12 +121,12 @@ $ flask run --port 9002
 | :-------- | :------- | :-------------------------------- |
 | `hostname`  | `string` | Hostname is required. |
 
-### Get users
+#### Get users
 ```http
   GET /users/
 ```
 
-### Get whoami
+#### Get whoami
 ```http
   GET /whoami/
 ```
