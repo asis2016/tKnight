@@ -17,11 +17,11 @@ def ipscanner():
     return render_template('ipscanner.html')
 
 
-@app.route('/portscanner')
+@app.route('/scan-port')
 def portscanner():
     # get ip query string
-    ip = request.args.get('ip')
-    return render_template('portscanner.html', ip=ip)
+    hostname = request.args.get('hostname')
+    return render_template('portscanner.html', hostname=hostname)
 
 
 @app.route('/processes')

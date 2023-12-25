@@ -101,7 +101,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">I agree</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">I
+                    agree</button>
             </div>
         </div>
     </div>
@@ -118,8 +119,8 @@
         dataType: 'json',
         success: function (data) {
             // Get IP
-            var inet = data['data']['inet']
-            var networkPrefix = inet.split('.').slice(0, 3).join('.');
+            let inet = data['result']['inet']
+            let networkPrefix = inet.split('.').slice(0, 3).join('.');
 
             // The number of usable IP addresses in a '/24' subnet is 256 - 2 = 254.
             for (let i = 1; i <= 254; i++) {
@@ -152,17 +153,13 @@
 
 
         $.ajax({
-            url: BASE_API_URL + '/ipscanner/',
+            url: `${BASE_API_URL}/scan-ip/?start_ip=${startIP}&end_ip=${endIP}`,
             dataType: 'json',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify({
-                'start_IP': startIP,
-                'end_IP': endIP
-            }),
-            success: function (result) {
+            success: function (response) {
                 // Make .col2 visible
                 $('#tuxIPScannerResult .col2').attr('style', 'display: block !important');
 
@@ -178,7 +175,7 @@
                     tbody.find("tr").remove();
                 }
 
-                $.each(result['data'], function (index, item) {
+                $.each(response['result'], function (index, item) {
                     let newRow = $('<tr>');
                     newRow.append(`<td>${item['ip']}</td>`);
 
@@ -186,7 +183,7 @@
                         newRow.append(`<td>${item['ttl']}</td>`);
                         newRow.append(`<td>${item['time']} ms</td>`);
                         newRow.append(`<td><div class='badge badge-outline-success'>Yes</div></td>`);
-                        newRow.append(`<td><a href="/portscanner?ip=${item['ip']}" class='btn btn-warning'>Scan ports</a></td>`);
+                        newRow.append(`<td><a href="/scan-port?hostname=${item['ip']}" class='btn btn-warning'>Scan ports</a></td>`);
                     } else {
                         newRow.append(`<td>-</td>`);
                         newRow.append(`<td>-</td>`);

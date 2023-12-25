@@ -3,6 +3,7 @@
  */
 const BASE_API_URL = 'http://127.0.0.1:8000';
 
+
 $(document).ready(function () {
     /**
      * Activate tooltip everywhere
@@ -26,6 +27,57 @@ $(document).ready(function () {
             console.error("Error fetching data:", error);
         }
     });
+
+    /**
+     * ifconfig
+     */
+    $.ajax({
+        url: BASE_API_URL + '/ifconfig/',
+        dataType: 'json',
+        success: function (response) {
+            let localIp = response['result']['inet'];
+            $('.profile-name p').text(localIp);
+
+            // scanPort
+            scanPort(localIp);
+        },
+        error: function () {
+            console.error("Error fetching data:", error);
+        }
+    });
+
+
+    /**
+     * openports
+     */
+    const scanPort = (hostname) => {
+        $.ajax({
+            url: BASE_API_URL + '/scan-port/?hostname=' + hostname,
+            dataType: 'json',
+            success: function (response) {
+                console.log(response['result']);
+                let tbody = $('#tuxHomepageOpenPorts tbody');
+
+                $.each(response['result'], function (index, item) {
+                    let newRow = $('<tr>');
+                    if (item['aliveStatus']) {
+                        newRow.append(`<td>${item}</td>`);
+                        newRow.append(`<td>${item}</td>`);
+
+                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#46c35f" class="bi bi-circle-fill" viewBox="0 0 16 16"> <circle cx="8" cy="8" r="8" /></svg>1, 5, 7, 8, 10, 12, 20, 200</td>
+                    }
+                    tbody.append(newRow);
+                });
+
+
+
+
+            },
+            error: function () {
+                console.error("Error fetching data:", error);
+            }
+        });
+    };
 
 
     /**
