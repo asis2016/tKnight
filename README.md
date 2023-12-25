@@ -34,16 +34,17 @@ $ pip install -r requirements.txt
 ```bash
 $ cd backend
 $ source venv/bin/activate
-$ cd tux
-$ python manage.py runserver
+(venv) backend$ ./start.sh
 ```
 
 ### 2. Running the frontend
 ```bash
 $ cd frontend
 $ source venv/bin/activate
-$ flask run --port 9002
+(venv) frontend$ ./start.sh
 ```
+
+Now, browse http://127.0.0.1:9002/
 
 ## API Reference
 #### Get Boottime
@@ -130,6 +131,8 @@ $ flask run --port 9002
 ```http
   GET /whoami/
 ```
+
+## Features
 
 
 ## Demo
