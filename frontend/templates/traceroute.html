@@ -104,29 +104,25 @@
 
 <script>
     $('#traceRouteSubmitBtn').on('click', function () {
-
         let hostname = $('#traceRouteInput').val();
+
         $('#tuxTraceRouteResult .col1').removeClass('d-none');
         $('#tuxTraceRouteResult .col1 span').text(hostname)
 
         $.ajax({
-            url: BASE_API_URL + '/traceroute/',
+            url: BASE_API_URL + '/traceroute/?hostname=' + hostname,
             dataType: 'json',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify({
-                'hostname': hostname
-            }),
-            success: function (result) {
-
+            success: function (response) {
                 $('#tuxTraceRouteResult .col1').addClass('d-none');
                 $('#tuxTraceRouteResult .col2').removeClass('d-none');
 
                 let tbody = $('#tuxTraceRouteResult table tbody');
 
-                $.each(result['data'], function (index, item) {
+                $.each(response['result'], function (index, item) {
                     let newRow = $('<tr>');
 
                     // Append cells to the row
@@ -142,7 +138,7 @@
                 });
 
                 // for visualization
-                plotMap(result['data'], hostname);
+                plotMap(response['result'], hostname);
             },
             error: function () {
                 console.error('Failed to fetch external IP address');
