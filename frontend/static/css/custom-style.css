@@ -6,6 +6,14 @@
 /* font-family: 'Poppins', sans-serif; */
 /* font-family: 'Ubuntu', sans-serif; */
 
+/* 
+ * COLORS
+*/
+
+:root {
+    --text-success: #28a745 !important;
+}
+
 h1,
 h2,
 h3,

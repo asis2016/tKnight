@@ -5,18 +5,50 @@
 $(document).ready(function () {
 
     /**
+     * for tuxScanPorts
+     */
+    // $.ajax({
+    //     url: BASE_API_URL + '/scan-port?hostname=192.168.1.173',
+    //     dataType: 'json',
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     success: function (response) {
+    //         console.log(response['result'])
+    //     },
+    //     error: function () {
+    //         console.error('Failed to fetch external IP address');
+    //     }
+    // });
+
+    /**
+     * for tuxHomeLsof
+     */
+    $.ajax({
+        url: BASE_API_URL + '/lsof/n/i/',
+        dataType: 'json',
+        success: function (response) {
+            $('#tuxHomeLsof h3').text(response['total'] + ' lsof');
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+    /**
      * for tuxOSRelease
      */
     $.ajax({
         url: BASE_API_URL + '/os-release/',
         dataType: 'json',
         success: function (response) {
-            $("#tuxOSRelease h3").text(response['result']['NAME']);
-            $("#tuxOSRelease p").text('v.' + response['result']['VERSION_ID']);
-            $("#tuxOSRelease h6").text(response['result']['VARIANT']);
+            $('#tuxOSRelease h3').text(response['result']['NAME']);
+            $('#tuxOSRelease p').text('v' + response['result']['VERSION_ID']);
+            $('#tuxOSRelease h6').text(response['result']['VARIANT']);
         },
         error: function () {
-            console.error("Error fetching data:", error);
+            console.error('Error fetching data:', error);
         }
     });
 
@@ -27,10 +59,10 @@ $(document).ready(function () {
         url: BASE_API_URL + '/boottime/',
         dataType: 'json',
         success: function (response) {
-            $("#tuxBoottime h3").text(response['result']);
+            $('#tuxBoottime h3').text(response['result']);
         },
         error: function () {
-            console.error("Error fetching data:", error);
+            console.error('Error fetching data:', error);
         }
     });
 
@@ -55,12 +87,12 @@ $(document).ready(function () {
             }
 
 
-            if ($("#diskUsageCanvas").length) {
+            if ($('#diskUsageCanvas').length) {
                 var areaData = {
-                    labels: ["Total (GB)", "Used (GB)", "Free (GB)"],
+                    labels: ['Total (GB)', 'Used (GB)', 'Free (GB)'],
                     datasets: [{
                         data: [totalDiskUsageInBytes, usedDiskUsageInBytes, freeDiskUsageInBytes],
-                        backgroundColor: ["#111111", "#00d25b", "#ffab00"]
+                        backgroundColor: ['#111111', '#00d25b', '#ffab00']
                     }]
                 };
                 var areaOptions = {
@@ -88,12 +120,12 @@ $(document).ready(function () {
 
                         ctx.restore();
                         var fontSize = 1;
-                        ctx.font = fontSize + "rem sans-serif";
+                        ctx.font = fontSize + 'rem sans-serif';
                         ctx.textAlign = 'left';
-                        ctx.textBaseline = "middle";
-                        ctx.fillStyle = "#ffffff";
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = '#ffffff';
 
-                        var text = freeDiskUsageInPercentage + "% GB",
+                        var text = freeDiskUsageInPercentage + '% GB',
                             textX = Math.round((width - ctx.measureText(text).width) / 2),
                             textY = height / 2.4;
 
@@ -101,12 +133,12 @@ $(document).ready(function () {
 
                         ctx.restore();
                         var fontSize = 1.5;
-                        ctx.font = fontSize + "rem sans-serif";
+                        ctx.font = fontSize + 'rem sans-serif';
                         ctx.textAlign = 'left';
-                        ctx.textBaseline = "middle";
-                        ctx.fillStyle = "#ffffff";
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = '#ffffff';
 
-                        var texts = "Free",
+                        var texts = 'Free',
                             textsX = Math.round((width - ctx.measureText(text).width) / 1.7),
                             textsY = height / 1.7;
 
@@ -114,7 +146,7 @@ $(document).ready(function () {
                         ctx.save();
                     }
                 }
-                var transactionhistoryChartCanvas = $("#diskUsageCanvas").get(0).getContext("2d");
+                var transactionhistoryChartCanvas = $('#diskUsageCanvas').get(0).getContext('2d');
                 var transactionhistoryChart = new Chart(transactionhistoryChartCanvas, {
                     type: 'doughnut',
                     data: areaData,
@@ -124,7 +156,7 @@ $(document).ready(function () {
             }
         },
         error: function () {
-            console.error("Error fetching data:", error);
+            console.error('Error fetching data:', error);
         }
     });
 

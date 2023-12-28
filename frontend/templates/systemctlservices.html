@@ -4,9 +4,10 @@
 <style>
     .card-body{
         padding: 1rem !important;
+        min-height: 110px;
     }
     .running {
-        color: #46c35f;
+        color: var(--text-success);
     }
     .exited {
         color: yellow;
@@ -20,11 +21,11 @@
 {% block content %}
 <div class="row" id="systemctlServices">
     <div class="col-12 mb-4">
-        <h2>Systemctl services</h2>
+        <h2>Systemctl Services</h2>
     </div>
-    <div class="grid-margin col-12 col2">
-        <!-- data here -->
-    </div>
+
+    <!-- data here -->
+
 </div>
 {% endblock %}
 
@@ -38,11 +39,12 @@
         dataType: 'json',
         success: function (response) {
             console.log(response['result'])
-            var col = $('#systemctlServices .col2');
+            let row = $('#systemctlServices');
 
             $.each(response['result'], function (index, item) {
-                var newCard = $(`<div class="card mb-3">`);
-                var cardBody = $('<div class="card-body d-flex justify-content-between" style="align-items: center;">');
+                let col = $(`<div class="grid-margin col-lg-6 col-sm-12">`);
+                let newCard = $(`<div class="card mb-3">`);
+                let cardBody = $('<div class="card-body d-flex justify-content-between" style="align-items: center;">');
 
                 cardBody.append(`<div style="width:50%"><h5>${item['unit']}</h5><p class="mb-0">${item['description']}</p></div>`);
                 cardBody.append(`<div>${item['load']}</div>`);
@@ -51,6 +53,7 @@
 
                 newCard.append(cardBody);
                 col.append(newCard);
+                row.append(col);
             });
         },
         error: function () {

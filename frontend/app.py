@@ -22,6 +22,11 @@ def ipscanner():
     return render_template('ipscanner.html')
 
 
+@app.route('/lsof')
+def lsof():
+    return render_template('lsof.html')
+
+
 @app.route('/scan-port')
 def portscanner():
     # get ip query string

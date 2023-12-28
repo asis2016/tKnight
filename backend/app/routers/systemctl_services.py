@@ -7,7 +7,7 @@ from ..logger import log
 
 router = APIRouter()
 
-@router.get('/systemctl/services/', tags='Systemctl')
+@router.get('/systemctl/services/', tags=['Systemctl'])
 def read_systemctl_services_running():
     '''
     Return `$ systemctl list-units --type=service --state=running`
