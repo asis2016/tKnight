@@ -43,7 +43,7 @@ $ source venv/bin/activate
 (venv) $ uvicorn app.main:app --reload
 ```
 
-### Frontend
+2. Frontend
 ```bash
 $ cd frontend
 $ source venv/bin/activate
