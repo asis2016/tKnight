@@ -1,6 +1,10 @@
 # Introduction
 Tux Knight (tKnight) is a Linux administration monitoring software made in FastAPI and Flask.
 
+## Tech Stack
+- Python, FastAPI, HTML/CSS, JavaScript, jQuery, Shell script
+
+
 ## TOC
 [I. Tech Stack](#tech-stack)<br>
 [II. Setting up tKnight](#setting-up-tknight)<br>
@@ -10,42 +14,48 @@ Tux Knight (tKnight) is a Linux administration monitoring software made in FastA
 [VI. Contributing](#contributing)<br>
 [VII. License](#license)<br>
 [VIII. References](#references)<br>
-
-## Tech Stack
-- Python, FastAPI, HTML/CSS, JavaScript, jQuery, Shell script
-
 ## Setting up tKnight
-### 1. Setting up backend
-```bash
+```
+$ mkdir tknight
+$ cd tknight
+$ git clone https://github.com/asis2016/tKnight.git .
+```
+
+1. Backend
+```
 $ cd backend
-$ python -m venv venv
+$ python3 -m venv venv
 $ pip install -r requirements.txt
 ```
 
-### 2. Setting up backend
-```bash
-$ cd backend
-$ python -m venv venv
+2. Frontend
+```
+$ cd frontend
+$ python3 -m venv venv
 $ pip install -r requirements.txt
 ```
 
 ## Running tKnight
-### 1. Backend
+1. Backend
 ```bash
 $ cd backend
 $ source venv/bin/activate
-(venv) backend$ ./start.sh
+(venv) $ uvicorn app.main:app --reload
 ```
 
-### Rrontend
+### Frontend
 ```bash
 $ cd frontend
 $ source venv/bin/activate
-(venv) frontend$ ./start.sh
+(venv) $ flask run --port 9002 --debugger
+```
+
+Or, simply run `./manage.sh run`
+```
+$ ./manage.sh run
 ```
 
 Now, browse http://127.0.0.1:9002/
-
 ## API Reference
 #### Get Boottime
 ```http
@@ -138,7 +148,7 @@ Now, browse http://127.0.0.1:9002/
 ```
 
 ## Features
-
+WIP
 
 ## Demo
 WIP
@@ -151,6 +161,7 @@ Contributions are always welcome! Please, contact to hello@amaharjan.de
 
 ## References
 - [Corona Admin template](https://www.bootstrapdash.com/product/corona-admin-template)
+
 
 
 
