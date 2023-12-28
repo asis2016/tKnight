@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<style>
+    .card-body{
+        padding: 1rem !important;
+    }
+    .running {
+        color: #46c35f;
+    }
+    .exited {
+        color: yellow;
+    }
+    .failed {
+        color: red;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row" id="systemctlServices">
+    <div class="col-12 mb-4">
+        <h2>Systemctl services</h2>
+    </div>
+    <div class="grid-margin col-12 col2">
+        <!-- data here -->
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_script %}
+<script>
+    /**
+     * processes
+     */
+    $.ajax({
+        url: BASE_API_URL + '/systemctl/services/',
+        dataType: 'json',
+        success: function (response) {
+            console.log(response['result'])
+            var col = $('#systemctlServices .col2');
+
+            $.each(response['result'], function (index, item) {
+                var newCard = $(`<div class="card mb-3">`);
+                var cardBody = $('<div class="card-body d-flex justify-content-between" style="align-items: center;">');
+
+                cardBody.append(`<div style="width:50%"><h5>${item['unit']}</h5><p class="mb-0">${item['description']}</p></div>`);
+                cardBody.append(`<div>${item['load']}</div>`);
+                cardBody.append(`<div>${item['active']}</div>`);
+                cardBody.append(`<div class="${item['sub']}">${item['sub']}</div>`);
+
+                newCard.append(cardBody);
+                col.append(newCard);
+            });
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+</script>
+{% endblock %}

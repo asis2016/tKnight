@@ -34,6 +34,11 @@ def processes():
     return render_template('processes.html')
 
 
+@app.route('/systemctl/services/')
+def systemctl_services():
+    return render_template('systemctlservices.html')
+
+
 @app.route('/traceroute')
 def traceroute():
     return render_template('traceroute.html')

@@ -1,8 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import (
-    boottime, disk, environ, ifconfig, ip_scanner, os_release, port_scanner,
-    ps, sensors, speed_test_cli, traceroute, users, whoami
+    boottime, 
+    disk, 
+    environ, 
+    ifconfig, 
+    ip_scanner, 
+    os_release, 
+    port_scanner,
+    ps, 
+    sensors, 
+    speed_test_cli, 
+    systemctl_services,
+    traceroute, 
+    users, 
+    whoami
 )
 
 app = FastAPI()
@@ -23,9 +35,20 @@ app.add_middleware(
 )
 
 routers = [
-    boottime.router, disk.router, environ.router, ifconfig.router,
-    ip_scanner.router, os_release.router, port_scanner.router, ps.router, sensors.router,
-    speed_test_cli.router, traceroute.router, users.router, whoami.router
+    boottime.router,
+    disk.router,
+    environ.router,
+    ifconfig.router,
+    ip_scanner.router,
+    os_release.router,
+    port_scanner.router,
+    ps.router,
+    sensors.router,
+    speed_test_cli.router,
+    systemctl_services.router,
+    traceroute.router,
+    users.router,
+    whoami.router
 ]
 
 for router in routers:

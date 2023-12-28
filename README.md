@@ -153,6 +153,12 @@ WIP
 ## Demo
 WIP
 
+## logs
+
+To view the logs for backend
+```
+$ tail -f backend/logs/app.log
+```
 ## Contributing
 Contributions are always welcome! Please, contact to hello@amaharjan.de
 

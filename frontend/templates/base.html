@@ -22,8 +22,12 @@
     <!-- Layout styles -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/custom-style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ url_for('static', filename= 'images/favicon.png') }}">
+
+    <!-- for custom header -->
+    {% block header %}{% endblock %}
 </head>
 
 <body>
