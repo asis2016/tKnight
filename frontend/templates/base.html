@@ -8,10 +8,9 @@
     <meta name="author" content="Ashish S. Maharjan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <meta http-equiv="refresh" content="5">
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>tKnight | {% block title %}{% endblock %}</title>
 
     <!-- CSS -->
     <!-- TODO refactor -->
@@ -48,8 +47,12 @@
                 <!-- todo -->
                 <!--  include 'search_for_mobile.html' -->
                 <!-- section searchForMobile ends -->
+               
+                <!-- page title -->
+                {% include 'components/page_title.html' %}
+                <!-- page title ends -->
 
-                <!-- main_content -->
+                 <!-- main_content -->
                 {% block content %}
                 {% endblock %}
                 <!-- main_content ends -->
@@ -78,13 +81,8 @@
     <!-- chartjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
     <!-- script.js -->
-    {#
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-    #}
-
-
+    <script src="https://asis2016.github.io/bootstrap-5-admin-template/static/js/script.js"></script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 
 

@@ -19,7 +19,7 @@ def environ():
 
 @app.route('/ipscanner')
 def ipscanner():
-    return render_template('ipscanner.html')
+    return render_template('ipscanner.html', page_title="IP Scanner", display="d-none")
 
 
 @app.route('/lsof')
