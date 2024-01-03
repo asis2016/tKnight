@@ -44,6 +44,11 @@ def systemctl_services():
     return render_template('systemctlservices.html', page_title="Systemctl Services")
 
 
+@app.route('/syslog/')
+def syslog():
+    return render_template('syslog.html', page_title="tKnight Sys Log", display='d-none')
+
+
 @app.route('/traceroute')
 def traceroute():
     return render_template('traceroute.html')

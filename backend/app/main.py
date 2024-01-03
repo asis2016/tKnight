@@ -13,6 +13,7 @@ from app.routers import (
     sensors, 
     speed_test_cli, 
     systemctl_services,
+    syslog,
     traceroute, 
     users, 
     whoami
@@ -48,6 +49,7 @@ routers = [
     sensors.router,
     speed_test_cli.router,
     systemctl_services.router,
+    syslog.router,
     traceroute.router,
     users.router,
     whoami.router
