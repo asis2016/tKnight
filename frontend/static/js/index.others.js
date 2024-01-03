@@ -1,9 +1,9 @@
-(function($) {
+(function ($) {
   'use strict';
-  $.fn.andSelf = function() {
+  $.fn.andSelf = function () {
     return this.addBack.apply(this, arguments);
   }
-  $(function() {
+  $(function () {
     if ($("#currentBalanceCircle").length) {
       var bar = new ProgressBar.Circle(currentBalanceCircle, {
         color: '#000',
@@ -20,20 +20,20 @@
         from: { color: '#d53f3a', width: 12 },
         to: { color: '#d53f3a', width: 12 },
         // Set default step function for all animate calls
-        step: function(state, circle) {
+        step: function (state, circle) {
           circle.path.setAttribute('stroke', state.color);
           circle.path.setAttribute('stroke-width', state.width);
-      
+
           var value = Math.round(circle.value() * 100);
           circle.setText('');
-      
+
         }
       });
 
       bar.text.style.fontSize = '1.5rem';
       bar.animate(0.4);  // Number from 0.0 to 1.0
     }
-    if($('#audience-map').length) {
+    if ($('#audience-map').length) {
       $('#audience-map').vectorMap({
         map: 'world_mill_en',
         backgroundColor: 'transparent',
@@ -61,8 +61,8 @@
         }
       });
     }
-    
-    
+
+
     if ($('#owl-carousel-basic').length) {
       $('#owl-carousel-basic').owlCarousel({
         loop: true,
@@ -109,5 +109,5 @@
         }
       });
     }
-    });
+  });
 })(jQuery);

@@ -1,27 +1,4 @@
-/**
- * Author: amaharjan.de
- */
-
 $(document).ready(function () {
-
-    /**
-     * for tuxScanPorts
-     */
-    // $.ajax({
-    //     url: BASE_API_URL + '/scan-port?hostname=192.168.1.173',
-    //     dataType: 'json',
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     success: function (response) {
-    //         console.log(response['result'])
-    //     },
-    //     error: function () {
-    //         console.error('Failed to fetch external IP address');
-    //     }
-    // });
-
     /**
      * for tuxHomeLsof
      */
@@ -45,7 +22,7 @@ $(document).ready(function () {
         success: function (response) {
             $('#tuxOSRelease h3').text(response['result']['NAME']);
             $('#tuxOSRelease p').text('v' + response['result']['VERSION_ID']);
-            $('#tuxOSRelease h6').text(response['result']['VARIANT']);
+            $('#tuxOSRelease .small').text(response['result']['VARIANT']);
         },
         error: function () {
             console.error('Error fetching data:', error);
@@ -59,7 +36,7 @@ $(document).ready(function () {
         url: BASE_API_URL + '/boottime/',
         dataType: 'json',
         success: function (response) {
-            $('#tuxBoottime h3').text(response['result']);
+            $('#tuxBoottime h6').text(response['result']);
         },
         error: function () {
             console.error('Error fetching data:', error);
@@ -201,7 +178,7 @@ $(document).ready(function () {
         success: function (data) {
             //display block
             $('#tuxPublicIPAddress').attr('style', 'display: block !important');
-            $('#tuxPublicIPAddress h4').text(data.trim());
+            $('#tuxPublicIPAddress h3').text(data.trim());
         },
         error: function () {
             console.error('Failed to fetch external IP address');

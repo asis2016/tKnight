@@ -2,16 +2,19 @@
 
 {% block header %}
 <style>
-    .card-body{
+    .card-body {
         padding: 1rem !important;
         min-height: 110px;
     }
+
     .running {
-        color: var(--text-success);
+        color: green;
     }
+
     .exited {
         color: yellow;
     }
+
     .failed {
         color: red;
     }
@@ -19,17 +22,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="row" id="systemctlServices">
-    <div class="col-12 mb-4">
-        <h2>Systemctl Services</h2>
-    </div>
+{# page_title #}
+{% include 'page_title.html' %}
 
+<div class="row sm-pt-0" id="systemctlServices">
     <!-- data here -->
-
 </div>
 {% endblock %}
 
-{% block custom_script %}
+{% block footer %}
 <script>
     /**
      * processes
@@ -61,4 +62,4 @@
         }
     });
 </script>
-{% endblock %}
+{% endblock footer %}

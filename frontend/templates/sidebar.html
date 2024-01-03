@@ -1,107 +1,118 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{ url_for('index') }}">
-            <img class="img-xs" src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+<nav id="mainSidebar" class="h-100">
+    <div class="d-flex flex-column flex-shrink-0 p-3">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <!-- logo for LG screen -->
+            <span class="fs-4 logo-lg sm-d-none">
+                <img class="img-xs" src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+            </span>
+            <!-- logo for SM screen -->
+            <span class="fs-4 logo-sm lg-d-none">AMJ</span>
+            <!-- for SM screen - close -->
+            <span class="d-sm-none" id="sidebarUntoggleBtn">
+                <i class="bi bi-x-circle-fill"></i>
+            </span>
         </a>
-        <a class="sidebar-brand brand-logo-mini" href="{{ url_for('index') }}">
-            <img class="img-xs" src="{{ url_for('static', filename='images/logo-mini.png') }}" alt="">
-        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="{{ url_for('index') }}" class="nav-link active" aria-current="page">
+                    <i class="bi bi-house-door-fill me-2"></i>
+                    Home v.1
+                </a>
+            </li>
+
+            <!-- accounts -->
+            <p class="my-2 text-secondary text-small">ACCOUNT</p>
+            <li class="tuxProfileName">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-circle me-2"></i>
+                    <span>whoami</span>
+                </a>
+            </li>
+            <!-- network tools -->
+            <p class="my-2 text-secondary text-small">Network tools</p>
+            <li>
+                <a href="{{ url_for('ipscanner') }}" class="nav-link">
+                    <i class="bi bi-123 me-2"></i>
+                    IP Scanner
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('traceroute') }}" class="nav-link">
+                    <i class="bi bi-box-seam me-2"></i>
+                    Traceroute
+                </a>
+            </li>
+
+            <!-- sysinfo -->
+            <p class="my-2 text-secondary text-small">SYS INFO</p>
+            <li>
+                <a href="{{ url_for('environ') }}" class="nav-link">
+                    <i class="bi bi-card-list me-2"></i>
+                    Environment Var
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('processes') }}" class="nav-link">
+                    <i class="bi bi-boxes me-2"></i>
+                    Processes
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('lsof') }}" class="nav-link">
+                    <i class="bi bi-file-earmark-check me-2"></i>
+                    lsof -n -i
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('systemctl_services') }}" class="nav-link">
+                    <i class="bi bi-display me-2"></i>
+                    Systemctl status
+                </a>
+            </li>
+            <li>
+                <!-- TODO -->
+                <a href="#" class="nav-link">
+                    <i class="bi bi-device-hdd-fill me-2"></i>
+                    Disk Partition
+                </a>
+            </li>
+
+
+
+            <!-- others -->
+            <p class="my-2 text-secondary text-small">OTHERS</p>
+            <li>
+                <!-- "sys logs = timeline" -->
+                <a href=" 'syslogs' " class="nav-link">
+                    <i class="bi bi-body-text me-2"></i>
+                    Sys Logs
+                </a>
+            </li>
+            <li>
+                <a href=" 'faq' " class="nav-link">
+                    <i class="bi bi-person-raised-hand me-2"></i>
+                    FAQ
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('documentation') }}" class="nav-link">
+                    <i class="bi bi-file-earmark-text me-2"></i>
+                    Documentation
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/docs" class="nav-link">
+                    <i class="bi bi-file-earmark-text me-2"></i>
+                    Swagger
+                </a>
+            </li>
+            <li>
+                <a href=" 'profile_settings' " class="nav-link">
+                    <i class="bi bi-gear me-2"></i>
+                    Settings
+                </a>
+            </li>
+        </ul>
     </div>
-    <ul class="nav">
-        <li class="nav-item profile">
-            <!-- whoami -->
-            <div class="profile-desc">
-                <div class="profile-pic">
-                    <div class="count-indicator">
-                        <img class="img-xs rounded-circle"
-                            src="{{ url_for('static', filename='images/profile-pic.png') }}" alt="">
-                        <span class="count bg-success"></span>
-                    </div>
-                    <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">whoami</h5>
-                        <p class="mb-0 font-italic"></p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('index') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                aria-controls="ui-basic">
-                <span class="menu-icon">
-                    <i class="mdi mdi-laptop"></i>
-                </span>
-                <span class="menu-title">Network tools</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('ipscanner') }}">IP Scanner</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('traceroute') }}">Traceroute</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('environ') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">Environ</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('processes') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">Processes</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('systemctl_services') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">Systemctl status</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('lsof') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">lsof -n -i</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url_for('documentation') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-file-document-box"></i>
-                </span>
-                <span class="menu-title">README.md</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="http://127.0.0.1:8000/docs">
-                <span class="menu-icon">
-                    <i class="mdi mdi-file-document-box"></i>
-                </span>
-                <span class="menu-title">Swagger docu</span>
-            </a>
-        </li>
-    </ul>
 </nav>

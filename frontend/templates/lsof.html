@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row" id="tuxLsofPage">
-    <div class="col-12 grid-margin">
+{# page_title #}
+{% include 'page_title.html' %}
+
+<div class="row sm-pt-0" id="tuxLsofPage">
+    <div class="col ">
         <div class="card">
-            <div class="card-header">
-                <h4 class="mb-2 mt-2 card-title">List of open files</h4>
-            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table text-white">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th> PID </th>
-                                <th> command </th>
-                                <th> FD </th>
-                                <th> User </th>
-                                <th> Node </th>
-                                <th> </th>
+                                <th>PID</th>
+                                <th>command</th>
+                                <th>FD</th>
+                                <th>User</th>
+                                <th>Node</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- data    -->
+                            <!-- data -->
                         </tbody>
                     </table>
                 </div>
@@ -32,7 +32,7 @@
 </div>
 {% endblock %}
 
-{% block custom_script %}
+{% block footer %}
 <script>
     /**
      * processes
@@ -65,4 +65,4 @@
         }
     });
 </script>
-{% endblock %}
+{% endblock footer %}

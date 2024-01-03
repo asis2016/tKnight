@@ -19,9 +19,9 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/whoami/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
-            $('.profile-name h5').text(response['result']);
+            $('.tuxProfileName span').text(response['result']);
         },
         error: function () {
             console.error("Error fetching data:", error);
@@ -33,13 +33,10 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/ifconfig/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
             let localIp = response['result']['inet'];
-            $('.profile-name p').text(localIp);
-
-            // scanPort
-            scanPort(localIp);
+            $('#tuxPublicIPAddress h3').text(localIp);
         },
         error: function () {
             console.error("Error fetching data:", error);
@@ -48,32 +45,32 @@ $(document).ready(function () {
 
 
     /**
-     * openports
+     * TODO: REFACTOR openports
      */
-    const scanPort = (hostname) => {
-        $.ajax({
-            url: BASE_API_URL + '/scan-port/?hostname=' + hostname,
-            dataType: 'json',
-            success: function (response) {
-                console.log(response['result']);
-                let tbody = $('#tuxHomepageOpenPorts tbody');
+    // const scanPort = (hostname) => {
+    //     $.ajax({
+    //         url: BASE_API_URL + '/scan-port/?hostname=' + hostname,
+    //         dataType: 'JSON',
+    //         success: function (response) {
+    //             console.log(response['result']);
+    //             let tbody = $('#tuxHomepageOpenPorts tbody');
 
-                $.each(response['result'], function (index, item) {
-                    let newRow = $('<tr>');
-                    
-                    if (item['aliveStatus']) {
-                        newRow.append(`<td>${item}</td>`);
-                        newRow.append(`<td>${item}</td>`);
-                    }
+    //             $.each(response['result'], function (index, item) {
+    //                 let newRow = $('<tr>');
 
-                    tbody.append(newRow);
-                });
-            },
-            error: function () {
-                console.error("Error fetching data:", error);
-            }
-        });
-    };
+    //                 if (item['aliveStatus']) {
+    //                     newRow.append(`<td>${item}</td>`);
+    //                     newRow.append(`<td>${item}</td>`);
+    //                 }
+
+    //                 tbody.append(newRow);
+    //             });
+    //         },
+    //         error: function () {
+    //             console.error("Error fetching data:", error);
+    //         }
+    //     });
+    // };
 
 
     /**
@@ -89,9 +86,9 @@ $(document).ready(function () {
 
             // If power is plugged
             if (data['result']['power_plugged']) {
-                $('#tuxBattery .mdi').addClass('mdi-battery-charging-80 text-success');
+                $('#tuxBattery .bi').addClass('bi-battery-charging');
             } else {
-                $('#tuxBattery .mdi').addClass('mdi-battery-60');
+                $('#tuxBattery .bi').addClass('bi-battery-half');
             }
         },
         error: function () {

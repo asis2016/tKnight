@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-
+<div class="row mt-4">
     <!-- /etc/os-release -->
     {% include 'homepage/os.html' %}
 
@@ -138,8 +137,6 @@
     </div>
 </div>
 
-
-
 <div class="row d-none">
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
@@ -267,7 +264,6 @@
 
 {% endblock %}
 
-{% block custom_script %}
+{% block footer %}
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-
-{% endblock %}
+{% endblock footer %}

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row" id="processes">
-    <div class="col-12 grid-margin">
+{# page_title #}
+{% include 'page_title.html' %}
+
+<div class="row sm-pt-0" id="processes">
+    <div class="col">
         <div class="card">
-            <div class="card-header">
-                <h4 class="mb-2 mt-2 card-title">Processes</h4>
-            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table text-white">
@@ -31,7 +31,7 @@
 </div>
 {% endblock %}
 
-{% block custom_script %}
+{% block footer %}
 <script>
     /**
      * processes
@@ -64,4 +64,4 @@
         }
     });
 </script>
-{% endblock %}
+{% endblock footer %}

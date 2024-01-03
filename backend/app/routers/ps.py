@@ -27,7 +27,10 @@ def read_ps():
             }
             processes_list.append(processes)
 
-    return {'result': processes_list}
+    return {
+        'result': processes_list,
+        'page_title': 'Processes'
+    }
     
 
 

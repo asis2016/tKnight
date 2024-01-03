@@ -14,7 +14,7 @@ def documentation():
 
 @app.route('/environ')
 def environ():
-    return render_template('environ.html')
+    return render_template('environ.html', page_title='Environment Variables')
 
 
 @app.route('/ipscanner')
@@ -24,7 +24,7 @@ def ipscanner():
 
 @app.route('/lsof')
 def lsof():
-    return render_template('lsof.html')
+    return render_template('lsof.html', page_title="List of Open Files")
 
 
 @app.route('/scan-port')
@@ -36,12 +36,12 @@ def portscanner():
 
 @app.route('/processes')
 def processes():
-    return render_template('processes.html')
+    return render_template('processes.html', page_title='Processes')
 
 
 @app.route('/systemctl/services/')
 def systemctl_services():
-    return render_template('systemctlservices.html')
+    return render_template('systemctlservices.html', page_title="Systemctl Services")
 
 
 @app.route('/traceroute')
