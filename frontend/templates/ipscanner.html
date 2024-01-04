@@ -6,11 +6,11 @@ IP Scanner
 
 {% block content %}
 <div class="row sm-pt-0" id="tuxIPScannerForm">
-    <div class="col-12 grid-margin">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">IP Scanner</h4>
-                <form class="form-sample">
+                <form>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -18,7 +18,7 @@ IP Scanner
                                     Starting IP address
                                 </label>
                                 <div class="col-sm-9">
-                                    <select class="form-control text-white" id="startIPAddressSelectTag">
+                                    <select class="form-control" id="startIPAddressSelectTag">
                                     </select>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@ IP Scanner
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Last IP address</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control text-white" id="lastIPAddressSelectTag">
+                                    <select class="form-control" id="lastIPAddressSelectTag">
                                     </select>
                                 </div>
                             </div>
@@ -90,14 +90,13 @@ IP Scanner
     </div>
 </div>
 
-
 <!-- Modal -->
 <div class="modal fade" id="tuxIPScannerModal" tabindex="-1" role="dialog" aria-labelledby="tuxIPScannerModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                <h6 class="modal-title" id="exampleModalLabel">Warning!</h6>
             </div>
             <div class="modal-body">
                 <div class="alert alert-warning">Make sure that you are authorized to scan IP addresses. <br>
@@ -113,7 +112,7 @@ IP Scanner
 </div>
 {% endblock %}
 
-{% block custom_script %}
+{% block footer %}
 <script>
     /**
      * for 'tuxPublicIPAddress'
@@ -181,7 +180,7 @@ IP Scanner
 
                 $.each(response['result'], function (index, item) {
                     let newRow = $('<tr>');
-                    
+
                     if (item['aliveStatus']) {
                         newRow.append(`<td>${item['ip']}</td>`);
                         newRow.append(`<td>${item['ttl']}</td>`);
@@ -200,4 +199,4 @@ IP Scanner
         });
     });
 </script>
-{% endblock %}
+{% endblock footer %}

@@ -4,7 +4,7 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/lsof/n/i/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
             $('#tuxHomeLsof h3').text(response['total'] + ' lsof');
         },
@@ -18,11 +18,10 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/os-release/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
             $('#tuxOSRelease h3').text(response['result']['NAME']);
-            $('#tuxOSRelease p').text('v' + response['result']['VERSION_ID']);
-            $('#tuxOSRelease .small').text(response['result']['VARIANT']);
+            $('#tuxOSRelease p').text(response['result']['VARIANT'] + ' v' + response['result']['VERSION_ID']);
         },
         error: function () {
             console.error('Error fetching data:', error);
@@ -34,9 +33,9 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/boottime/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
-            $('#tuxBoottime h6').text(response['result']);
+            $('#tuxBoottime p').text(response['result']);
         },
         error: function () {
             console.error('Error fetching data:', error);
@@ -45,90 +44,121 @@ $(document).ready(function () {
 
 
     /**
-     * for tuxDisk > Disk usage
+     * GET ifconfig
+     * And scanMyPorts
      */
     $.ajax({
+        url: BASE_API_URL + '/ifconfig/',
+        dataType: 'JSON',
+        success: function (data) {
+
+            let inet = data['result']['inet'];
+            let inet6 = data['result']['inet6'][0];
+            let ether = data['result']['ether'];
+            let netmask = data['result']['netmask'];
+            let broadcast = data['result']['broadcast'];
+            let device = data['result']['device'];
+
+            $('#scanMyPorts').attr('href', '/scan-port?hostname=' + inet);
+
+            //For ifconfig-and-users-stat.html
+            $('#ifconfigAndUserStat .ipv4').text(inet);
+            $('#ifconfigAndUserStat .ipv6').text(inet6);
+            $('#ifconfigAndUserStat .netmask').text(netmask);
+            $('#ifconfigAndUserStat .broadcast').text(broadcast);
+            $('#ifconfigAndUserStat .ether').text(ether);
+            $('#ifconfigAndUserStat .device').text(device);
+
+        },
+        error: function () {
+            console.error('Failed to fetch external IP address');
+        }
+    });
+
+    /**
+     * GET users/
+     */
+    $.ajax({
+        url: BASE_API_URL + '/users/',
+        dataType: 'JSON',
+        success: function (data) {
+
+            let name = data['result']['name'];
+            let terminal = data['result']['terminal'];
+            let host = data['result']['host'];
+            let started = data['result']['started'];
+            let pid = data['result']['pid'];
+
+            //For ifconfig-and-users-stat.html
+            $('#ifconfigAndUserStat .name').text(name);
+            $('#ifconfigAndUserStat .pid').text(pid);
+            $('#ifconfigAndUserStat .terminal').text(terminal);
+            $('#ifconfigAndUserStat .host').text(host);
+            $('#ifconfigAndUserStat .started').text(started + ' secs.');
+
+        },
+        error: function () {
+            console.error('Failed to fetch external IP address');
+        }
+    });
+
+
+    /**
+     * for tuxDisk > Disk usage
+     */
+
+    // Utils
+    function bytesToGB(bytes) {
+        if (bytes === 0) return '0 GB';
+        const gigabytes = bytes / (1024 * 1024 * 1024);
+        return gigabytes.toFixed(2);
+    }
+
+    $.ajax({
         url: BASE_API_URL + '/disk/usage/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
             let totalDiskUsageInBytes = bytesToGB(response['result']['total']);
             let usedDiskUsageInBytes = bytesToGB(response['result']['used']);
             let freeDiskUsageInBytes = bytesToGB(response['result']['free']);
             let freeDiskUsageInPercentage = response['result']['percent'];
 
-            // Utils
-            function bytesToGB(bytes) {
-                if (bytes === 0) return '0 GB';
-                const gigabytes = bytes / (1024 * 1024 * 1024);
-                return gigabytes.toFixed(2);
-            }
-
+            // tables
+            $('#tuxDisk .diskTotal').text(totalDiskUsageInBytes + ' GB');
+            $('#tuxDisk .diskUsed').text(usedDiskUsageInBytes + ' GB');
+            $('#tuxDisk .diskFree').text(freeDiskUsageInBytes + ' GB');
 
             if ($('#diskUsageCanvas').length) {
-                var areaData = {
-                    labels: ['Total (GB)', 'Used (GB)', 'Free (GB)'],
-                    datasets: [{
-                        data: [totalDiskUsageInBytes, usedDiskUsageInBytes, freeDiskUsageInBytes],
-                        backgroundColor: ['#111111', '#00d25b', '#ffab00']
-                    }]
-                };
-                var areaOptions = {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    segmentShowStroke: false,
-                    cutoutPercentage: 70,
-                    elements: {
-                        arc: {
-                            borderWidth: 0
-                        }
-                    },
-                    legend: {
-                        display: false
-                    },
-                    tooltips: {
-                        enabled: true
-                    }
-                }
-                var transactionhistoryChartPlugins = {
-                    beforeDraw: function (chart) {
-                        var width = chart.chart.width,
-                            height = chart.chart.height,
-                            ctx = chart.chart.ctx;
-
-                        ctx.restore();
-                        var fontSize = 1;
-                        ctx.font = fontSize + 'rem sans-serif';
-                        ctx.textAlign = 'left';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillStyle = '#ffffff';
-
-                        var text = freeDiskUsageInPercentage + '% GB',
-                            textX = Math.round((width - ctx.measureText(text).width) / 2),
-                            textY = height / 2.4;
-
-                        ctx.fillText(text, textX, textY);
-
-                        ctx.restore();
-                        var fontSize = 1.5;
-                        ctx.font = fontSize + 'rem sans-serif';
-                        ctx.textAlign = 'left';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillStyle = '#ffffff';
-
-                        var texts = 'Free',
-                            textsX = Math.round((width - ctx.measureText(text).width) / 1.7),
-                            textsY = height / 1.7;
-
-                        ctx.fillText(texts, textsX, textsY);
-                        ctx.save();
-                    }
-                }
-                var transactionhistoryChartCanvas = $('#diskUsageCanvas').get(0).getContext('2d');
-                var transactionhistoryChart = new Chart(transactionhistoryChartCanvas, {
+                const diskUsageChart = document.getElementById('diskUsageCanvas');
+                new Chart(diskUsageChart, {
                     type: 'doughnut',
-                    data: areaData,
-                    options: areaOptions,
-                    plugins: transactionhistoryChartPlugins
+                    data: {
+                        labels: ['Total (GB)', 'Used (GB)', 'Free (GB)'],
+                        datasets: [{
+                            data: [totalDiskUsageInBytes, usedDiskUsageInBytes, freeDiskUsageInBytes],
+                            borderWidth: 0,
+                            backgroundColor: ['#6610f2', '#ffda6a', '#20c997']
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                enabled: true
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                bottom: 0
+                            }
+                        },
+                        responsive: false,
+                    }
                 });
             }
         },
@@ -143,9 +173,9 @@ $(document).ready(function () {
      */
     $.ajax({
         url: BASE_API_URL + '/disk/partition/',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
-            let tbody = $('#rowDiskPartition tbody');
+            let tbody = $('#tuxDiskPartition tbody');
 
             $.each(response['result'], function (index, item) {
                 var newRow = $('<tr>');
@@ -155,7 +185,8 @@ $(document).ready(function () {
                 newRow.append('<td>' + item['Size'] + '</td>');
                 newRow.append('<td>' + item['Used'] + '</td>');
                 newRow.append('<td>' + item['Avail'] + '</td>');
-                newRow.append('<td>' + item['Use%'] + '</td>');
+                //newRow.append('<td>' + item['Use%'] + '</td>');
+                newRow.append(`<td><div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: ${item['Use%']};"></div></div></td>`);
                 newRow.append('<td>' + item['Mounted on'] + '</td>');
                 newRow.append('</tr>');
 
@@ -191,7 +222,7 @@ $(document).ready(function () {
      */
     $.ajax({
         url: 'http://ip-api.com/json',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (data) {
             //display block
             $('#tuxPublicIPDetails .ip').text(data['query']);
@@ -235,7 +266,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: BASE_API_URL + '/speed-test/',
-            dataType: 'json',
+            dataType: 'JSON',
             success: function (response) {
                 let ping = response['result'].ping
                 let upload = response['result'].upload
@@ -256,7 +287,7 @@ $(document).ready(function () {
      */
     $.ajax({
         url: 'http://ip-api.com/json',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (data) {
             //display block
             $('#tuxPublicIPDetails .ip').text(data['query']);

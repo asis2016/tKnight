@@ -1,0 +1,36 @@
+<div class="card" id="tuxDisk">
+    <div class="card-header py-3">
+        <h6 class="m-0">Disk usage</h6>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-center">
+            <canvas id="diskUsageCanvas" style="height: 290px; width: 300px;"></canvas>
+        </div>
+        <!-- table info -->
+        <table class="table table-responsive mt-4 sm-mt-3">
+            <tbody>
+                <tr>
+                    <td>
+                        <i class="bi bi-circle-fill  me-2" style="color: #6610f2"></i>
+                        Total
+                    </td>
+                    <td class="diskTotal"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="bi bi-circle-fill  me-2" style="color: #ffda6a"></i>
+                        Used
+                    </td>
+                    <td class="diskUsed"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="bi bi-circle-fill  me-2" style="color: #20c997"></i>
+                        Free
+                    </td>
+                    <td class="diskFree"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

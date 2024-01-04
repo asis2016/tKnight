@@ -3,11 +3,10 @@
 {% block content %}
 <!-- tuxTraceRouteForm -->
 <div class="row" id="tuxTraceRouteForm">
-    <div class="col-12 grid-margin">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Traceroute</h4>
-                <form class="form-sample">
+                <form>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group row">
@@ -15,8 +14,8 @@
                                     Hostname
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control text-white" id="traceRouteInput"
-                                        placeholder="e.g., www.amaharjan.de" value="www.amaharjan.de">
+                                    <input type="text" class="form-control " id="traceRouteInput"
+                                        placeholder="e.g., www.example.priv" value="www.example.priv">
                                 </div>
                             </div>
                         </div>
@@ -45,9 +44,10 @@
         </div>
     </div>
 </div>
+<!-- tuxTraceRouteForm ends -->
 
 <!-- tuxTraceRouteResult -->
-<div class="row" id="tuxTraceRouteResult">
+<div class="row mt-4" id="tuxTraceRouteResult">
     <!-- spinner -->
     <div class="col-12 text-center col1 d-none">
         <div class="spinner-border text-primary spinner" role="status">
@@ -65,10 +65,10 @@
             </p>
         </div>
     </div>
+    <!-- data -->
     <div class="col-12 col2 d-none">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Traceroute</h4>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="table-responsive">
@@ -96,12 +96,10 @@
         </div>
     </div>
 </div>
+<!-- tuxTraceRouteResult ends -->
 {% endblock %}
 
-{% block custom_script %}
-<script src='https://cdn.plot.ly/plotly-2.27.0.min.js'>
-</script>
-
+{% block footer %}
 <script>
     $('#traceRouteSubmitBtn').on('click', function () {
         let hostname = $('#traceRouteInput').val();
@@ -217,8 +215,5 @@
 
         Plotly.newPlot('myDiv', dataList, layout);
     }
-
-
-
 </script>
-{% endblock %}
+{% endblock footer %}

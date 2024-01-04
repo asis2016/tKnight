@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', page_title='Dashboard')
 
 
 @app.route('/documentation')
@@ -31,7 +31,7 @@ def lsof():
 def portscanner():
     # get ip query string
     hostname = request.args.get('hostname')
-    return render_template('portscanner.html', hostname=hostname)
+    return render_template('portscanner.html', hostname=hostname, page_title='Port Scanner')
 
 
 @app.route('/processes')
@@ -51,7 +51,7 @@ def syslog():
 
 @app.route('/traceroute')
 def traceroute():
-    return render_template('traceroute.html')
+    return render_template('traceroute.html', page_title='Traceroute')
 
 
 if __name__ == '__main__':

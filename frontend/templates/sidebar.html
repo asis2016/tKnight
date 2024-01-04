@@ -5,8 +5,11 @@
             <span class="fs-4 logo-lg sm-d-none">
                 <img class="img-xs" src="{{ url_for('static', filename='images/logo.png') }}" alt="">
             </span>
+
             <!-- logo for SM screen -->
-            <span class="fs-4 logo-sm lg-d-none">AMJ</span>
+            <span class="fs-4 logo-sm only-d-sm">
+                AMJ
+            </span>
             <!-- for SM screen - close -->
             <span class="d-sm-none" id="sidebarUntoggleBtn">
                 <i class="bi bi-x-circle-fill"></i>
@@ -29,21 +32,6 @@
                     <span>whoami</span>
                 </a>
             </li>
-            <!-- network tools -->
-            <p class="my-2 text-secondary text-small">Network tools</p>
-            <li>
-                <a href="{{ url_for('ipscanner') }}" class="nav-link">
-                    <i class="bi bi-123 me-2"></i>
-                    IP Scanner
-                </a>
-            </li>
-            <li>
-                <a href="{{ url_for('traceroute') }}" class="nav-link">
-                    <i class="bi bi-box-seam me-2"></i>
-                    Traceroute
-                </a>
-            </li>
-
             <!-- sysinfo -->
             <p class="my-2 text-secondary text-small">SYS INFO</p>
             <li>
@@ -71,10 +59,29 @@
                 </a>
             </li>
             <li>
-                <!-- TODO -->
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('index') }}#tuxDiskPartition" class="nav-link">
                     <i class="bi bi-device-hdd-fill me-2"></i>
                     Disk Partition
+                </a>
+            </li>
+            <!-- network tools -->
+            <p class="my-2 text-secondary text-small">Network tools</p>
+            <li>
+                <a class="nav-link" id="scanMyPorts" href="#">
+                    <i class="bi bi-ethernet me-2"></i>
+                    Scan my Ports
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('ipscanner') }}" class="nav-link">
+                    <i class="bi bi-123 me-2"></i>
+                    IP Scanner
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('traceroute') }}" class="nav-link">
+                    <i class="bi bi-box-seam me-2"></i>
+                    Traceroute
                 </a>
             </li>
 
