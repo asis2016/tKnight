@@ -1,0 +1,29 @@
+{
+    "result": [
+        {
+            "Filesystem": "/dev/sda1",
+            "Size": "250G",
+            "Used": "30G",
+            "Avail": "210G",
+            "Use%": "12%",
+            "Mounted on": "/"
+        },
+        {
+            "Filesystem": "/dev/sdb1",
+            "Size": "500G",
+            "Used": "150G",
+            "Avail": "320G",
+            "Use%": "30%",
+            "Mounted on": "/home"
+        },
+        {
+            "Filesystem": "/dev/sdc1",
+            "Size": "16G",
+            "Used": "0G",
+            "Avail": "16G",
+            "Use%": "0%",
+            "Mounted on": "swap"
+        }
+    ],
+    "total": 3
+}

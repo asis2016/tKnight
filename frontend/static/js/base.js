@@ -45,35 +45,6 @@ $(document).ready(function () {
 
 
     /**
-     * TODO: REFACTOR openports
-     */
-    // const scanPort = (hostname) => {
-    //     $.ajax({
-    //         url: BASE_API_URL + '/scan-port/?hostname=' + hostname,
-    //         dataType: 'JSON',
-    //         success: function (response) {
-    //             console.log(response['result']);
-    //             let tbody = $('#tuxHomepageOpenPorts tbody');
-
-    //             $.each(response['result'], function (index, item) {
-    //                 let newRow = $('<tr>');
-
-    //                 if (item['aliveStatus']) {
-    //                     newRow.append(`<td>${item}</td>`);
-    //                     newRow.append(`<td>${item}</td>`);
-    //                 }
-
-    //                 tbody.append(newRow);
-    //             });
-    //         },
-    //         error: function () {
-    //             console.error("Error fetching data:", error);
-    //         }
-    //     });
-    // };
-
-
-    /**
      * for 'tuxBattery'
      */
     $.ajax({

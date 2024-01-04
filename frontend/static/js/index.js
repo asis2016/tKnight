@@ -44,6 +44,49 @@ $(document).ready(function () {
 
 
     /**
+     * for tuxHomepageCpuCore
+     */
+    $.ajax({
+        url: BASE_API_URL + '/cpu/count/',
+        dataType: 'JSON',
+        success: function (response) {
+            $('#tuxHomepageCpuCore a').text(response['result'] + ' core CPUs');
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+    /**
+     * for tuxHomepageSensors
+     */
+    $.ajax({
+        url: BASE_API_URL + '/sensors/temperature/',
+        dataType: 'JSON',
+        success: function (response) {
+            $('#tuxHomepageSensors a').text(response['total'] + ' sensors');
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+    /**
+     * for tuxHomepageEnviron
+     */
+    $.ajax({
+        url: BASE_API_URL + '/environ/',
+        dataType: 'JSON',
+        success: function (response) {
+            $('#tuxHomepageEnviron a').text(response['total'] + ' env found');
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+
+    /**
      * GET ifconfig
      * And scanMyPorts
      */
@@ -141,6 +184,58 @@ $(document).ready(function () {
                         }]
                     },
                     options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                enabled: true
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                bottom: 0
+                            }
+                        },
+                        responsive: false,
+                    }
+                });
+            }
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+
+    /**
+     * for tuxHomepageProcesses
+     */
+    $.ajax({
+        url: BASE_API_URL + '/ps/',
+        dataType: 'JSON',
+        success: function (response) {
+            let status_count = response['status_count'];
+
+            if ($('#tuxHomepageProcesses').length) {
+                const diskUsageChart = document.getElementById('processesCanvas');
+                new Chart(diskUsageChart, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'Sleeping', 'Idle', 'Running'
+                        ],
+                        datasets: [{
+                            data: [status_count['sleeping'], status_count['idle'], status_count['running']],
+                            borderWidth: 0,
+                            backgroundColor: ['#6610f2', '#ffda6a', '#20c997']
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
                         plugins: {
                             legend: {
                                 display: false
@@ -283,7 +378,7 @@ $(document).ready(function () {
     });
 
     /**
-     * for "tuxHomepageOpenPorts"
+     * for "tuxPublicIPDetailMap"
      */
     $.ajax({
         url: 'http://ip-api.com/json',
@@ -320,4 +415,34 @@ $(document).ready(function () {
             console.error('Failed to fetch external IP address');
         }
     });
+
+    /**
+     * for tuxHomepageSystemctlServices
+     */
+    $.ajax({
+        url: BASE_API_URL + '/systemctl/services/',
+        dataType: 'JSON',
+        success: function (response) {
+            var tbody = $('#tuxHomepageSystemctlServices tbody');
+
+
+            $.each(response['result'], function (index, item) {
+                var newRow = $('<tr>');
+                newRow.append('<td>' + item['unit'] + '</td>');
+                newRow.append(`<td><div class="badge badge-outline-${item['active']}">${item['active']}</div></td>`);
+                newRow.append('<td>' + item['sub'] + '</td>');
+                // Append the row to the tbody
+                tbody.append(newRow);
+
+                // only 10 of it.
+                if (index >= 7) {
+                    return false; // This will break out of the $.each loop
+                }
+            });
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+    // tuxHomepageSystemctlServices ends
 });

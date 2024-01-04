@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import (
-    boottime, 
-    disk, 
-    environ, 
-    ifconfig, 
+    boottime,
+    cpu,
+    disk,
+    environ,
+    ifconfig,
     ip_scanner,
     lsof,
     os_release, 
@@ -38,6 +39,7 @@ app.add_middleware(
 
 routers = [
     boottime.router,
+    cpu.router,
     disk.router,
     environ.router,
     ifconfig.router,

@@ -1,0 +1,29 @@
+{
+    "result": {
+        "USER": "linux_user",
+        "HOME": "/home/linux_user",
+        "SHELL": "/bin/bash",
+        "TERM": "xterm-256color",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG": "en_US.UTF-8",
+        "LC_ALL": "C",
+        "EDITOR": "vim",
+        "DISPLAY": ":0.0",
+        "TZ": "America/New_York",
+        "GNOME_TERMINAL_SCREEN": "/org/gnome/Terminal/screen/abcd1234",
+        "GNOME_TERMINAL_SERVICE": ":1.0",
+        "GNOME_TERMINAL_WINDOW": "/org/gnome/Terminal/window/efgh5678",
+        "XDG_CURRENT_DESKTOP": "GNOME",
+        "XDG_SESSION_TYPE": "x11",
+        "XDG_DATA_DIRS": "/usr/share/gnome:/usr/local/share/",
+        "XDG_CONFIG_DIRS": "/etc/xdg/xdg-gnome:/etc/xdg",
+        "XDG_RUNTIME_DIR": "/run/user/1000",
+        "SSH_AGENT_PID": "1234",
+        "SSH_AUTH_SOCK": "/tmp/ssh-agent.sock",
+        "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+        "XAUTHORITY": "/home/linux_user/.Xauthority",
+        "MAIL": "/var/mail/linux_user",
+        "OLDPWD": "/home/linux_user/Documents"
+    },
+    "total": 49
+}

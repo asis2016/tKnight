@@ -39,4 +39,7 @@ def read_systemctl_services_running():
         }
         systemctl_list.append(_sys)
 
-    return {'result': systemctl_list}
+    return {
+        'result': systemctl_list,
+        'total': len(systemctl_list)
+    }

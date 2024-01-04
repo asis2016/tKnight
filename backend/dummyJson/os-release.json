@@ -1,0 +1,14 @@
+{
+    "result": {
+        "PRETTY_NAME": "Random Linux Distribution",
+        "NAME": "RandomLinux",
+        "VERSION_ID": "1.0",
+        "VERSION": "1.0 (Random Release)",
+        "VERSION_CODENAME": "FluffyFeline",
+        "ID": "random-linux",
+        "HOME_URL": "https://www.randomlinux.org/",
+        "SUPPORT_URL": "https://www.randomlinux.org/support/",
+        "BUG_REPORT_URL": "https://www.randomlinux.org/bugs/",
+        "VARIANT": "Homework Edition"
+    }
+}

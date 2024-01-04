@@ -1,0 +1,237 @@
+{
+    "result": [
+        {
+            "pid": 1234,
+            "process_name": "bash",
+            "username": "john_doe",
+            "created_time": "2024-01-04 10:30:00",
+            "terminal": "pts/0",
+            "num_threads": 3,
+            "status": "running",
+            "cpu_percent": 10.5,
+            "memory_percent": 5.2
+        },
+        {
+            "pid": 5678,
+            "process_name": "vim",
+            "username": "alice",
+            "created_time": "2024-01-04 11:45:00",
+            "terminal": "pts/1",
+            "num_threads": 1,
+            "status": "sleeping",
+            "cpu_percent": 2.3,
+            "memory_percent": 2.1
+        },
+        {
+            "pid": 9101,
+            "process_name": "systemd",
+            "username": "root",
+            "created_time": "2024-01-04 08:15:00",
+            "terminal": null,
+            "num_threads": 5,
+            "status": "running",
+            "cpu_percent": 15.8,
+            "memory_percent": 8.7
+        },
+        {
+            "pid": 2345,
+            "process_name": "firefox",
+            "username": "user1",
+            "created_time": "2024-01-04 14:22:30",
+            "terminal": "pts/2",
+            "num_threads": 4,
+            "status": "running",
+            "cpu_percent": 20.2,
+            "memory_percent": 12.3
+        },
+        {
+            "pid": 6789,
+            "process_name": "python3",
+            "username": "user2",
+            "created_time": "2024-01-04 09:10:45",
+            "terminal": "pts/3",
+            "num_threads": 2,
+            "status": "running",
+            "cpu_percent": 8.7,
+            "memory_percent": 6.8
+        },
+        {
+            "pid": 12345,
+            "process_name": "dockerd",
+            "username": "docker",
+            "created_time": "2024-01-04 16:55:12",
+            "terminal": null,
+            "num_threads": 7,
+            "status": "running",
+            "cpu_percent": 18.6,
+            "memory_percent": 13.1
+        },
+        {
+            "pid": 1111,
+            "process_name": "chrome",
+            "username": "user3",
+            "created_time": "2024-01-04 12:40:20",
+            "terminal": "pts/4",
+            "num_threads": 6,
+            "status": "running",
+            "cpu_percent": 12.3,
+            "memory_percent": 9.5
+        },
+        {
+            "pid": 2222,
+            "process_name": "thunderbird",
+            "username": "user4",
+            "created_time": "2024-01-04 07:05:55",
+            "terminal": "pts/5",
+            "num_threads": 3,
+            "status": "running",
+            "cpu_percent": 6.4,
+            "memory_percent": 4.2
+        },
+        {
+            "pid": 3333,
+            "process_name": "vscode",
+            "username": "user5",
+            "created_time": "2024-01-04 13:18:40",
+            "terminal": "pts/6",
+            "num_threads": 4,
+            "status": "running",
+            "cpu_percent": 14.2,
+            "memory_percent": 10.8
+        },
+        {
+            "pid": 4444,
+            "process_name": "java",
+            "username": "user6",
+            "created_time": "2024-01-04 17:30:15",
+            "terminal": "pts/7",
+            "num_threads": 5,
+            "status": "running",
+            "cpu_percent": 16.8,
+            "memory_percent": 11.6
+        },
+        {
+            "pid": 5555,
+            "process_name": "slack",
+            "username": "user7",
+            "created_time": "2024-01-04 11:05:50",
+            "terminal": "pts/8",
+            "num_threads": 2,
+            "status": "running",
+            "cpu_percent": 9.1,
+            "memory_percent": 7.3
+        },
+        {
+            "pid": 6666,
+            "process_name": "chrome",
+            "username": "user8",
+            "created_time": "2024-01-04 14:48:25",
+            "terminal": "pts/9",
+            "num_threads": 3,
+            "status": "running",
+            "cpu_percent": 11.6,
+            "memory_percent": 8.4
+        },
+        {
+            "pid": 7777,
+            "process_name": "git",
+            "username": "user9",
+            "created_time": "2024-01-04 09:55:30",
+            "terminal": "pts/10",
+            "num_threads": 1,
+            "status": "running",
+            "cpu_percent": 5.3,
+            "memory_percent": 3.6
+        },
+        {
+            "pid": 8888,
+            "process_name": "thunderbird",
+            "username": "user10",
+            "created_time": "2024-01-04 16:12:10",
+            "terminal": "pts/11",
+            "num_threads": 4,
+            "status": "running",
+            "cpu_percent": 13.4,
+            "memory_percent": 9.8
+        },
+        {
+            "pid": 9999,
+            "process_name": "python3",
+            "username": "user11",
+            "created_time": "2024-01-04 10:00:00",
+            "terminal": "pts/12",
+            "num_threads": 2,
+            "status": "running",
+            "cpu_percent": 7.2,
+            "memory_percent": 5.9
+        },
+        {
+            "pid": 1010,
+            "process_name": "apache2",
+            "username": "www-data",
+            "created_time": "2024-01-04 15:25:35",
+            "terminal": null,
+            "num_threads": 6,
+            "status": "running",
+            "cpu_percent": 19.2,
+            "memory_percent": 12.7
+        },
+        {
+            "pid": 1111,
+            "process_name": "chrome",
+            "username": "user12",
+            "created_time": "2024-01-04 08:45:45",
+            "terminal": "pts/13",
+            "num_threads": 3,
+            "status": "running",
+            "cpu_percent": 8.9,
+            "memory_percent": 6.7
+        },
+        {
+            "pid": 1212,
+            "process_name": "mysql",
+            "username": "mysql",
+            "created_time": "2024-01-04 13:35:20",
+            "terminal": null,
+            "num_threads": 5,
+            "status": "running",
+            "cpu_percent": 15.1,
+            "memory_percent": 10.4
+        },
+        {
+            "pid": 1313,
+            "process_name": "telegram",
+            "username": "user13",
+            "created_time": "2024-01-04 12:15:10",
+            "terminal": "pts/14",
+            "num_threads": 2,
+            "status": "running",
+            "cpu_percent": 6.7,
+            "memory_percent": 4.9
+        },
+        {
+            "pid": 1414,
+            "process_name": "docker-containerd",
+            "username": "docker",
+            "created_time": "2024-01-04 17:50:55",
+            "terminal": null,
+            "num_threads": 4,
+            "status": "running",
+            "cpu_percent": 17.5,
+            "memory_percent": 11.9
+        },
+        {
+            "pid": 1515,
+            "process_name": "node",
+            "username": "user14",
+            "created_time": "2024-01-04 11:30:30",
+            "terminal": "pts/15",
+            "num_threads": 3,
+            "status": "running",
+            "cpu_percent": 9.8,
+            "memory_percent": 7.1
+        }
+    ],
+    "page_title": "Processes",
+    "total": 372
+}

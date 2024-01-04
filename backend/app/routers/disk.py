@@ -4,6 +4,7 @@ from fastapi import APIRouter
 import psutil
 import subprocess
 import re
+from ..logger import log
 
 router = APIRouter()
 
@@ -13,6 +14,7 @@ async def read_disk_usage():
     '''
     Return disk usage statistics.
     '''
+    log.info('/disk/usage/ requested.')
     du = psutil.disk_usage('/')
     result = dict(du._asdict())
 
@@ -47,4 +49,7 @@ async def read_disk_partition():
 
         result.append(entry)
     
-    return {'result': result}
+    return {
+        'result': result,
+        'total': len(result)
+    }

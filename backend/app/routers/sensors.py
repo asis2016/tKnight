@@ -12,7 +12,10 @@ async def read_sensors_temperature():
     Return hardware temperatures.
     '''
     temperature = psutil.sensors_temperatures()
-    return {'result' : temperature}
+    return {
+        'result' : temperature,
+        'total': len(temperature)
+    }
 
 
 @router.get('/sensors/battery/', tags=['Sensors'])

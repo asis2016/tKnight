@@ -1,0 +1,9 @@
+{
+    "result": {
+        "name": "Tux",
+        "terminal": "tty20",
+        "host": "localhost",
+        "started": 123123,
+        "pid": 123
+    }
+}

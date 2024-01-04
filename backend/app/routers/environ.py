@@ -12,4 +12,7 @@ async def read_environ():
     Return all environment variables of the OS.
     '''
     env  = psutil.Process().environ()
-    return {'result': env}
+    return {
+        'result': env,
+        'total': len(env)
+    }

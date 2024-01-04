@@ -1,0 +1,247 @@
+{
+    "result": [
+        {
+            "COMMAND": "uvicorn",
+            "PID": "2822",
+            "USER": "tux",
+            "FD": "3u",
+            "TYPE": "IPv4",
+            "DEVICE": "35471",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "127.0.0.1:irdmi"
+        },
+        {
+            "COMMAND": "nginx",
+            "PID": "1834",
+            "USER": "webadmin",
+            "FD": "4u",
+            "TYPE": "IPv6",
+            "DEVICE": "8542",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "[::1]:http"
+        },
+        {
+            "COMMAND": "apache2",
+            "PID": "4567",
+            "USER": "apache",
+            "FD": "7u",
+            "TYPE": "IPv4",
+            "DEVICE": "6321",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "192.168.1.2:https"
+        },
+        {
+            "COMMAND": "node",
+            "PID": "7890",
+            "USER": "developer",
+            "FD": "12u",
+            "TYPE": "IPv4",
+            "DEVICE": "9876",
+            "SIZE/OFF": "0t0",
+            "NODE": "UDP",
+            "NAME": "0.0.0.0:3000"
+        },
+        {
+            "COMMAND": "mysql",
+            "PID": "3210",
+            "USER": "dbadmin",
+            "FD": "5u",
+            "TYPE": "UNIX",
+            "DEVICE": "5432",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/mysql.sock"
+        },
+        {
+            "COMMAND": "python",
+            "PID": "5678",
+            "USER": "pydev",
+            "FD": "9u",
+            "TYPE": "IPv4",
+            "DEVICE": "1234",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "10.0.0.1:8000"
+        },
+        {
+            "COMMAND": "docker",
+            "PID": "4321",
+            "USER": "dockeruser",
+            "FD": "11u",
+            "TYPE": "UNIX",
+            "DEVICE": "8765",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/docker.sock"
+        },
+        {
+            "COMMAND": "redis",
+            "PID": "9876",
+            "USER": "redisadmin",
+            "FD": "6u",
+            "TYPE": "IPv6",
+            "DEVICE": "5432",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "[::1]:6379"
+        },
+        {
+            "COMMAND": "java",
+            "PID": "1357",
+            "USER": "javadev",
+            "FD": "8u",
+            "TYPE": "IPv4",
+            "DEVICE": "9876",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "192.168.2.1:8080"
+        },
+        {
+            "COMMAND": "ssh",
+            "PID": "2468",
+            "USER": "sshuser",
+            "FD": "10u",
+            "TYPE": "UNIX",
+            "DEVICE": "1357",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/ssh.sock"
+        },
+        {
+            "COMMAND": "git",
+            "PID": "1111",
+            "USER": "gituser",
+            "FD": "13u",
+            "TYPE": "IPv4",
+            "DEVICE": "2222",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "git.example.com:ssh"
+        },
+        {
+            "COMMAND": "vscode",
+            "PID": "9999",
+            "USER": "devops",
+            "FD": "14u",
+            "TYPE": "IPv4",
+            "DEVICE": "3333",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "127.0.0.1:5000"
+        },
+        {
+            "COMMAND": "postgres",
+            "PID": "5432",
+            "USER": "dbadmin",
+            "FD": "15u",
+            "TYPE": "UNIX",
+            "DEVICE": "5432",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/postgresql/.s.PGSQL.5432"
+        },
+        {
+            "COMMAND": "npm",
+            "PID": "8888",
+            "USER": "npmuser",
+            "FD": "16u",
+            "TYPE": "IPv4",
+            "DEVICE": "8888",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "0.0.0.0:3001"
+        },
+        {
+            "COMMAND": "firefox",
+            "PID": "7777",
+            "USER": "user123",
+            "FD": "17u",
+            "TYPE": "IPv6",
+            "DEVICE": "7777",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "[::1]:8081"
+        },
+        {
+            "COMMAND": "docker-compose",
+            "PID": "2222",
+            "USER": "dockeruser",
+            "FD": "18u",
+            "TYPE": "UNIX",
+            "DEVICE": "9999",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/docker.sock"
+        },
+        {
+            "COMMAND": "ruby",
+            "PID": "4444",
+            "USER": "rubydev",
+            "FD": "19u",
+            "TYPE": "IPv4",
+            "DEVICE": "4444",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "192.168.3.1:3002"
+        },
+        {
+            "COMMAND": "django",
+            "PID": "5555",
+            "USER": "djangodev",
+            "FD": "20u",
+            "TYPE": "IPv6",
+            "DEVICE": "5555",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "[::1]:8001"
+        },
+        {
+            "COMMAND": "tmux",
+            "PID": "3333",
+            "USER": "tmuxuser",
+            "FD": "21u",
+            "TYPE": "UNIX",
+            "DEVICE": "3333",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/tmux.sock"
+        },
+        {
+            "COMMAND": "jenkins",
+            "PID": "6666",
+            "USER": "jenkinsadmin",
+            "FD": "22u",
+            "TYPE": "IPv4",
+            "DEVICE": "6666",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "10.0.0.2:8082"
+        },
+        {
+            "COMMAND": "ansible",
+            "PID": "7777",
+            "USER": "ansibleuser",
+            "FD": "23u",
+            "TYPE": "IPv6",
+            "DEVICE": "7777",
+            "SIZE/OFF": "0t0",
+            "NODE": "TCP",
+            "NAME": "[::1]:8083"
+        },
+        {
+            "COMMAND": "sublime",
+            "PID": "8888",
+            "USER": "sublimeuser",
+            "FD": "24u",
+            "TYPE": "UNIX",
+            "DEVICE": "8888",
+            "SIZE/OFF": "0t0",
+            "NODE": "SOCK",
+            "NAME": "/var/run/sublime.sock"
+        }
+    ],
+    "total": 20
+}
