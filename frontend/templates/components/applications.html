@@ -1,0 +1,56 @@
+<!-- The Modal -->
+<div class="modal" id="modalApplication" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">All Applications</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal body for lg screen -->
+      <div class="modal-body sm-d-none modal-body-lg">
+        <div class="row">
+
+          <div class="col-lg-6 text-center p-4">
+            <a href="{{ url_for('environ') }}" class="box">
+              <i class="bi bi-card-list"></i>
+              <p class="py-2 mb-0">Environ</p>
+            </a>
+          </div>
+
+          <div class="col-lg-6 text-center p-4">
+            <a href="{{ url_for('processes') }}" class="box">
+              <i class="bi bi-boxes"></i>
+              <p class="py-2 mb-0">Processes</p>
+            </a>
+          </div>
+
+          <div class="col-lg-6 text-center p-4">
+            <a href="{{ url_for('lsof') }}" class="box">
+              <i class="bi bi-file-earmark-check"></i>
+              <p class="py-2 mb-0">LSOF</p>
+            </a>
+          </div>
+
+          <div class="col-lg-6 text-center p-4">
+            <a href="{{ url_for('systemctl_services') }}" class="box">
+              <i class="bi bi-display"></i>
+              <p class="py-2 mb-0">Systemctl</p>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Modal body for lg screen ends -->
+
+      <!-- sm screen -->
+      <div class="modal-body modal-body-sm">
+        <ul class="list-group">
+
+        </ul>
+      </div>
+      <!-- sm screen ends -->
+
+    </div>
+  </div>
+</div>
