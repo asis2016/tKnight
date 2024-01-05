@@ -46,7 +46,34 @@
       <!-- sm screen -->
       <div class="modal-body modal-body-sm">
         <ul class="list-group">
-
+          <ul class="list-group">
+            
+            <li class="list-group-item">
+              <a href="{{ url_for('environ') }}" class="amj-a">
+                <i class="bi bi-card-list"></i>
+                Environ
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="{{ url_for('processes') }}" class="amj-a">
+                <i class="bi bi-boxes"></i>
+                Processes
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="{{ url_for('lsof') }}" class="amj-a">
+                <i class="bi bi-file-earmark-check"></i>
+                LSOF
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="{{ url_for('systemctl_services') }}" class="amj-a">
+                <i class="bi bi-display"></i>
+                Systemctl
+              </a>
+            </li>
+          
+          </ul>
         </ul>
       </div>
       <!-- sm screen ends -->

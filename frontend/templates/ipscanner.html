@@ -154,14 +154,12 @@ IP Scanner
         let startIP = $('#startIPAddressSelectTag option:selected').text()
         let endIP = $('#lastIPAddressSelectTag option:selected').text()
 
-
         $.ajax({
-            url: `${BASE_API_URL}/scan-ip/?start_ip=${startIP}&end_ip=${endIP}`,
+            url: BASE_API_URL + '/scan-ip/?start_ip=' + startIP + '&end_ip=' + endIP,
             dataType: 'json',
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            // Automate.sh!
+            headers: { 'Content-Type': 'application/json' },
             success: function (response) {
                 // Make .col2 visible
                 $('#tuxIPScannerResult .col2').attr('style', 'display: block !important');
