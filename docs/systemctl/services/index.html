@@ -46,22 +46,23 @@ Systemctl Services
     }
 </style>
 
-</head>
 
-<body>
     <style>
-        .noticeBar{
+        .noticeBar {
             position: absolute;
             width: 100%;
             top: 0;
             z-index: 999;
         }
     </style>
+</head>
+
+<body>
     <!-- noticeBar -->
-    <div class="alert alert-warning alert-dismissible fade show text-center rounded-0 noticeBar" role="alert">
-        <strong>Hey there!</strong> You should check in on some of those fields below.
+    <div class="alert alert-warning alert-dismissible fade show text-center rounded-0 noticeBar d-none" role="alert">
+        <strong>Howdy!</strong>.
         <button type="button" class="btn-close btn-dark" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    </div>
     <!-- noticeBar ends -->
 
     <div class="wrapper d-flex h-100">
