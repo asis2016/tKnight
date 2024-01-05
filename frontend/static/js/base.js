@@ -2,6 +2,7 @@
  * CONSTANTS
  */
 const BASE_API_URL = 'http://127.0.0.1:8000';
+const WS_BASE_API_URL = 'ws://127.0.0.1:8000';
 
 
 $(document).ready(function () {
@@ -27,22 +28,6 @@ $(document).ready(function () {
             console.error("Error fetching data:", error);
         }
     });
-
-    /**
-     * ifconfig
-     */
-    $.ajax({
-        url: BASE_API_URL + '/ifconfig/',
-        dataType: 'JSON',
-        success: function (response) {
-            let localIp = response['result']['inet'];
-            $('#tuxPublicIPAddress h3').text(localIp);
-        },
-        error: function () {
-            console.error("Error fetching data:", error);
-        }
-    });
-
 
     /**
      * for 'tuxBattery'

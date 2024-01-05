@@ -21,6 +21,7 @@ async def read_cpu_count():
     return {'result': result}
 
 
+# ws
 async def cpu_data(ws: WebSocket):
     while True:
         cpu_percent_per_core = psutil.cpu_percent(interval=1, percpu=True)
@@ -28,24 +29,9 @@ async def cpu_data(ws: WebSocket):
             f"Core {core + 1}": usage for core, usage in enumerate(cpu_percent_per_core)
         }
         await ws.send_json(response_data)
-        await asyncio.sleep(1)
+        await asyncio.sleep(2)
 
 @router.websocket("/cpu/async/")
 async def websocket_endpoint(ws: WebSocket):
     await ws.accept()
     await cpu_data(ws)
-
-
-# @router.get('/cpu/', tags=['CPU'])
-# async def read_cpu_percent():
-#     '''
-#     Return CPU percentage.
-#     '''
-#     log.info('/cpu/ requested.')
-
-#     result  = psutil.cpu_percent(interval=10, percpu=True)
-
-#     return {
-#         'result': result
-#     }
-
