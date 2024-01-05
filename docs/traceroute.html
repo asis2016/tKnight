@@ -470,9 +470,9 @@
         $('#tuxTraceRouteResult .col1 span').text(hostname);
 
         $.ajax({
-          url: BASE_API_URL + '/traceroute/?hostname=' + hostname,
+          url: 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson/traceroute.json',
           dataType: 'json',
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
