@@ -489,11 +489,6 @@
         $.ajax({
           url: 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson/traceroute.json',
           dataType: 'JSON',
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
           success: function (response) {
             $('#tuxTraceRouteResult .col1').addClass('d-none');
             $('#tuxTraceRouteResult .col2').removeClass('d-none');
@@ -524,7 +519,7 @@
             });
 
             // for visualization
-            plotMap(response['result'], hostname);
+            //plotMap(response['result'], hostname);
           },
           error: function () {
             console.error('Failed to fetch external IP address');
