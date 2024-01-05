@@ -2,15 +2,29 @@
     "result": [
         {
             "ip": "192.168.0.1",
+            "ttl": "64",
+            "time": "5.84",
+            "aliveStatus": true
+        },
+        {
+            "ip": "192.168.0.212",
+            "ttl": "64",
+            "time": "0.037",
+            "aliveStatus": false
+        },
+        {
+            "ip": "192.168.0.250",
+            "ttl": "64",
+            "time": "1222",
             "aliveStatus": false
         },
         {
             "ip": "192.168.0.10",
-            "aliveStatus": false
+            "aliveStatus": true
         },
         {
             "ip": "192.168.0.100",
-            "aliveStatus": false
+            "aliveStatus": true
         },
         {
             "ip": "192.168.0.101",
@@ -22,7 +36,7 @@
         },
         {
             "ip": "192.168.0.103",
-            "aliveStatus": false
+            "aliveStatus": true
         },
         {
             "ip": "192.168.0.104",
@@ -42,11 +56,11 @@
         },
         {
             "ip": "192.168.0.108",
-            "aliveStatus": false
+            "aliveStatus": true
         },
         {
             "ip": "192.168.0.109",
-            "aliveStatus": false
+            "aliveStatus": true
         },
         {
             "ip": "192.168.0.11",
@@ -505,10 +519,6 @@
             "aliveStatus": false
         },
         {
-            "ip": "192.168.0.212",
-            "aliveStatus": false
-        },
-        {
             "ip": "192.168.0.213",
             "aliveStatus": false
         },
@@ -670,10 +680,6 @@
         },
         {
             "ip": "192.168.0.25",
-            "aliveStatus": false
-        },
-        {
-            "ip": "192.168.0.250",
             "aliveStatus": false
         },
         {
