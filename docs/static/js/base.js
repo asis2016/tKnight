@@ -1,7 +1,7 @@
 /**
  * CONSTANTS
  */
-const BASE_API_URL = 'http://127.0.0.1:8000';
+const BASE_API_URL = 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson';
 const WS_BASE_API_URL = 'ws://127.0.0.1:8000';
 
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
      * whoami
      */
     $.ajax({
-        url: BASE_API_URL + '/whoami/',
+        url: BASE_API_URL + '/whoami.json',
         dataType: 'JSON',
         success: function (response) {
             $('.tuxProfileName span').text(response['result']);
@@ -33,7 +33,7 @@ $(document).ready(function () {
      * for 'tuxBattery'
      */
     $.ajax({
-        url: BASE_API_URL + '/sensors/battery/',
+        url: BASE_API_URL + '/sensors.battery.json',
         dataType: 'JSON',
         success: function (data) {
             // percent left

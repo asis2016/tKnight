@@ -5,15 +5,7 @@ Tux Knight (tKnight) is a Linux administration monitoring software made in FastA
 - Python, FastAPI, HTML/CSS, JavaScript, jQuery, Shell script
 
 
-## TOC
-[I. Tech Stack](#tech-stack)<br>
-[II. Setting up tKnight](#setting-up-tknight)<br>
-[III. Running tKnight](#running-tknight)<br>
-[IV. API Reference](#api-reference)<br>
-[V. Demo](#demo)<br>
-[VI. Contributing](#contributing)<br>
-[VII. License](#license)<br>
-[VIII. References](#references)<br>
+
 ## Setting up tKnight
 ```
 $ mkdir tknight
@@ -56,9 +48,7 @@ $ ./manage.sh run
 ```
 
 Now, browse http://127.0.0.1:9002/
-
 ## API Reference
-
 #### Get Boottime
 ```http
   GET /boottime/

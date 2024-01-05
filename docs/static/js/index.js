@@ -3,7 +3,7 @@ $(document).ready(function () {
      * for tuxHomeLsof
      */
     $.ajax({
-        url: BASE_API_URL + '/lsof/n/i/',
+        url: BASE_API_URL + 'lsof.n.i.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxHomeLsof h3').text(response['total'] + ' lsof');
