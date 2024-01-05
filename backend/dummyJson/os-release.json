@@ -1,12 +1,12 @@
 {
     "result": {
-        "PRETTY_NAME": "Random Linux Distribution",
-        "NAME": "RandomLinux",
+        "PRETTY_NAME": "adminAM Linux Distro",
+        "NAME": "amj Linux",
         "VERSION_ID": "1.0",
         "VERSION": "1.0 (Random Release)",
         "VERSION_CODENAME": "FluffyFeline",
         "ID": "random-linux",
-        "HOME_URL": "https://www.randomlinux.org/",
+        "HOME_URL": "https://amaharjan.de/",
         "SUPPORT_URL": "https://www.randomlinux.org/support/",
         "BUG_REPORT_URL": "https://www.randomlinux.org/bugs/",
         "VARIANT": "Homework Edition"
