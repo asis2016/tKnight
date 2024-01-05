@@ -1,0 +1,16 @@
+{
+    "status": "success",
+    "country": "Nepal",
+    "countryCode": "NP",
+    "region": "1",
+    "regionName": "Eastern Region",
+    "city": "Namche Bazaar",
+    "zip": "12345",
+    "lat": 27.9881,
+    "lon": 86.9250,
+    "timezone": "Asia/Kathmandu",
+    "isp": "Peaknet Tux Solutions",
+    "org": "Tux Co.",
+    "as": "AS789012 PEAKNET TUX SOLUTIONS",
+    "query": "8.8.8.8"
+}

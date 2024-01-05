@@ -323,7 +323,7 @@ $(document).ready(function () {
      * for "tuxPublicIPDetailMap"
      */
     $.ajax({
-        url: 'http://ip-api.com/json',
+        url: '/ip.api.json',
         dataType: 'JSON',
         success: function (data) {
             //display block
