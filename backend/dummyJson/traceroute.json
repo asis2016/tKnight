@@ -1,0 +1,44 @@
+{
+    "result": [
+        {
+            "hop": 1,
+            "ip": "8.8.8.8",
+            "lon": "-122.0838",
+            "lat": "37.3860",
+            "city": "Mountain View",
+            "country_code": "US"
+        },
+        {
+            "hop": 2,
+            "ip": "208.67.222.222",
+            "lon": "-77.4874",
+            "lat": "37.5407",
+            "city": "Reston",
+            "country_code": "US"
+        },
+        {
+            "hop": 3,
+            "ip": "1.1.1.1",
+            "lon": "151.2050",
+            "lat": "-33.8678",
+            "city": "Sydney",
+            "country_code": "AU"
+        },
+        {
+            "hop": 4,
+            "ip": "9.9.9.9",
+            "lon": "-74.0059",
+            "lat": "40.7128",
+            "city": "New York",
+            "country_code": "US"
+        },
+        {
+            "hop": 5,
+            "ip": "64.6.65.6",
+            "lon": "-95.7129",
+            "lat": "37.0902",
+            "city": "Houston",
+            "country_code": "US"
+        }
+    ]
+}

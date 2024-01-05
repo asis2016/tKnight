@@ -1,0 +1,79 @@
+{
+    "result": {
+        "intel": [
+            [
+                "SSD",
+                40.2,
+                65.5,
+                78.3
+            ]
+        ],
+        "radeon": [
+            [
+                "Vega",
+                55.8,
+                null,
+                null
+            ]
+        ],
+        "coretemp": [
+            [
+                "Core1",
+                60.5,
+                null,
+                null
+            ]
+        ],
+        "acer": [
+            [
+                "Processor",
+                45.7,
+                null,
+                null
+            ],
+            [
+                "Graphics",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ],
+            [
+                "",
+                0.0,
+                null,
+                null
+            ]
+        ]
+    },
+    "total": 4
+}

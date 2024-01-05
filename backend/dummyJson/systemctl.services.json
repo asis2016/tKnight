@@ -1,0 +1,145 @@
+{
+    "result": [
+        {
+            "unit": "systemd-vconsole-setup.service",
+            "load": "loaded",
+            "active": "failed",
+            "sub": "exited",
+            "description": "Setup Virtual Console"
+        },
+        {
+            "unit": "lvm2-monitor.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "exited",
+            "description": "Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling"
+        },
+        {
+            "unit": "ModemManager.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "Modem Manager"
+        },
+        {
+            "unit": "switcheroo-control.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "Switcheroo Control Proxy service"
+        },
+        {
+            "unit": "dbus-:1.3-org.freedesktop.problems@0.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "dbus-:1.3-org.freedesktop.problems@0.service"
+        },
+        {
+            "unit": "chronyd.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "NTP client/server"
+        },
+        {
+            "unit": "avahi-daemon.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "Avahi mDNS/DNS-SD Stack"
+        },
+        {
+            "unit": "gssproxy.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "GSSAPI Proxy Daemon"
+        },
+        {
+            "unit": "systemd-journal-flush.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "exited",
+            "description": "Flush Journal to Persistent Storage"
+        },
+        {
+            "unit": "cups.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "CUPS Scheduler"
+        },
+        {
+            "unit": "dbus-broker.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "D-Bus System Message Bus"
+        },
+        {
+            "unit": "firewalld.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "firewalld - dynamic firewall daemon"
+        },
+        {
+            "unit": "gdm.service",
+            "load": "loaded",
+            "active": "active",
+            "sub": "running",
+            "description": "GNOME Display Manager"
+        },
+        {
+            "unit": "low-memory-monitor.service",
+            "load": "loaded",
+            "active": "exited",
+            "sub": "running",
+            "description": "Low Memory Monitor"
+        },
+        {
+            "unit": "rpc-statd-notify.service",
+            "load": "loaded",
+            "active": "exited",
+            "sub": "exited",
+            "description": "Notify NFS peers of a restart"
+        },
+        {
+            "unit": "fwupd.service",
+            "load": "loaded",
+            "active": "exited",
+            "sub": "running",
+            "description": "Firmware update daemon"
+        },
+        {
+            "unit": "systemd-resolved.service",
+            "load": "loaded",
+            "active": "exited",
+            "sub": "running",
+            "description": "Network Name Resolution"
+        },
+        {
+            "unit": "systemd-binfmt.service",
+            "load": "loaded",
+            "active": "failed",
+            "sub": "exited",
+            "description": "Set Up Additional Binary Formats"
+        },
+        {
+            "unit": "systemd-boot-update.service",
+            "load": "loaded",
+            "active": "failed",
+            "sub": "exited",
+            "description": "Automatic Boot Loader Update"
+        },
+        {
+            "unit": "systemd-udevd.service",
+            "load": "loaded",
+            "active": "failed",
+            "sub": "running",
+            "description": "Rule-based Manager for Device Events and Files"
+        }
+    ],
+    "total": 20
+}

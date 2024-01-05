@@ -1,0 +1,44 @@
+{
+    "result": [
+        {
+            "datestamp": "2024-01-03 15:35:17",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        },
+        {
+            "datestamp": "2024-01-03 15:35:17",
+            "level": "INFO",
+            "message": "read_whoami started."
+        },
+        {
+            "datestamp": "2024-01-03 15:36:09",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        },
+        {
+            "datestamp": "2024-01-03 15:36:09",
+            "level": "INFO",
+            "message": "read_whoami started."
+        },
+        {
+            "datestamp": "2024-01-03 15:44:40",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        },
+        {
+            "datestamp": "2024-01-03 15:44:40",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        },
+        {
+            "datestamp": "2024-01-03 15:44:40",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        },
+        {
+            "datestamp": "2024-01-03 15:44:40",
+            "level": "INFO",
+            "message": "read_systemctl_services_running started."
+        }
+    ]
+}
