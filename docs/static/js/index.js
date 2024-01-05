@@ -248,11 +248,11 @@ $(document).ready(function () {
                 // Append cells to the row
                 newRow.append('<td>' + item['Filesystem'] + '</td>');
                 newRow.append('<td>' + item['Size'] + '</td>');
-                newRow.append('<td>' + item['Used'] + '</td>');
-                newRow.append('<td>' + item['Avail'] + '</td>');
+                newRow.append('<td class="only-d-lg">' + item['Used'] + '</td>');
+                newRow.append('<td class="only-d-lg">' + item['Avail'] + '</td>');
                 //newRow.append('<td>' + item['Use%'] + '</td>');
                 newRow.append(`<td><div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: ${item['Use%']};"></div></div></td>`);
-                newRow.append('<td>' + item['Mounted on'] + '</td>');
+                newRow.append('<td class="only-d-lg">' + item['Mounted on'] + '</td>');
                 newRow.append('</tr>');
 
                 // Append the row to the tbody
