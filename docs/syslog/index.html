@@ -11,7 +11,7 @@
     <!-- <meta http-equiv="refresh" content="5"> -->
 
     <title>tKnight | 
-Environment Variables
+System logs
 </title>
 
     <!-- CSS CDN -->
@@ -30,14 +30,18 @@ Environment Variables
 </head>
 
 <body>
-    <!-- WIP noticeBar-->
     <style>
-        
+        .noticeBar{
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
     </style>
     <!-- noticeBar -->
-    <div class="alert alert-dismissible fade show text-center bg-white text-dark rounded-0" role="alert">
-        <strong>Holy there!</strong> You should check in on some of those fields below.
-        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="alert alert-warning alert-dismissible fade show text-center rounded-0 noticeBar" role="alert">
+        <strong>Hey there!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close btn-dark" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <!-- noticeBar ends -->
 
