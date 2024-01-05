@@ -91,7 +91,7 @@ $(document).ready(function () {
      * And scanMyPorts
      */
     $.ajax({
-        url: BASE_API_URL + '/ifconfig/',
+        url: BASE_API_URL + '/ifconfig.json',
         dataType: 'JSON',
         success: function (data) {
 
@@ -122,7 +122,7 @@ $(document).ready(function () {
      * GET users/
      */
     $.ajax({
-        url: BASE_API_URL + '/users/',
+        url: BASE_API_URL + '/users.json',
         dataType: 'JSON',
         success: function (data) {
 
@@ -158,7 +158,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-        url: BASE_API_URL + '/disk/usage/',
+        url: BASE_API_URL + '/disk.usage.json',
         dataType: 'JSON',
         success: function (response) {
             let totalDiskUsageInBytes = bytesToGB(response['result']['total']);
@@ -215,7 +215,7 @@ $(document).ready(function () {
      * for tuxHomepageProcesses
      */
     $.ajax({
-        url: BASE_API_URL + '/ps/',
+        url: BASE_API_URL + '/ps.json',
         dataType: 'JSON',
         success: function (response) {
             let status_count = response['status_count'];
