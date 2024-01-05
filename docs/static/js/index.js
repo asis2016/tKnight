@@ -17,7 +17,7 @@ $(document).ready(function () {
      * for tuxOSRelease
      */
     $.ajax({
-        url: BASE_API_URL + '/os-release/',
+        url: BASE_API_URL + '/os-release.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxOSRelease h3').text(response['result']['NAME']);
@@ -32,7 +32,7 @@ $(document).ready(function () {
      * for tuxBoottime
      */
     $.ajax({
-        url: BASE_API_URL + '/boottime/',
+        url: BASE_API_URL + '/boottime.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxBoottime p').text(response['result']);
