@@ -11,17 +11,17 @@
         {
             "Filesystem": "/dev/sdb1",
             "Size": "500G",
-            "Used": "150G",
-            "Avail": "320G",
-            "Use%": "30%",
+            "Used": "350G",
+            "Avail": "100G",
+            "Use%": "80%",
             "Mounted on": "/home"
         },
         {
             "Filesystem": "/dev/sdc1",
             "Size": "16G",
-            "Used": "0G",
+            "Used": "5G",
             "Avail": "16G",
-            "Use%": "0%",
+            "Use%": "20%",
             "Mounted on": "swap"
         }
     ],

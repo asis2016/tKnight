@@ -71,9 +71,8 @@ Port Scanner
         url: BASE_API_URL + '/scan-port?hostname={{ hostname }}',
         dataType: 'json',
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // Automate.sh
+        headers: {'Content-Type': 'application/json' },
         success: function (response) {
             // Make .col1 display none
             $('#tuxPortScannerResult .col1').attr('style', 'display: none !important');

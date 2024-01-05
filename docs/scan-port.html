@@ -448,12 +448,11 @@
 
     <script>
       $.ajax({
-        url: BASE_API_URL + '/scan-port?hostname=${item[&#39;ip&#39;]}',
+        url: 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson/scan-port.json',
         dataType: 'json',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+
+        // Automate.sh
+
         success: function (response) {
           // Make .col1 display none
           $('#tuxPortScannerResult .col1').attr(
