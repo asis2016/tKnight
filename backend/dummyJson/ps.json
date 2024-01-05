@@ -233,5 +233,10 @@
         }
     ],
     "page_title": "Processes",
-    "total": 372
+    "status_count": {
+        "sleeping": 307,
+        "idle": 122,
+        "running": 1
+    },
+    "total": 430
 }
