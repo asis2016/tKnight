@@ -488,10 +488,11 @@
 
         $.ajax({
           url: 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson/traceroute.json',
-          dataType: 'json',
+          dataType: 'JSON',
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
           },
           success: function (response) {
             $('#tuxTraceRouteResult .col1').addClass('d-none');
