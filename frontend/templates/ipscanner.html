@@ -9,7 +9,6 @@ IP Scanner
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">IP Scanner</h4>
                 <form>
                     <div class="row">
                         <div class="col-md-6">
@@ -38,20 +37,22 @@ IP Scanner
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <div class="form-check">
+                        <div class="form-check mb-3">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input"> Log this IP scan
                                 <i class="input-helper"></i>
                             </label>
                         </div>
-                    </div>
-                    <div class="col" style="text-align: right;">
-                        <div class="form-check">
-                            <button type="submit" class="btn btn-primary me-2" data-bs-toggle="modal"
+
+                        <!-- btn -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#tuxIPScannerModal">
                                 Start scanning now</button>
-                            <a class="btn btn-danger me-2" href="{{ url_for('index') }}">Cancel and go back!</a>
+
+                            <a class="btn btn-danger" href="{{ url_for('index') }}">Cancel and go back!</a>
                         </div>
+                        <!-- btn ends -->
                     </div>
                 </div>
             </div>

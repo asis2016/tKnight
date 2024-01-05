@@ -2,13 +2,13 @@
     <div class="d-flex flex-column flex-shrink-0 p-3">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <!-- logo for LG screen -->
-            <span class="fs-4 logo-lg sm-d-none">
+            <span class="fs-4 logo-lg only-d-lg">
                 <img class="img-xs" src="{{ url_for('static', filename='images/logo.png') }}" alt="">
             </span>
 
             <!-- logo for SM screen -->
             <span class="fs-4 logo-sm only-d-sm">
-                AMJ
+                <img class="img-xs" src="{{ url_for('static', filename='images/logo-mini.png') }}" alt="">
             </span>
             <!-- for SM screen - close -->
             <span class="d-sm-none" id="sidebarUntoggleBtn">

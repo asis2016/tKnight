@@ -64,12 +64,14 @@
             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
           >
             <!-- logo for LG screen -->
-            <span class="fs-4 logo-lg sm-d-none">
+            <span class="fs-4 logo-lg only-d-lg">
               <img class="img-xs" src="static/images/logo.png" alt="" />
             </span>
 
             <!-- logo for SM screen -->
-            <span class="fs-4 logo-sm only-d-sm"> AMJ </span>
+            <span class="fs-4 logo-sm only-d-sm">
+              <img class="img-xs" src="static/images/logo-mini.png" alt="" />
+            </span>
             <!-- for SM screen - close -->
             <span class="d-sm-none" id="sidebarUntoggleBtn">
               <i class="bi bi-x-circle-fill"></i>
@@ -254,12 +256,12 @@
             <h3>List of Open Files</h3>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Generate report
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Export
-                </button>
+                <a href="wip.html" class="btn btn-sm btn-outline-secondary"
+                  >Generate report</a
+                >
+                <a href="wip.html" class="btn btn-sm btn-outline-secondary"
+                  >Export</a
+                >
               </div>
               <button
                 type="button"
@@ -274,7 +276,7 @@
 
           <!-- main_content -->
 
-          <div class="row sm-pt-0" id="tuxLsofPage">
+          <div class="row mb-4 sm-mb-3" id="tuxLsofPage">
             <div class="col">
               <div class="card">
                 <div class="card-body">
@@ -305,7 +307,7 @@
         </div>
 
         <!-- divider for footer ends -->
-        <footer class="py-3 mt-auto container-fluid">
+        <footer class="py-3 mt-auto container-fluid mt-4">
           <div class="row">
             <div class="col text-small">
               <span class="mb-3 mb-md-0">© tKnight | 2024</span>

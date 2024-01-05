@@ -5,6 +5,7 @@ Systemctl Services
 {% endblock %}
 
 {% block header %}
+<!-- Todo refactor -->
 <style>
     .card-body {
         padding: 1rem !important;
@@ -21,6 +22,35 @@ Systemctl Services
 
     .failed {
         color: red;
+    }
+
+    @media screen and (max-width: 991px) {
+        h5 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+
+        #systemctlServices .card-body {
+            display: block !important;
+        }
+
+        #systemctlServices .card-body div:first-child {
+            width: 100% !important;
+        }
+
+        #systemctlServices .card-body div:first-child p {
+            margin-top: .8rem !important;
+            margin-bottom: .8rem !important;
+        }
+
+        #systemctlServices .card-body div:last-child {
+            text-align: center;
+            font-weight: 600;
+        }
     }
 </style>
 {% endblock %}

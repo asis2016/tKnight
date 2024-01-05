@@ -27,6 +27,7 @@ Systemctl Services
     
     <!-- for custom header -->
     
+<!-- Todo refactor -->
 <style>
     .card-body {
         padding: 1rem !important;
@@ -43,6 +44,35 @@ Systemctl Services
 
     .failed {
         color: red;
+    }
+
+    @media screen and (max-width: 991px) {
+        h5 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+
+        #systemctlServices .card-body {
+            display: block !important;
+        }
+
+        #systemctlServices .card-body div:first-child {
+            width: 100% !important;
+        }
+
+        #systemctlServices .card-body div:first-child p {
+            margin-top: .8rem !important;
+            margin-bottom: .8rem !important;
+        }
+
+        #systemctlServices .card-body div:last-child {
+            text-align: center;
+            font-weight: 600;
+        }
     }
 </style>
 
@@ -71,13 +101,13 @@ Systemctl Services
     <div class="d-flex flex-column flex-shrink-0 p-3">
         <a href="../../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <!-- logo for LG screen -->
-            <span class="fs-4 logo-lg sm-d-none">
+            <span class="fs-4 logo-lg only-d-lg">
                 <img class="img-xs" src="../../static/images/logo.png" alt="">
             </span>
 
             <!-- logo for SM screen -->
             <span class="fs-4 logo-sm only-d-sm">
-                AMJ
+                <img class="img-xs" src="../../static/images/logo-mini.png" alt="">
             </span>
             <!-- for SM screen - close -->
             <span class="d-sm-none" id="sidebarUntoggleBtn">
@@ -243,8 +273,8 @@ Systemctl Services
     <h3>Systemctl Services</h3>
     <div class="btn-toolbar mb-2 mb-md-0 ">
         <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Generate report</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <a href="../../wip.html" class="btn btn-sm btn-outline-secondary">Generate report</a>
+            <a href="../../wip.html" class="btn btn-sm btn-outline-secondary">Export</a>
         </div>
         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
@@ -264,7 +294,7 @@ Systemctl Services
             </div>
 
             <!-- divider for footer ends -->
-            <footer class="py-3 mt-auto container-fluid">
+            <footer class="py-3 mt-auto container-fluid mt-4">
                 <div class="row">
                     <div class="col text-small">
                         <span class="mb-3 mb-md-0">© tKnight | 2024</span>

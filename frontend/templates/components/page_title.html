@@ -2,8 +2,8 @@
     <h3>{{ page_title }}</h3>
     <div class="btn-toolbar mb-2 mb-md-0 {{ display }}">
         <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Generate report</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <a href="{{ url_for('wip') }}" class="btn btn-sm btn-outline-secondary">Generate report</a>
+            <a href="{{ url_for('wip') }}" class="btn btn-sm btn-outline-secondary">Export</a>
         </div>
         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
