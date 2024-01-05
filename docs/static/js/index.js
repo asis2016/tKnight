@@ -3,7 +3,7 @@ $(document).ready(function () {
      * for tuxHomeLsof
      */
     $.ajax({
-        url: BASE_API_URL + 'lsof.n.i.json',
+        url: BASE_API_URL + '/lsof.n.i.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxHomeLsof h3').text(response['total'] + ' lsof');
@@ -47,7 +47,7 @@ $(document).ready(function () {
      * for tuxHomepageCpuCore
      */
     $.ajax({
-        url: BASE_API_URL + '/cpu/count/',
+        url: BASE_API_URL + '/cpu.count.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxHomepageCpuCore a').text(response['result'] + ' core CPUs');
@@ -61,7 +61,7 @@ $(document).ready(function () {
      * for tuxHomepageSensors
      */
     $.ajax({
-        url: BASE_API_URL + '/sensors/temperature/',
+        url: BASE_API_URL + '/sensors.temperature.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxHomepageSensors a').text(response['total'] + ' sensors');
@@ -75,7 +75,7 @@ $(document).ready(function () {
      * for tuxHomepageEnviron
      */
     $.ajax({
-        url: BASE_API_URL + '/environ/',
+        url: BASE_API_URL + '/environ.json',
         dataType: 'JSON',
         success: function (response) {
             $('#tuxHomepageEnviron a').text(response['total'] + ' env found');
