@@ -326,6 +326,9 @@ $(document).ready(function () {
         url: 'https://raw.githubusercontent.com/asis2016/tKnight/main/backend/dummyJson/ip.api.json',
         dataType: 'JSON',
         success: function (data) {
+
+            $("#tuxPublicIPAddress h3").text(data['query']);
+
             //display block
             $('#tuxPublicIPDetails .ip').text(data['query']);
             $('#tuxPublicIPDetails .zip').text(data['zip']);

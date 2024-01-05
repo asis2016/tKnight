@@ -326,6 +326,9 @@ $(document).ready(function () {
         url: 'http://ip-api.com/json',
         dataType: 'JSON',
         success: function (data) {
+
+            $("#tuxPublicIPAddress h3").text(data['query']);
+
             //display block
             $('#tuxPublicIPDetails .ip').text(data['query']);
             $('#tuxPublicIPDetails .zip').text(data['zip']);
