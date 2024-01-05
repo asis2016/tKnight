@@ -9,7 +9,7 @@
 
     <!-- <meta http-equiv="refresh" content="5"> -->
 
-    <title>tKnight |</title>
+    <title>tKnight | WIP</title>
 
     <!-- CSS CDN -->
     <link
@@ -103,7 +103,7 @@
             <!-- network tools -->
             <p class="my-2 text-secondary text-small">Network tools</p>
             <li>
-              <a class="nav-link" id="scanMyPorts" href="processes.html#">
+              <a class="nav-link" id="scanMyPorts" href="wip.html#">
                 <i class="bi bi-ethernet me-2"></i>
                 Scan my Ports
               </a>
@@ -150,7 +150,7 @@
             >
               <!-- nav-left, breadcrumb -->
               <a
-                href="processes.html#"
+                href="wip.html#"
                 class="nav-left d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
               >
                 <i class="bi bi-list" id="sidebarToggleBtn"></i>
@@ -185,14 +185,14 @@
                   </li>
                   <!-- for profile page -->
                   <li>
-                    <a href="processes.html#" class="nav-link text-white">
+                    <a href="wip.html#" class="nav-link text-white">
                       <i class="bi bi-person-circle"></i>
                     </a>
                   </li>
                   <!-- for modal applications -->
                   <li>
                     <a
-                      href="processes.html#"
+                      href="wip.html#"
                       class="nav-link text-white"
                       data-bs-toggle="modal"
                       data-bs-target="#modalApplication"
@@ -203,7 +203,7 @@
                   <!-- tuxBattery -->
                   <li id="tuxBattery">
                     <a
-                      href="processes.html#"
+                      href="wip.html#"
                       class="nav-link text-white"
                       data-bs-toggle="tooltip"
                       data-bs-placement="left"
@@ -227,8 +227,8 @@
 
           <!-- page title -->
           <div class="pageTitle pt-4 sm-pt-0 sm-mt-3">
-            <h3>Processes</h3>
-            <div class="btn-toolbar mb-2 mb-md-0">
+            <h3>WIP</h3>
+            <div class="btn-toolbar mb-2 mb-md-0 d-none">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary">
                   Generate report
@@ -250,28 +250,9 @@
 
           <!-- main_content -->
 
-          <div class="row sm-pt-0" id="processes">
+          <div class="row mt-4">
             <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table text-white">
-                      <thead>
-                        <tr>
-                          <th>PID</th>
-                          <th>Process name</th>
-                          <th>Terminal</th>
-                          <th>No. of threads</th>
-                          <th>Started time</th>
-                          <th>Status</th>
-                          <th>User</th>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              <p>The page that you are viewing is Work in Progress.</p>
             </div>
           </div>
 
@@ -375,38 +356,5 @@
     <!-- script.js -->
     <script src="https://asis2016.github.io/bootstrap-5-admin-template/static/js/script.js"></script>
     <script src="static/js/base.js"></script>
-
-    <script>
-      /**
-       * processes
-       */
-      $.ajax({
-        url: BASE_API_URL + '/ps.json',
-        dataType: 'JSON',
-        success: function (response) {
-          var tbody = $('#processes tbody');
-
-          $.each(response['result'], function (index, item) {
-            var newRow = $('<tr>');
-
-            // Append cells to the row
-            newRow.append('<td>' + item['pid'] + '</td>');
-            newRow.append('<td>' + item['process_name'] + '</td>');
-            newRow.append('<td>' + item['terminal'] + '</td>');
-            newRow.append('<td>' + item['num_threads'] + '</td>');
-            newRow.append('<td>' + item['created_time'] + '</td>');
-            newRow.append('<td>' + item['status'] + '</td>');
-            newRow.append('<td>' + item['username'] + '</td>');
-            newRow.append('</tr>');
-
-            // Append the row to the tbody
-            tbody.append(newRow);
-          });
-        },
-        error: function () {
-          console.error('Error fetching data:', error);
-        },
-      });
-    </script>
   </body>
 </html>

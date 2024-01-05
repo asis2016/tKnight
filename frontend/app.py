@@ -54,5 +54,10 @@ def traceroute():
     return render_template('traceroute.html', page_title='Traceroute')
 
 
+@app.route('/wip')
+def wip():
+    return render_template('wip.html', page_title='WIP', display='d-none')
+
+
 if __name__ == '__main__':
     app.run()

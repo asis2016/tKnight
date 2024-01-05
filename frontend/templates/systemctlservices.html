@@ -36,7 +36,6 @@
         url: BASE_API_URL + '/systemctl/services/',
         dataType: 'json',
         success: function (response) {
-            console.log(response['result'])
             let row = $('#systemctlServices');
 
             $.each(response['result'], function (index, item) {
