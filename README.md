@@ -158,7 +158,7 @@ Contributions are always welcome! Please, contact to hello@amaharjan.de
 [MIT](./LICENSE)
 
 ## References
-- [Corona Admin template](https://www.bootstrapdash.com/product/corona-admin-template)
+- [Dark Bootstrap 5 Admin Template](https://github.com/asis2016/bootstrap-5-admin-template)
 
 
 
