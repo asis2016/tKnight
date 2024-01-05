@@ -86,37 +86,7 @@ $(document).ready(function () {
     });
 
 
-    /**
-     * GET ifconfig
-     * And scanMyPorts
-     */
-    $.ajax({
-        url: BASE_API_URL + '/ifconfig/',
-        dataType: 'JSON',
-        success: function (data) {
-
-            let inet = data['result']['inet'];
-            let inet6 = data['result']['inet6'][0];
-            let ether = data['result']['ether'];
-            let netmask = data['result']['netmask'];
-            let broadcast = data['result']['broadcast'];
-            let device = data['result']['device'];
-
-            $('#scanMyPorts').attr('href', '/scan-port?hostname=' + inet);
-
-            //For ifconfig-and-users-stat.html
-            $('#ifconfigAndUserStat .ipv4').text(inet);
-            $('#ifconfigAndUserStat .ipv6').text(inet6);
-            $('#ifconfigAndUserStat .netmask').text(netmask);
-            $('#ifconfigAndUserStat .broadcast').text(broadcast);
-            $('#ifconfigAndUserStat .ether').text(ether);
-            $('#ifconfigAndUserStat .device').text(device);
-
-        },
-        error: function () {
-            console.error('Failed to fetch external IP address');
-        }
-    });
+    
 
     /**
      * GET users/
@@ -369,7 +339,6 @@ $(document).ready(function () {
         dataType: 'JSON',
         success: function (response) {
             var tbody = $('#tuxHomepageSystemctlServices tbody');
-
 
             $.each(response['result'], function (index, item) {
                 var newRow = $('<tr>');
