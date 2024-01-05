@@ -267,7 +267,7 @@ $(document).ready(function () {
      * for tuxDisk > Disk partition
      */
     $.ajax({
-        url: BASE_API_URL + '/disk/partition/',
+        url: BASE_API_URL + '/disk.partition.json',
         dataType: 'JSON',
         success: function (response) {
             let tbody = $('#tuxDiskPartition tbody');
@@ -302,7 +302,7 @@ $(document).ready(function () {
         $("#tuxSpeedTest .txtPing").text("running speed test ...");
 
         $.ajax({
-            url: BASE_API_URL + '/speed-test/',
+            url: BASE_API_URL + '/speed-test.json',
             dataType: 'JSON',
             success: function (response) {
                 let ping = response['result'].ping
@@ -362,7 +362,7 @@ $(document).ready(function () {
      * for tuxHomepageSystemctlServices
      */
     $.ajax({
-        url: BASE_API_URL + '/systemctl/services/',
+        url: BASE_API_URL + '/systemctl.services.json',
         dataType: 'JSON',
         success: function (response) {
             var tbody = $('#tuxHomepageSystemctlServices tbody');
