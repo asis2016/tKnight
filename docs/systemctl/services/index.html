@@ -344,7 +344,7 @@
      * processes
      */
     $.ajax({
-        url: BASE_API_URL + '/systemctl/services/',
+        url: BASE_API_URL + '/systemctl.services.json',
         dataType: 'json',
         success: function (response) {
             console.log(response['result'])
