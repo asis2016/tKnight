@@ -11,9 +11,9 @@
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                 <div class="input-group text-white">
                     <input type="text" class="form-control form-control-dark text-bg-dark text-white" value="search...">
-                    <button class="btn" type="button">
+                    <a class="btn" href="{{ url_for('wip') }}">
                         <i class="bi bi-search"></i>
-                    </button>
+                    </a>
                 </div>
             </form>
 
@@ -29,7 +29,7 @@
                     </li>
                     <!-- for profile page -->
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="{{ url_for('wip') }}" class="nav-link text-white">
                             <i class="bi bi-person-circle"></i>
                         </a>
                     </li>
