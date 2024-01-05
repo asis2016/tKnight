@@ -115,9 +115,7 @@ Traceroute
             url: BASE_API_URL + '/traceroute/?hostname=' + hostname,
             dataType: 'json',
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: {'Content-Type': 'application/json'},
             success: function (response) {
                 $('#tuxTraceRouteResult .col1').addClass('d-none');
                 $('#tuxTraceRouteResult .col2').removeClass('d-none');
