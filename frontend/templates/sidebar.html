@@ -17,6 +17,7 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
+            <p class="my-2 text-secondary text-small">DASHBOARD</p>
             <li class="nav-item">
                 <a href="{{ url_for('index') }}" class="nav-link active" aria-current="page">
                     <i class="bi bi-house-door-fill me-2"></i>
@@ -25,8 +26,8 @@
             </li>
 
             <!-- accounts -->
-            <p class="my-2 text-secondary text-small">ACCOUNT</p>
-            <li class="tuxProfileName">
+            <p class="my-2 text-secondary text-small only-d-lg">ACCOUNT</p>
+            <li class="tuxProfileName only-d-lg">
                 <a href="{{ url_for('profile') }}" class="nav-link">
                     <i class="bi bi-person-circle me-2"></i>
                     <span>whoami</span>

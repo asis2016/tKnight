@@ -1,0 +1,14 @@
+{
+    "result": {
+        "user": "tux",
+        "home": "/home/tux",
+        "shell": "/bin/bash",
+        "id": "uid=1001(penguin) gid=1001(penguin) groups=1001(penguin)",
+        "unameA": "Linux adminAM 6.2.20-110.fc36.x86_64",
+        "etcPasswd": "tux:x:1001:1001:Tux:/home/tux:/bin/bash",
+        "hardwareVendor": "Hogwarts Magical Technologies",
+        "hardwareModel": "WizardBook x11 Enchanted Edition",
+        "architecture": "x86-64",
+        "kernel": "Linux 1.1.1-101.hogwarts36.x86_64"
+    }
+}

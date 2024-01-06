@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-WIP
+My Profile
 {% endblock title %}
 
 {% block content %}
-<div class="row mt-4">
+<div class="row mt-4" id="profile">
     <div class="col-lg-3">
         <div class="card">
             <div class="card-body">
-
+                <!-- todo: refactor -->
                 <style>
                     .profileNameInitials h6 {
                         border: 1px solid var(--bs-primary);
@@ -24,21 +24,18 @@ WIP
                     }
                 </style>
                 <div class="profileNameInitials d-flex justify-content-center align-item-center">
-                    <h6>Tux</h6>
+                    <h6 class="fs-2">NA</h6>
                 </div>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        echo $USER
+                    <li class="list-group-item" id="user">
+                        NA
                     </li>
-                    <li class="list-group-item">
-                        echo $HOME
+                    <li class="list-group-item" id="home">
+                        <i class="bi bi-folder me-2"></i> <span></span>
                     </li>
-                    <li class="list-group-item">
-                        echo $SHELL
-                    </li>
-                    <li class="list-group-item">
-                        echo $SHELL
+                    <li class="list-group-item" id="shell">
+                        <i class="bi bi-terminal me-2"></i> <span></span>
                     </li>
                 </ul>
 
@@ -82,18 +79,16 @@ WIP
                                     $ id
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputId"
-                                        value="uid=1001(tiger) gid=1001(tiger) groups=1001(tiger)" disabled>
+                                    <input type="text" class="form-control" id="inputId" value="NA" disabled>
                                 </div>
                             </div>
                             <!-- $ uname -a -->
                             <div class="row mb-3">
                                 <label for="inputUname" class="col-sm-2 col-form-label">
-                                    $ uname
+                                    $ uname -a
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputUname"
-                                        value="Linux adminAM 6.2.20-110.fc36.x86_64" disabled>
+                                    <input type="text" class="form-control" id="inputUname" value="NA" disabled>
                                 </div>
                             </div>
                             <!-- $ /etc/passwd -->
@@ -102,8 +97,7 @@ WIP
                                     /etc/passwd
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEtcPasswd"
-                                        value="tux:x:1001:1001:Tux:/home/tux:/bin/bash"
+                                    <input type="text" class="form-control" id="inputEtcPasswd" value="NA"
                                         aria-describedby="inputEtcPasswdHelp" disabled>
                                     <div id="inputEtcPasswdHelp" class="form-text">
                                         $ grep $USER /etc/passwd
@@ -118,8 +112,8 @@ WIP
                                     Hardware vendor
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputHardwareVendor"
-                                        value="Hogwarts Magical Technologies" disabled>
+                                    <input type="text" class="form-control" id="inputHardwareVendor" value="NA"
+                                        disabled>
                                 </div>
                             </div>
                             <!-- inputHardwareVendor ends -->
@@ -127,12 +121,11 @@ WIP
                             <!-- inputHardwareModel -->
                             <!-- $ hostnamectl |grep "Hardware Vendor" -->
                             <div class="row mb-3">
-                                <label for="inputHardwareVendor" class="col-sm-2 col-form-label">
+                                <label for="inputHardwareModel" class="col-sm-2 col-form-label">
                                     Hardware model
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputHardwareVendor"
-                                        value="WizardBook x11 Enchanted Edition" disabled>
+                                    <input type="text" class="form-control" id="inputHardwareModel" value="NA" disabled>
                                 </div>
                             </div>
                             <!-- inputHardwareModel ends -->
@@ -144,8 +137,7 @@ WIP
                                     Architecture
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputArchitecture" value="x86-64"
-                                        disabled>
+                                    <input type="text" class="form-control" id="inputArchitecture" value="NA" disabled>
                                 </div>
                             </div>
                             <!-- inputKernel ends -->
@@ -157,8 +149,7 @@ WIP
                                     Kernel
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputKernel"
-                                        value="Linux 6.2.20-105.hogwarts36.x86_64" disabled>
+                                    <input type="text" class="form-control" id="inputKernel" value="NA" disabled>
                                 </div>
                             </div>
                             <!-- inputKernel ends -->
@@ -203,3 +194,38 @@ WIP
     </div>
 </div>
 {% endblock content %}
+
+{% block footer %}
+<script>
+    /**
+     * profile
+     */
+    $.ajax({
+        url: BASE_API_URL + '/profile/',
+        dataType: 'JSON',
+        success: function (response) {
+            result = response['result'];
+            console.log(result)
+
+            $(".profileNameInitials h6").text(
+                result['user'][0].toUpperCase()
+            );
+
+            $("#profile #user").text(result['user']);
+            $("#profile #home span").text(result['home']);
+            $("#profile #shell span").text(result['shell']);
+
+            $("#profile #inputId").val(result['id']);
+            $("#profile #inputUname").val(result['unameA']);
+            $("#profile #inputEtcPasswd").val(result['etcPasswd']);
+            $("#profile #inputHardwareVendor").val(result['hardwareVendor']);
+            $("#profile #inputHardwareModel").val(result['hardwareModel']);
+            $("#profile #inputArchitecture").val(result['architecture']);
+            $("#profile #inputKernel").val(result['kernel']);
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+</script>
+{% endblock footer %}
