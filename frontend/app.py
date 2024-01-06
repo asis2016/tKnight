@@ -39,6 +39,11 @@ def processes():
     return render_template('processes.html', page_title='Processes')
 
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', page_title='My Profile')
+
+
 @app.route('/systemctl/services/')
 def systemctl_services():
     return render_template('systemctlservices.html', page_title="Systemctl Services")
