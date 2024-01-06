@@ -9,7 +9,7 @@
 
     <!-- <meta http-equiv="refresh" content="5"> -->
 
-    <title>tKnight | WIP</title>
+    <title>tKnight | My Profile</title>
 
     <!-- CSS CDN -->
     <link
@@ -130,7 +130,7 @@
             <!-- network tools -->
             <p class="my-2 text-secondary text-small">Network tools</p>
             <li>
-              <a class="nav-link" id="scanMyPorts" href="wip.html#">
+              <a class="nav-link" id="scanMyPorts" href="profile.html#">
                 <i class="bi bi-ethernet me-2"></i>
                 Scan my Ports
               </a>
@@ -177,7 +177,7 @@
             >
               <!-- nav-left, breadcrumb -->
               <a
-                href="wip.html#"
+                href="profile.html#"
                 class="nav-left d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
               >
                 <i class="bi bi-list" id="sidebarToggleBtn"></i>
@@ -219,7 +219,7 @@
                   <!-- for modal applications -->
                   <li>
                     <a
-                      href="wip.html#"
+                      href="profile.html#"
                       class="nav-link text-white"
                       data-bs-toggle="modal"
                       data-bs-target="#modalApplication"
@@ -230,7 +230,7 @@
                   <!-- tuxBattery -->
                   <li id="tuxBattery">
                     <a
-                      href="wip.html#"
+                      href="profile.html#"
                       class="nav-link text-white"
                       data-bs-toggle="tooltip"
                       data-bs-placement="left"
@@ -254,8 +254,8 @@
 
           <!-- page title -->
           <div class="pageTitle pt-4 sm-pt-0 sm-mt-3">
-            <h3>WIP</h3>
-            <div class="btn-toolbar mb-2 mb-md-0 d-none">
+            <h3>My Profile</h3>
+            <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <a href="wip.html" class="btn btn-sm btn-outline-secondary"
                   >Generate report</a
@@ -277,9 +277,284 @@
 
           <!-- main_content -->
 
-          <div class="row mt-4">
-            <div class="col">
-              <p>The page that you are viewing is Work in Progress.</p>
+          <div class="row mt-4" id="profile">
+            <div class="col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <!-- todo: refactor -->
+                  <style>
+                    .profileNameInitials h6 {
+                      border: 1px solid var(--bs-primary);
+                      background-color: var(--bs-teal);
+                      height: 100px;
+                      width: 100px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 50%;
+                      margin: 1rem;
+                    }
+                  </style>
+                  <div
+                    class="profileNameInitials d-flex justify-content-center align-item-center"
+                  >
+                    <h6 class="fs-2">NA</h6>
+                  </div>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item" id="user">NA</li>
+                    <li class="list-group-item" id="home">
+                      <i class="bi bi-folder me-2"></i> <span></span>
+                    </li>
+                    <li class="list-group-item" id="shell">
+                      <i class="bi bi-terminal me-2"></i> <span></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- 2nd col -->
+            <div class="col-lg-9 sm-my-3">
+              <div class="card">
+                <div class="card-body">
+                  <!-- tabs -->
+                  <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button
+                        class="nav-link active"
+                        id="nav-details-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-details"
+                        type="button"
+                        role="tab"
+                        aria-controls="nav-details"
+                        aria-selected="true"
+                      >
+                        Details
+                      </button>
+                      <button
+                        class="nav-link"
+                        id="nav-settings-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-settings"
+                        type="button"
+                        role="tab"
+                        aria-controls="nav-settings"
+                        aria-selected="false"
+                      >
+                        Settings
+                      </button>
+                      <button
+                        class="nav-link"
+                        id="nav-timeline-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-timeline"
+                        type="button"
+                        role="tab"
+                        aria-controls="nav-timeline"
+                        aria-selected="false"
+                      >
+                        Timeline
+                      </button>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                    <!-- nav-profile -->
+                    <div
+                      class="tab-pane fade show active"
+                      id="nav-details"
+                      role="tabpanel"
+                      aria-labelledby="nav-profile-tab"
+                      tabindex="0"
+                    >
+                      <!-- form -->
+                      <form class="py-4 px-4">
+                        <!-- $ id -->
+                        <div class="row mb-3">
+                          <label for="inputId" class="col-sm-2 col-form-label">
+                            $ id
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputId"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- $ uname -a -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputUname"
+                            class="col-sm-2 col-form-label"
+                          >
+                            $ uname -a
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputUname"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- $ /etc/passwd -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputEtcPasswd"
+                            class="col-sm-2 col-form-label"
+                          >
+                            /etc/passwd
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputEtcPasswd"
+                              value="NA"
+                              aria-describedby="inputEtcPasswdHelp"
+                              disabled
+                            />
+                            <div id="inputEtcPasswdHelp" class="form-text">
+                              $ grep $USER /etc/passwd
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- inputHardwareVendor -->
+                        <!-- $ hostnamectl |grep "Hardware Vendor" -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputHardwareVendor"
+                            class="col-sm-2 col-form-label"
+                          >
+                            Hardware vendor
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputHardwareVendor"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- inputHardwareVendor ends -->
+
+                        <!-- inputHardwareModel -->
+                        <!-- $ hostnamectl |grep "Hardware Vendor" -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputHardwareModel"
+                            class="col-sm-2 col-form-label"
+                          >
+                            Hardware model
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputHardwareModel"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- inputHardwareModel ends -->
+
+                        <!-- inputArchitecture -->
+                        <!-- $ hostnamectl |grep "Architecture" -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputArchitecture"
+                            class="col-sm-2 col-form-label"
+                          >
+                            Architecture
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputArchitecture"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- inputKernel ends -->
+
+                        <!-- inputKernel -->
+                        <!-- $ hostnamectl |grep "Kernel" -->
+                        <div class="row mb-3">
+                          <label
+                            for="inputKernel"
+                            class="col-sm-2 col-form-label"
+                          >
+                            Kernel
+                          </label>
+                          <div class="col-sm-10">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputKernel"
+                              value="NA"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <!-- inputKernel ends -->
+
+                        <!-- checkbox -->
+                        <div class="row mb-3 d-none">
+                          <div class="col-sm-10 offset-sm-2">
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="gridCheck1"
+                              />
+                              <label class="form-check-label" for="gridCheck1">
+                                Example checkbox
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- checkbox ends -->
+                      </form>
+                      <!-- form ends -->
+                    </div>
+                    <!-- nav-profile ends -->
+                    <!-- nav-settings -->
+                    <div
+                      class="tab-pane fade"
+                      id="nav-settings"
+                      role="tabpanel"
+                      aria-labelledby="nav-settings-tab"
+                      tabindex="0"
+                    >
+                      <div class="px-4 py-4">Settings content goes here.</div>
+                    </div>
+                    <!-- nav-settings ends -->
+                    <!-- nav-timeline -->
+                    <div
+                      class="tab-pane fade"
+                      id="nav-timeline"
+                      role="tabpanel"
+                      aria-labelledby="nav-timeline-tab"
+                      tabindex="0"
+                    >
+                      <div class="px-4 py-4">Timeline content goes here.</div>
+                    </div>
+                    <!-- nav-timeline ends -->
+                  </div>
+                  <!-- tabs ends -->
+                </div>
+              </div>
             </div>
           </div>
 
@@ -410,5 +685,36 @@
     <!-- script.js -->
     <script src="https://asis2016.github.io/bootstrap-5-admin-template/static/js/script.js"></script>
     <script src="static/js/base.js"></script>
+
+    <script>
+      /**
+       * profile
+       */
+      $.ajax({
+        url: BASE_API_URL + '/profile.json',
+        dataType: 'JSON',
+        success: function (response) {
+          result = response['result'];
+          console.log(result);
+
+          $('.profileNameInitials h6').text(result['user'][0].toUpperCase());
+
+          $('#profile #user').text(result['user']);
+          $('#profile #home span').text(result['home']);
+          $('#profile #shell span').text(result['shell']);
+
+          $('#profile #inputId').val(result['id']);
+          $('#profile #inputUname').val(result['unameA']);
+          $('#profile #inputEtcPasswd').val(result['etcPasswd']);
+          $('#profile #inputHardwareVendor').val(result['hardwareVendor']);
+          $('#profile #inputHardwareModel').val(result['hardwareModel']);
+          $('#profile #inputArchitecture').val(result['architecture']);
+          $('#profile #inputKernel').val(result['kernel']);
+        },
+        error: function () {
+          console.error('Error fetching data:', error);
+        },
+      });
+    </script>
   </body>
 </html>
