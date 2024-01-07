@@ -25,12 +25,12 @@ def get_disk_partition():
             filesystem, size, used, avail, use_percent, mounted_on = columns
             
             entry = {
-                'Filesystem': filesystem,
-                'Size': size,
-                'Used': used,
-                'Avail': avail,
-                'Use%': use_percent,
-                'Mounted on': mounted_on
+                'filesystem': filesystem,
+                'size': size,
+                'used': used,
+                'avail': avail,
+                'use': use_percent,
+                'mounted': mounted_on
             }
             result.append(entry)
         return {

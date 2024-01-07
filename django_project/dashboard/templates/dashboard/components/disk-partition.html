@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">
+        <h6 class="card-title my-2">Disk Partition
+            <span data-bs-toggle="tooltip" data-bs-title="Shows you all partition and it's size."
+                data-bs-placement="bottom">
+                <i class="ms-2 bi bi-info-circle-fill"></i>
+            </span>
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> File System </th>
+                        <th> Size </th>
+                        <th class="only-d-lg"> Used </th>
+                        <th class="only-d-lg"> Available </th>
+                        <th> Usage(%) </th>
+                        <th class="only-d-lg"> Mounted on </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if disk_partition.result %}
+                    {% for i in disk_partition.result %}
+                    <tr>
+                        <td>{{ i.filesystem }}</td>
+                        <td>{{ i.size }}</td>
+                        <td class="only-d-lg">
+                            {{ i.used }}
+                        </td>
+                        <td class="only-d-lg">
+                            {{ i.avail }}
+                        </td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ i.use }}"></div>
+                            </div>
+                        </td>
+                        <td>{{ i.mounted }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

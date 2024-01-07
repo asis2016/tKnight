@@ -1,3 +1,82 @@
-<h1>h1</h1>
+{% extends 'base.html' %}
 
-{{ yo.result }}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="row mt-4 sm-mt-3">
+    <!-- /etc/os-release -->
+    {% include 'dashboard/components/os.html' %}
+
+    <!-- public IP address -->
+    {% include 'dashboard/components/publicIP.html' %}
+
+    <!-- boot time v2 -->
+    {% include 'dashboard/components/boottime-v2.html' %}
+
+    <!-- lsof -->
+    {% include 'dashboard/components/lsof.html' %}
+</div>
+
+<div class="row mt-4 sm-mt-3">
+    <!-- Speed test, environ,  -->
+    <div class="col-lg-5">
+        {% include 'dashboard/components/speedtest.html' %}
+
+        <!-- row for sensors-env-cpucore.html -->
+        {% include 'dashboard/components/sensors-env-cpucore.html' %}
+        <!-- row for sensors-env-cpucore.html ends -->
+    </div>
+
+    <!-- processes -->
+    <div class="col-lg-7 sm-mt-3">
+        {% include 'dashboard/components/processes.html' %}
+    </div>
+</div>
+
+<!-- cpu/async/ -->
+<div class="row mt-4 sm-mt-3">
+    <div class="col-lg-12">
+        {% include 'dashboard/components/cpu-async.html' %}
+    </div>
+</div>
+
+<div class="row mt-4 sm-mt-3 d-none">
+    <!-- Boottime -->
+    {% include 'dashboard/components/boottime.html' %}
+    <!-- Open ports -->
+    {% include 'dashboard/components/openports.html' %}
+</div>
+
+<!-- disk usage, -->
+<div class="row mt-4 sm-mt-3">
+    <div class="col-lg-4">
+        {% include 'dashboard/components/ifconfig-and-users-stat.html' %}
+    </div>
+    <div class="col-lg-3 sm-mt-3">
+        {% include 'dashboard/components/disk-usage.html' %}
+    </div>
+    <div class="col-lg-5 sm-mt-3">
+        {% include 'dashboard/components/systemctl-services.html' %}
+    </div>
+</div>
+
+<!-- Public IP detail -->
+{% include 'dashboard/components/publicIPDetails.html' %}
+
+<!-- disk parition -->
+<div class="row my-4 sm-my-3">
+    <div class="col-lg-12">
+        {% include 'dashboard/components/disk-partition.html' %}
+    </div>
+</div>
+<!-- disk parition ends-->
+
+{% endblock %}
+
+{% block footers %}
+<script src=""></script>
+<script src=""></script>
+<script src=""></script>
+{% endblock footers %}

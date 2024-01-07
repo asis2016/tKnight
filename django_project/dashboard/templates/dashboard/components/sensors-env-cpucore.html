@@ -1,0 +1,51 @@
+<div class="row mt-4 sm-mt-3">
+    <!-- sensors/temperature -->
+    <div class="col-lg-4 col-sm-6 col-xs-6" id="tuxHomepageSensors">
+        <div class="card">
+            <div class="card-body text-center">
+                {% if sensors_temperature.total %}
+                <div class="mb-2">
+                    <i class="bi bi-thermometer-half fs-1 text-danger"></i>
+                </div>
+                <a class="mb-1 fs-6 link-offset-3 link-danger" href="wip" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="Temperature sensors">
+                    {{ sensors_temperature.total }} sensors
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- sensors/temperature ends -->
+
+    <!-- env -->
+    <div class="col-lg-4 col-sm-6 col-xs-6 sm-mt-3" id="tuxHomepageEnviron">
+        <div class="card">
+            <div class="card-body text-center">
+                {% if environ.total %}
+                <div class="mb-2">
+                    <i class="bi bi-hash fs-1 text-warning"></i>
+                </div>
+                <a class="mb-1 fs-6 link-offset-3 link-warning" href="environ" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="Environment Variables">
+                    {{ environ.total }} ENVs
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- env ends -->
+
+    <!-- cpu core -->
+    <div class="col-lg-4 col-sm-6 col-xs-6 sm-mt-3" id="tuxHomepageCpuCore">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-2">
+                    <i class="bi bi-cpu fs-1 text-info"></i>
+                </div>
+                <a class="mb-1 fs-6 link-offset-3 link-info" href="index" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="CPU Core"></a>
+            </div>
+        </div>
+    </div>
+    <!-- cpu core ends -->
+</div>

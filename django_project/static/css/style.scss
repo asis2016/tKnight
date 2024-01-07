@@ -1,0 +1,652 @@
+/**
+ * Django admin template
+ * Author: www.amaharjan.de
+ * Website: www.amaharjan.de
+ * License: The MIT License (https://opensource.org/license/mit/)
+ *
+ * Based on Bootstrap v5.2.3 (https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/)
+ */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&family=Ubuntu:wght@500&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+
+
+:root {
+    --amj-teal-primary: #20c997;
+    --amj-teal-secondary: #25C278;
+    --amj-border-primary-color: #2c2e33;
+    --amj-border-secondary-color: #20c997;
+    --amj-bg-primary-color: #1d1e24;
+    --amj-text-primary-color: #fff;
+    --amj-text-secondary-color: #a4a6ae;
+}
+
+// --amj-bg-primary-color: #191c24;
+$border_primary_color: #2c2e33;
+
+//
+$text_primary_color: #fff;
+$text_secondary: #a4a6ae;
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*
+ * ----- ----- ----- heading ----- ----- -----
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+/**
+ * ----- ----- ----- .table ----- ----- -----
+ */
+.table {
+    color: $text_primary_color;
+    background-color: var(--amj-bg-primary-color);
+
+    thead {
+        tr {
+            border-style: solid;
+            border-width: 0;
+
+            th {
+                border-bottom-color: $border_primary_color !important;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-style: solid;
+            border-width: 0;
+            border-color: $border_primary_color;
+        }
+    }
+
+    th,
+    td {
+        vertical-align: middle;
+        font-size: 0.875rem;
+        padding: 0.9375rem;
+        line-height: 1;
+        white-space: nowrap;
+        background-color: var(--amj-bg-primary-color);
+        color: $text_primary_color;
+    }
+}
+
+/**
+ * ----- ----- ----- .btn ----- ----- -----
+ */
+.btn-outline-secondary {
+    color: $text_primary_color;
+    border-color: $border_primary_color;
+}
+
+.btn-primary-amj {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--amj-border-secondary-color);
+    --bs-btn-border-color: var(--amj-border-secondary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--amj-teal-secondary);
+    --bs-btn-hover-border-color: var(--amj-border-secondary-color);
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--amj-border-secondary-color);
+    --bs-btn-active-border-color: var(--amj-border-secondary-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--amj-border-secondary-color);
+    --bs-btn-disabled-border-color: var(--amj-border-secondary-color);
+}
+
+.btn-outline-amj {
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: var(--amj-border-secondary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--amj-border-secondary-color);
+    --bs-btn-hover-border-color: var(--amj-border-secondary-color);
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--amj-border-secondary-color);
+    --bs-btn-active-border-color: var(--amj-border-secondary-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--amj-border-secondary-color);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #0d6efd;
+    --bs-gradient: none;
+}
+
+/**
+ * ----- ----- ----- .badge ----- ----- -----
+ */
+.badge-outline-success {
+    color: var(--bs-success);
+    border: 1px solid var(--bs-success);
+}
+
+.badge-outline-warning {
+    color: var(--bs-warning);
+    border: 1px solid var(--bs-warning);
+}
+
+.badge-outline-danger {
+    color: var(--bs-red);
+    border: 1px solid var(--bs-red);
+}
+
+/**
+ * ----- ----- ----- .card ----- ----- -----
+ */
+.card {
+    color: $text_primary_color;
+    background-color: var(--amj-bg-primary-color);
+
+    .card-header {
+        border-bottom: 1px solid $border_primary_color;
+        text-transform: capitalize;
+        font-size: 1.125rem;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .card-title {
+        margin-bottom: 1.125rem;
+        text-transform: capitalize;
+    }
+
+    .card-footer {
+        border-top: 1px solid $border_primary_color;
+    }
+}
+
+/**
+ * ----- ----- ----- hr ----- ----- -----
+ */
+hr {
+    border-top: $border_primary_color solid !important;
+}
+
+/**
+ * ----- ----- ----- .media ----- ----- -----
+ */
+.media {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+
+    .media-body {
+        width: 100%;
+
+        h6 {
+            margin-bottom: 0.2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+
+            span {
+                font-size: 0.875rem;
+                color: var(--bs-teal);
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 0.875rem;
+        }
+    }
+
+    img {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+}
+
+/**
+ *  ----- ----- ----- .nameInitial ----- ----- -----
+ */
+.nameInitial {
+    border: 1px solid var(--bs-teal);
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+}
+
+/**
+ *  ----- ----- ----- .productImg ----- ----- -----
+ */
+.productImg {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+}
+
+
+/**
+ *  ----- ----- ----- .sidebarToggled ----- ----- -----
+ */
+.sidebarToggled #mainSidebar {
+    margin-left: -20rem;
+}
+
+
+/**
+ *  ----- ----- ----- .modal ----- ----- -----
+ */
+
+#modalApplication {
+    .btn {
+        position: absolute;
+        right: -30px;
+        top: -30px;
+        color: #fff;
+    }
+
+    i {
+        font-size: 2.5rem;
+    }
+
+    .col-lg-2 {
+        padding: 2rem;
+    }
+
+    .box {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .box:hover {
+        color: var(--amj-teal-primary);
+    }
+}
+
+.modal-backdrop {
+    background-color: #000;
+    opacity: 0.6 !important;
+}
+
+/**
+ *  ----- ----- ----- .border ----- ----- -----
+ */
+.border-primary-color {
+    color: $border_primary_color;
+}
+
+/**
+ *  ----- ----- ----- .breadcrumb-custom ----- ----- -----
+ */
+.breadcrumb-custom {
+    border-radius: 3px !important;
+    background: var(--amj-border-primary-color);
+    text-align: center;
+    overflow: hidden;
+
+    .breadcrumb-item {
+        position: relative;
+        flex-grow: 1;
+        padding: .75rem 3rem;
+
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            z-index: 1;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            content: "";
+            border-top-right-radius: .5rem;
+            box-shadow: 1px -1px #fff;
+            transform: scale(.707) rotate(45deg);
+        }
+
+        &:first-child {
+            padding-left: 1.5rem;
+        }
+
+        &:last-child {
+            padding-right: 1.5rem;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        a {
+            color: #fff !important;
+        }
+
+        a:hover {
+            color: var(--amj-teal-primary) !important;
+        }
+    }
+
+    .active {
+        color: var(--amj-teal-primary);
+    }
+}
+
+/**
+ *  ----- ----- ----- .breadcrumb-custom ----- ----- -----
+ */
+
+/**
+ *  ----- ----- ----- .pagination ----- ----- -----
+ */
+
+.pagination {
+    --bs-pagination-bg: transparent;
+    --bs-pagination-color: #fff;
+    --bs-pagination-border-color: var(--amj-border-primary-color);
+    --bs-pagination-disabled-color: var(--amj-text-secondary-color);
+    --bs-pagination-disabled-bg: #000;
+    --bs-pagination-disabled-border-color: var(--amj-border-primary-color);
+    --bs-pagination-hover-bg: var(--amj-bg-primary-color);
+    --bs-pagination-hover-color: var(--amj-teal-primary);
+}
+
+
+.wrapper {
+
+    // ----- .sidebar -----
+    #mainSidebar {
+        min-width: 20rem;
+        // height: 100vh;
+        background-color: var(--amj-bg-primary-color);
+        transition: margin 0.25s ease-out;
+
+        .nav-pills {
+            .active {
+                color: var(--bs-teal);
+                background-color: transparent !important;
+            }
+
+            .nav-link {
+                color: #fff;
+
+                &:hover {
+                    color: var(--bs-teal);
+                }
+            }
+        }
+    }
+
+
+    // ----- #pageContent -----
+    #pageContent {
+        min-width: 0;
+        width: 100%;
+        overflow-y: scroll;
+
+        // ----- #topNavigation -----
+        #topNavigation {
+            background-color: var(--amj-bg-primary-color);
+
+            .container-fluid {
+                div:first-child {
+                    justify-content: center;
+                }
+
+                form {
+                    .btn {
+                        border: 1px solid #fff;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        // ----- .container-fluid -----
+        .container-fluid {
+
+            // ----- #searchForMobile -----
+            #searchForMobile {
+                display: none;
+
+                form {
+                    .btn {
+                        border: 1px solid #fff;
+                        color: #fff;
+                    }
+                }
+            }
+
+            // ----- pageTitle -----
+            .pageTitle {
+                border-bottom: 1px solid $border_primary_color;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                // margin and padding
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+        }
+    }
+
+}
+
+/*
+ * ----- ----- ----- ----- ----- ----- Components ----- ----- ----- ----- ----- -----
+ */
+
+// a = #fff
+// a:hover = amj-a-active
+.amj-a {
+    text-decoration: none;
+    color: #fff !important;
+
+    &:hover {
+        color: var(--amj-teal-primary) !important;
+    }
+}
+
+.cardQuickInfo {
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        i {
+            font-size: 2rem;
+            color: var(--bs-teal) !important;
+        }
+    }
+
+    .card-footer {
+        a {
+            color: $text_secondary;
+            text-decoration: none;
+
+            &:hover {
+                color: $text_primary_color;
+            }
+        }
+    }
+}
+
+/**
+ * ----- ----- ----- footer ----- ----- -----
+ */
+footer {
+    color: $text_primary_color;
+    border-top: 1px solid $border_primary_color;
+}
+
+
+/**
+ * ----- ----- ----- others ----- ----- -----
+ */
+.text-small {
+    font-size: 80%;
+}
+
+
+/**
+ * ----- ----- ----- ----- ----- ----- media screen ----- ----- ----- ----- ----- -----
+ */
+@media screen and (max-width:767px) {
+
+    .sidebarToggled #mainSidebar {
+        margin-left: 0 !important;
+    }
+
+    /**
+     *  ----- ----- ----- .wrapper ----- ----- -----
+     */
+    .wrapper {
+
+        // ----- .sidebar -----
+        #mainSidebar {
+            bottom: 0;
+            float: none;
+            left: 0;
+            z-index: 999;
+            position: fixed;
+            top: 0;
+            border-right: 1px solid $border_primary_color;
+            overflow-y: scroll;
+            min-width: 250px;
+            margin-left: -20rem;
+
+            div:first-child {
+                a {
+                    justify-content: space-between;
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+
+        // ----- #pageContent -----
+        #pageContent {
+
+            // ----- #topNavigation -----
+            #topNavigation {
+
+                .container-fluid {
+                    div:first-child {
+                        justify-content: space-between;
+                    }
+
+                    form {
+                        display: none !important;
+                    }
+
+                    .nav-right {
+                        ul:last-child {
+                            margin-right: -10px;
+                        }
+                    }
+                }
+            }
+
+            // ----- .container-fluid -----
+            .container-fluid {
+
+                // ----- #searchForMobile -----
+                #searchForMobile {
+                    display: block;
+                }
+
+                // ----- pageTitle -----
+                .pageTitle {
+                    display: block;
+
+                    h3 {
+                        margin-bottom: 0.875rem;
+                    }
+
+                    .btn-toolbar {
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+
+    // ----- others -----
+
+    .sm-d-none {
+        display: none;
+    }
+
+    .sm-mb-1 {
+        margin-bottom: 1rem;
+    }
+
+    .sm-mt-0 {
+        margin-top: 0 !important;
+    }
+
+    .sm-mt-1 {
+        margin-top: 1rem;
+    }
+
+    .sm-mt-2 {
+        margin-top: 2rem;
+    }
+
+    .sm-my-4 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .sm-pt-0 {
+        padding-top: 0 !important;
+    }
+
+    // Dashboard page
+    #sectionDashboardQuickInfo .col-xs-12:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/**
+ * ----- ----- ----- ----- ----- ----- media screen ----- ----- ----- ----- ----- -----
+ */
+@media screen and (min-width:768px) {
+
+    //----- others -----
+    .lg-d-none {
+        display: none;
+    }
+}
