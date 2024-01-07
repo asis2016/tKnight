@@ -42,127 +42,10 @@ $(document).ready(function () {
         }
     });
 
-    /**
-     * for tuxHomeLsof
-     */
-    $.ajax({
-        url: BASE_API_URL + '/lsof/n/i/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxHomeLsof h3').text(response['total'] + ' lsof');
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-    /**
-     * for tuxOSRelease
-     */
-    $.ajax({
-        url: BASE_API_URL + '/os-release/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxOSRelease h3').text(response['result']['NAME']);
-            $('#tuxOSRelease p').text(response['result']['VARIANT'] + ' v' + response['result']['VERSION_ID']);
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-    /**
-     * for tuxBoottime
-     */
-    $.ajax({
-        url: BASE_API_URL + '/boottime/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxBoottime p').text(response['result']);
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-
-    /**
-     * for tuxHomepageCpuCore
-     */
-    $.ajax({
-        url: BASE_API_URL + '/cpu/count/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxHomepageCpuCore a').text(response['result'] + ' core CPUs');
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-    /**
-     * for tuxHomepageSensors
-     */
-    $.ajax({
-        url: BASE_API_URL + '/sensors/temperature/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxHomepageSensors a').text(response['total'] + ' sensors');
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-    /**
-     * for tuxHomepageEnviron
-     */
-    $.ajax({
-        url: BASE_API_URL + '/environ/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('#tuxHomepageEnviron a').text(response['total'] + ' env found');
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-
-
-
-    /**
-     * GET users/
-     */
-    $.ajax({
-        url: BASE_API_URL + '/users/',
-        dataType: 'JSON',
-        success: function (data) {
-
-            let name = data['result']['name'];
-            let terminal = data['result']['terminal'];
-            let host = data['result']['host'];
-            let started = data['result']['started'];
-            let pid = data['result']['pid'];
-
-            //For ifconfig-and-users-stat.html
-            $('#ifconfigAndUserStat .name').text(name);
-            $('#ifconfigAndUserStat .pid').text(pid);
-            $('#ifconfigAndUserStat .terminal').text(terminal);
-            $('#ifconfigAndUserStat .host').text(host);
-            $('#ifconfigAndUserStat .started').text(started + ' secs.');
-
-        },
-        error: function () {
-            console.error('Failed to fetch external IP address');
-        }
-    });
-
 
     /**
      * for tuxDisk > Disk usage
      */
-
     // Utils
     function bytesToGB(bytes) {
         if (bytes === 0) return '0 GB';
@@ -171,13 +54,13 @@ $(document).ready(function () {
     }
 
     $.ajax({
-        url: BASE_API_URL + '/disk/usage/',
+        url: BASE_API_URL + '/disk-usage/',
         dataType: 'JSON',
         success: function (response) {
-            let totalDiskUsageInBytes = bytesToGB(response['result']['total']);
-            let usedDiskUsageInBytes = bytesToGB(response['result']['used']);
-            let freeDiskUsageInBytes = bytesToGB(response['result']['free']);
-            let freeDiskUsageInPercentage = response['result']['percent'];
+            let totalDiskUsageInBytes = bytesToGB(response['total']);
+            let usedDiskUsageInBytes = bytesToGB(response['used']);
+            let freeDiskUsageInBytes = bytesToGB(response['free']);
+            let freeDiskUsageInPercentage = response['percent'];
 
             // tables
             $('#tuxDisk .diskTotal').text(totalDiskUsageInBytes + ' GB');
@@ -225,7 +108,7 @@ $(document).ready(function () {
 
 
     /**
-     * for tuxHomepageProcesses
+     * for tuxHomepageProcesses (System processes)
      */
     $.ajax({
         url: BASE_API_URL + '/ps/',
@@ -275,91 +158,59 @@ $(document).ready(function () {
         }
     });
 
-
-    /**
-     * for tuxDisk > Disk partition
-     */
-    $.ajax({
-        url: BASE_API_URL + '/disk/partition/',
-        dataType: 'JSON',
-        success: function (response) {
-            let tbody = $('#tuxDiskPartition tbody');
-
-            $.each(response['result'], function (index, item) {
-                var newRow = $('<tr>');
-
-                // Append cells to the row
-                newRow.append('<td>' + item['Filesystem'] + '</td>');
-                newRow.append('<td>' + item['Size'] + '</td>');
-                newRow.append('<td class="only-d-lg">' + item['Used'] + '</td>');
-                newRow.append('<td class="only-d-lg">' + item['Avail'] + '</td>');
-                //newRow.append('<td>' + item['Use%'] + '</td>');
-                newRow.append(`<td><div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: ${item['Use%']};"></div></div></td>`);
-                newRow.append('<td class="only-d-lg">' + item['Mounted on'] + '</td>');
-                newRow.append('</tr>');
-
-                // Append the row to the tbody
-                tbody.append(newRow);
-            });
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
     /**
      * for "tuxSpeedTest"
      */
-    $("#tuxSpeedTest button").on("click", function () {
+    // $("#tuxSpeedTest button").on("click", function () {
 
-        $("#tuxSpeedTest .txtPing").text("running speed test ...");
+    //     $("#tuxSpeedTest .txtPing").text("running speed test ...");
 
-        $.ajax({
-            url: BASE_API_URL + '/speed-test/',
-            dataType: 'JSON',
-            success: function (response) {
-                let ping = response['result'].ping
-                let upload = response['result'].upload
-                let download = response['result'].download
+    //     $.ajax({
+    //         url: BASE_API_URL + '/speed-test/',
+    //         dataType: 'JSON',
+    //         success: function (response) {
+    //             let ping = response['result'].ping
+    //             let upload = response['result'].upload
+    //             let download = response['result'].download
 
-                $("#tuxSpeedTest .txtUpSpeed span").text(upload);
-                $("#tuxSpeedTest .txtDownSpeed span").text(download);
-                $("#tuxSpeedTest .txtPing").text(`Ping took about ${ping}.`);
-            },
-            error: function () {
-                console.error('Failed to fetch external IP address');
-            }
-        });
-    });
+    //             $("#tuxSpeedTest .txtUpSpeed span").text(upload);
+    //             $("#tuxSpeedTest .txtDownSpeed span").text(download);
+    //             $("#tuxSpeedTest .txtPing").text(`Ping took about ${ping}.`);
+    //         },
+    //         error: function () {
+    //             console.error('Failed to fetch external IP address');
+    //         }
+    //     });
+    // });
 
 
 
     /**
      * for tuxHomepageSystemctlServices
      */
-    $.ajax({
-        url: BASE_API_URL + '/systemctl/services/',
-        dataType: 'JSON',
-        success: function (response) {
-            var tbody = $('#tuxHomepageSystemctlServices tbody');
+    // $.ajax({
+    //     url: BASE_API_URL + '/systemctl/services/',
+    //     dataType: 'JSON',
+    //     success: function (response) {
+    //         var tbody = $('#tuxHomepageSystemctlServices tbody');
 
-            $.each(response['result'], function (index, item) {
-                var newRow = $('<tr>');
-                newRow.append('<td>' + item['unit'] + '</td>');
-                newRow.append(`<td><div class="badge badge-outline-${item['active']}">${item['active']}</div></td>`);
-                newRow.append('<td>' + item['sub'] + '</td>');
-                // Append the row to the tbody
-                tbody.append(newRow);
+    //         $.each(response['result'], function (index, item) {
+    //             var newRow = $('<tr>');
+    //             newRow.append('<td>' + item['unit'] + '</td>');
+    //             newRow.append(`<td><div class="badge badge-outline-${item['active']}">${item['active']}</div></td>`);
+    //             newRow.append('<td>' + item['sub'] + '</td>');
+    //             // Append the row to the tbody
+    //             tbody.append(newRow);
 
-                // only 10 of it.
-                if (index >= 7) {
-                    return false; // This will break out of the $.each loop
-                }
-            });
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
+    //             // only 10 of it.
+    //             if (index >= 7) {
+    //                 return false; // This will break out of the $.each loop
+    //             }
+    //         });
+    //     },
+    //     error: function () {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // });
     // tuxHomepageSystemctlServices ends
 });

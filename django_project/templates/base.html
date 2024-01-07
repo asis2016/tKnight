@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -107,7 +108,7 @@
 
     <!-- script.js -->
     <script src="https://asis2016.github.io/bootstrap-5-admin-template/static/js/script.js"></script>
-    <script src="#"></script>
+    <script src="{% static 'js/base.js' %}"></script>
 
     {% block footer %}
     {% endblock footer %}

@@ -18,70 +18,70 @@ $(document).ready(function () {
     /**
      * whoami
      */
-    $.ajax({
-        url: BASE_API_URL + '/whoami/',
-        dataType: 'JSON',
-        success: function (response) {
-            $('.tuxProfileName span').text(response['result']);
-        },
-        error: function () {
-            console.error("Error fetching data:", error);
-        }
-    });
+    // $.ajax({
+    //     url: BASE_API_URL + '/whoami/',
+    //     dataType: 'JSON',
+    //     success: function (response) {
+    //         $('.tuxProfileName span').text(response['result']);
+    //     },
+    //     error: function () {
+    //         console.error("Error fetching data:", error);
+    //     }
+    // });
 
     /**
      * for 'tuxBattery'
      */
-    $.ajax({
-        url: BASE_API_URL + '/sensors/battery/',
-        dataType: 'JSON',
-        success: function (data) {
-            // percent left
-            let percent = data['result']['percent'].toFixed(2);
-            $('#tuxBattery a').attr('data-bs-original-title', `${percent}% remaining`)
+    // $.ajax({
+    //     url: BASE_API_URL + '/sensors/battery/',
+    //     dataType: 'JSON',
+    //     success: function (data) {
+    //         // percent left
+    //         let percent = data['result']['percent'].toFixed(2);
+    //         $('#tuxBattery a').attr('data-bs-original-title', `${percent}% remaining`)
 
-            // If power is plugged
-            if (data['result']['power_plugged']) {
-                $('#tuxBattery .bi').addClass('bi-battery-charging');
-            } else {
-                $('#tuxBattery .bi').addClass('bi-battery-half');
-            }
-        },
-        error: function () {
-            console.error('Failed to fetch battery sensor data');
-        }
-    });
+    //         // If power is plugged
+    //         if (data['result']['power_plugged']) {
+    //             $('#tuxBattery .bi').addClass('bi-battery-charging');
+    //         } else {
+    //             $('#tuxBattery .bi').addClass('bi-battery-half');
+    //         }
+    //     },
+    //     error: function () {
+    //         console.error('Failed to fetch battery sensor data');
+    //     }
+    // });
 
     /**
      * GET ifconfig
      * And scanMyPorts
      */
-    $.ajax({
-        url: BASE_API_URL + '/ifconfig/',
-        dataType: 'JSON',
-        success: function (data) {
+    // $.ajax({
+    //     url: BASE_API_URL + '/ifconfig/',
+    //     dataType: 'JSON',
+    //     success: function (data) {
 
-            let inet = data['result']['inet'];
-            let inet6 = data['result']['inet6'][0];
-            let ether = data['result']['ether'];
-            let netmask = data['result']['netmask'];
-            let broadcast = data['result']['broadcast'];
-            let device = data['result']['device'];
+    //         let inet = data['result']['inet'];
+    //         let inet6 = data['result']['inet6'][0];
+    //         let ether = data['result']['ether'];
+    //         let netmask = data['result']['netmask'];
+    //         let broadcast = data['result']['broadcast'];
+    //         let device = data['result']['device'];
 
-            $('#scanMyPorts').attr('href', '/scan-port?hostname=' + inet);
+    //         $('#scanMyPorts').attr('href', '/scan-port?hostname=' + inet);
 
-            //For ifconfig-and-users-stat.html
-            $('#ifconfigAndUserStat .ipv4').text(inet);
-            $('#ifconfigAndUserStat .ipv6').text(inet6);
-            $('#ifconfigAndUserStat .netmask').text(netmask);
-            $('#ifconfigAndUserStat .broadcast').text(broadcast);
-            $('#ifconfigAndUserStat .ether').text(ether);
-            $('#ifconfigAndUserStat .device').text(device);
+    //         //For ifconfig-and-users-stat.html
+    //         $('#ifconfigAndUserStat .ipv4').text(inet);
+    //         $('#ifconfigAndUserStat .ipv6').text(inet6);
+    //         $('#ifconfigAndUserStat .netmask').text(netmask);
+    //         $('#ifconfigAndUserStat .broadcast').text(broadcast);
+    //         $('#ifconfigAndUserStat .ether').text(ether);
+    //         $('#ifconfigAndUserStat .device').text(device);
 
-        },
-        error: function () {
-            console.error('Failed to fetch external IP address');
-        }
-    });
+    //     },
+    //     error: function () {
+    //         console.error('Failed to fetch external IP address');
+    //     }
+    // });
 
 });

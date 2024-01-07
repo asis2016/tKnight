@@ -116,69 +116,7 @@ $(document).ready(function () {
     });
 
 
-    /**
-     * for tuxDisk > Disk usage
-     */
-
-    // Utils
-    function bytesToGB(bytes) {
-        if (bytes === 0) return '0 GB';
-        const gigabytes = bytes / (1024 * 1024 * 1024);
-        return gigabytes.toFixed(2);
-    }
-
-    $.ajax({
-        url: BASE_API_URL + '/disk.usage.json',
-        dataType: 'JSON',
-        success: function (response) {
-            let totalDiskUsageInBytes = bytesToGB(response['result']['total']);
-            let usedDiskUsageInBytes = bytesToGB(response['result']['used']);
-            let freeDiskUsageInBytes = bytesToGB(response['result']['free']);
-            let freeDiskUsageInPercentage = response['result']['percent'];
-
-            // tables
-            $('#tuxDisk .diskTotal').text(totalDiskUsageInBytes + ' GB');
-            $('#tuxDisk .diskUsed').text(usedDiskUsageInBytes + ' GB');
-            $('#tuxDisk .diskFree').text(freeDiskUsageInBytes + ' GB');
-
-            if ($('#diskUsageCanvas').length) {
-                const diskUsageChart = document.getElementById('diskUsageCanvas');
-                new Chart(diskUsageChart, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Total (GB)', 'Used (GB)', 'Free (GB)'],
-                        datasets: [{
-                            data: [totalDiskUsageInBytes, usedDiskUsageInBytes, freeDiskUsageInBytes],
-                            borderWidth: 0,
-                            backgroundColor: ['#6610f2', '#ffda6a', '#20c997']
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                enabled: true
-                            }
-                        },
-                        layout: {
-                            padding: {
-                                left: 0,
-                                right: 0,
-                                top: 0,
-                                bottom: 0
-                            }
-                        },
-                        responsive: false,
-                    }
-                });
-            }
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
+    
 
 
     /**
