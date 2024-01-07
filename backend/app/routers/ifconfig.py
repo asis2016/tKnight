@@ -1,15 +1,16 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-import ifcfg
+from utils.ifconfig import get_ifconfig
+from ..logger import log
 
 router = APIRouter()
-
 
 @router.get('/ifconfig/', tags=['Networking'])
 def read_ifconfig():
     '''
     Return just the default interface device dictionary.
     '''
-    result = ifcfg.default_interface()
-    return {'result': result}
+    log.info('/ifconfig/ requested.')
+    result = get_ifconfig()
+    return result

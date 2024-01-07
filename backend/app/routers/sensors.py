@@ -1,7 +1,8 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-import psutil
+from utils.sensors import *
+from ..logger import log
 
 router = APIRouter()
 
@@ -11,22 +12,19 @@ async def read_sensors_temperature():
     '''
     Return hardware temperatures.
     '''
-    temperature = psutil.sensors_temperatures()
-    return {
-        'result' : temperature,
-        'total': len(temperature)
-    }
-
+    log.info('/sensors/temperature/ started.')
+    result = get_sensors_temperature()
+    return result
+    
 
 @router.get('/sensors/battery/', tags=['Sensors'])
-async def read_sensors_battey():
+async def read_sensors_battery():
     '''
     Return battery information.
     '''
-    battery = psutil.sensors_battery()
-    battery_dict = dict(battery._asdict())
-    
-    return {'result': battery_dict}
+    log.info('/sensors/battery/ started.')
+    result = get_sensors_battery()
+    return result
 
 
 @router.get('/sensors/fan/', tags=['Sensors'])
@@ -34,5 +32,6 @@ async def read_sensors_fan():
     '''
     Return fan information.
     '''
-    fan = psutil.sensors_fans()
-    return {'result': fan}
+    log.info('/sensors/fan/ started.')
+    result = get_sensors_fan()
+    return result

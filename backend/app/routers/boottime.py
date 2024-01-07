@@ -1,8 +1,7 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-import psutil
-import datetime
+from utils.boottime import get_bootime
 from ..logger import log
 
 router = APIRouter()
@@ -13,7 +12,5 @@ def read_boottime():
     Return boot time info from the OS.
     '''
     log.info('/bootime/ requested.')
-
-    bootime = psutil.boot_time()
-    result = datetime.datetime.fromtimestamp(bootime).strftime('%Y-%m-%d %H:%M:%S')
-    return {'result': result}
+    result = get_bootime()
+    return result

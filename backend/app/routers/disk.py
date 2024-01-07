@@ -1,13 +1,11 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-import psutil
-import subprocess
-import re
+from utils.disk_usage import get_disk_usage
+from utils.disk_partition import get_disk_partition
 from ..logger import log
 
 router = APIRouter()
-
 
 @router.get('/disk/usage/', tags=['Disk'])
 async def read_disk_usage():
@@ -15,10 +13,8 @@ async def read_disk_usage():
     Return disk usage statistics.
     '''
     log.info('/disk/usage/ requested.')
-    du = psutil.disk_usage('/')
-    result = dict(du._asdict())
-
-    return {'result': result}
+    result = get_disk_usage()
+    return result
 
 
 @router.get('/disk/partition/', tags=['Disk'])
@@ -26,30 +22,6 @@ async def read_disk_partition():
     '''
     Return disk partition statistics.
     '''
-    result = []
-    data = subprocess.check_output(['df', '-h']).decode('utf-8')
-
-    # Skip the header line
-    lines = data.split('\n')[1:]
-
-    for line in lines:
-        if line.strip() == '':
-            continue
-        columns = re.split(r'\s+', line)
-        filesystem, size, used, avail, use_percent, mounted_on = columns
-        
-        entry = {
-            'Filesystem': filesystem,
-            'Size': size,
-            'Used': used,
-            'Avail': avail,
-            'Use%': use_percent,
-            'Mounted on': mounted_on
-        }
-
-        result.append(entry)
-    
-    return {
-        'result': result,
-        'total': len(result)
-    }
+    log.info('/disk/partition/ requested.')
+    result = get_disk_partition()
+    return result

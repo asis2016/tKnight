@@ -1,17 +1,17 @@
 """
-Utility function to retrieve the current username using the 'whoami' command.
+Utility function to retrieve ifconfig information.
+Return just the default interface device dictionary.
 """
 
 __author__ = "Ashish S. Maharjan"
 __email__ = "hello@amaharjan.de"
 __version__ = "1.0"
 
-import subprocess
+import ifcfg
 
-
-def get_whoami():
+def get_ifconfig():
     try:
-        result = subprocess.check_output(['whoami'], text=True).strip()
+        result = ifcfg.default_interface()
         return {'result' : result}
     except Exception as e:
         error = f'Error: {str(e)}'

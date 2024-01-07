@@ -1,17 +1,18 @@
 """
-Utility function to retrieve the current username using the 'whoami' command.
+Utility function to retrieve disk usage statistics.
 """
 
 __author__ = "Ashish S. Maharjan"
 __email__ = "hello@amaharjan.de"
 __version__ = "1.0"
 
-import subprocess
+import psutil
 
 
-def get_whoami():
+def get_disk_usage():
     try:
-        result = subprocess.check_output(['whoami'], text=True).strip()
+        du = psutil.disk_usage('/')
+        result = dict(du._asdict())
         return {'result' : result}
     except Exception as e:
         error = f'Error: {str(e)}'

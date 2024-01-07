@@ -4,11 +4,9 @@ from fastapi import APIRouter, WebSocket
 import psutil
 import time
 import asyncio
-
 from ..logger import log
 
 router = APIRouter()
-
 
 @router.get('/cpu/count/', tags=['CPU'])
 async def read_cpu_count():
