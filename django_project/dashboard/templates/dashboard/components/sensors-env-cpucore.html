@@ -39,11 +39,15 @@
     <div class="col-lg-4 col-sm-6 col-xs-6 sm-mt-3" id="tuxHomepageCpuCore">
         <div class="card">
             <div class="card-body text-center">
+                {% if cpu_count.result %}
                 <div class="mb-2">
                     <i class="bi bi-cpu fs-1 text-info"></i>
                 </div>
                 <a class="mb-1 fs-6 link-offset-3 link-info" href="index" data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" data-bs-title="CPU Core"></a>
+                    data-bs-placement="bottom" data-bs-title="CPU Core">
+                    {{ cpu_count.result }} CORES
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>

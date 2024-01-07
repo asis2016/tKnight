@@ -2,11 +2,15 @@ from django.views.generic import TemplateView
 
 #from utils.whoami import get_whoami
 from utils.boottime import get_bootime
+from utils.cpu import get_cpu_count
 from utils.disk_partition import get_disk_partition
+from utils.environ import get_environ
+from utils.lsof import get_lsof
+from utils.os_release import get_os_release
+from utils.systemctl_services import get_systemctl_services
 from utils.sensors import (
     get_sensors_temperature,
 )
-from utils.environ import get_environ
 
 
 class DashboardTemplateView(TemplateView):
@@ -16,7 +20,10 @@ class DashboardTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['boottime'] = get_bootime()
-        context['disk_partition'] = get_disk_partition()
+        context['cpu_count'] = get_cpu_count()
+        context['disk_partition'] = get_disk_partition
+        context['lsof'] = get_lsof()
+        context['os_release'] = get_os_release()
         #context[''] =
         #context[''] =
         #context[''] =
@@ -26,8 +33,7 @@ class DashboardTemplateView(TemplateView):
         #context[''] =
         #context[''] =
         #context[''] =
-        #context[''] =
-        #context[''] =
+        context['systemctl'] = get_systemctl_services()
         context['sensors_temperature'] = get_sensors_temperature()
         context['environ'] = get_environ()
         #context[''] =

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 Home
 {% endblock %}
@@ -75,8 +75,9 @@ Home
 
 {% endblock %}
 
-{% block footers %}
+{% block footer %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+<script src="{% static 'js/cpu.async.random.walk.js' %}"></script>
 <script src=""></script>
 <script src=""></script>
-<script src=""></script>
-{% endblock footers %}
+{% endblock footer %}

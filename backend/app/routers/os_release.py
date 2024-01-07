@@ -1,7 +1,8 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter
-import subprocess
+from utils.os_release import get_os_release
+from ..logger import log
 
 router = APIRouter()
 
@@ -12,12 +13,6 @@ def read_os_release():
     NOTE: Only tested with Fedora!
     TODO: Test with different distro.
     '''
-    output = subprocess.check_output(['cat', '/etc/os-release'], universal_newlines=True) #universal_newlines for normalizing \n, etc.
-    
-    os_release_dict = {}
-
-    for line in output.splitlines():
-            key, value = line.split('=', 1)
-            os_release_dict[key.strip()] = value.strip().strip('"')
-    
-    return {'result': os_release_dict}
+    log.info('/os-release/ requested.')
+    result = get_os_release()
+    return result

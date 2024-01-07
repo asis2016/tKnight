@@ -1,6 +1,7 @@
 __author__ = 'amaharjan.de'
 
 from fastapi import APIRouter, WebSocket
+from utils.cpu import get_cpu_count
 import psutil
 import time
 import asyncio
@@ -14,9 +15,8 @@ async def read_cpu_count():
     Return CPU count, i.e. core
     '''
     log.info('/cpu/count/ requested.')
-
-    result  = psutil.cpu_count()
-    return {'result': result}
+    result  = get_cpu_count()
+    return result
 
 
 # ws

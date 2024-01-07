@@ -1,13 +1,21 @@
 <div class="col-lg-3 col-sm-12 col-xs-12 sm-mb-1" id="tuxOSRelease">
     <div class="card cardQuickInfo">
         <div class="card-body">
+            {% if os_release.result %}
             <div>
-                <h3>OS name</h3>
-                <p>OS description <span class="small"></span></p>
+                <h3>
+                    {{ os_release.result.NAME }}
+                </h3>
+                <p>{{ os_release.result.VERSION_ID }} 
+                    <span class="small">
+                        {{ os_release.result.VARIANT_ID }} 
+                    </span>
+                </p>
             </div>
             <div>
                 <i class="bi bi-feather"></i>
             </div>
+            {% endif %}
         </div>
         <div class="card-footer text-center">
             <a href="#ifconfigAndUserStat">Read more <i class="bi bi-arrow-right-circle"></i></a>
