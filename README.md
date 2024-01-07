@@ -1,9 +1,3 @@
-[
-  {"type":"directory","name":"/home/lion/Projects/tKnight/md_docs","user":"lion","size":"180"}
-,
-  {"type":"report","directories":0}
-]
-
 # Introduction
 Tux Knight (tKnight) is a Linux administration monitoring software made in FastAPI and Flask.
 
