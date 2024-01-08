@@ -1,12 +1,68 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}
+Environment Variables
 {% endblock %}
 
 {% block content %}
-<h1>E</h1>
-{% endblock content %}
+<div class="row mb-4 sm-mb-3" id="environ">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <th> Key </th>
+                                <th> Values </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if environs.result %}
+                            {% for env in environs.result %}
+                            <tr>
+                                <td>
+                                    {{ env.key }}
+                                </td>
+                                <td>
+                                    {{ env.value }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 {% block footer %}
+<script>
+    $.ajax({
+        url: BASE_API_URL + '/environ/',
+        dataType: 'json',
+        success: function (response) {
+            let tbody = $('#environ tbody');
+
+            $.each(response, function (index, item) {
+                // Access each item in the array
+                $.each(item, function (key, value) {
+                    var newRow = $('<tr>');
+                    newRow.append('<td>' + key + '</td>');
+                    newRow.append('<td>' + value + '</td>');
+                    newRow.append('</tr>');
+
+                    tbody.append(newRow);
+                });
+            });
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+</script>
 {% endblock footer %}
