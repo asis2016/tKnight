@@ -1,6 +1,5 @@
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import include, path
 from disks.views import get_disk_usage_json_view
 from environs.views import EnvironsTemplateView
 from ipscanner.views import (
@@ -45,6 +44,11 @@ urlpatterns = [
     path('userprofile/', UserProfileTemplateView.as_view(), name='userprofile'),
     #WIP
     path('wip/', WipTemplateView.as_view(), name='wip'),
+    
+    #vault
+    path('vault/', include('vault.urls')),
+
+    
     #dashboard
     path('', DashboardTemplateView.as_view(), name='dashboard'),
 ]

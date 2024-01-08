@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col d-flex justify-content-end">
+        <a href="{% url 'vault-manager-list' %}" class="btn btn-primary btn-sm">
+            < Go back to the list</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ object.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ object.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{ object.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td>{{ object.password }}</td>
+                    </tr>
+                    <tr>
+                        <th>URL</th>
+                        <td>{{ object.url }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created date</th>
+                        <td>{{ object.datestamp }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add credential
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="id_name" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="id_name" name="name" maxlength="200" required="" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="id_username" name="username" required="" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="id_password" name="password" required="" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_url" class="form-label">URL</label>
+                        <input type="text" class="form-control" id="id_url" name="url" required="" autocomplete="off">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex" style="justify-content: space-between; align-items: center;">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{% url 'vault-manager-list' %}">Go back</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

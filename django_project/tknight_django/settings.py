@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'system_services.apps.SystemServicesConfig',
     'traceroutes.apps.TraceroutesConfig',
     'userprofile.apps.UserprofileConfig',
+    'vault.apps.VaultConfig',
     #'.apps.Config',
 ]
 
@@ -91,13 +92,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tknight_django.wsgi.application'
 
-print(project_path)
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  f'{project_path}/db.sqlite3',
+        'NAME':  BASE_DIR / 'db.sqlite3',
     }
 }
 
