@@ -47,3 +47,6 @@ class DashboardTemplateView(TemplateView):
         return context
 
 
+class WipTemplateView(TemplateView):
+    extra_context = {'page_title': 'WIP'}
+    template_name = 'wip.html'

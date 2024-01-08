@@ -1,8 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from dashboard.views import (
-    DashboardTemplateView
-)
+
 from disks.views import get_disk_usage_json_view
 from environs.views import EnvironsTemplateView
 from ipscanner.views import IpscannerTemplateView
@@ -10,8 +8,12 @@ from lsofs.views import LsofsTemplateView
 from portscanner.views import PortScannerTemplateView
 from processes.views import get_ps_json_view, ProcessesTemplateView
 from system_services.views import SystemctlServicesTemplateView
-from traceroutes.views import TraceRoutesTemplateView
+from traceroutes.views import TraceRoutesFormView, traceroute_post_request
 from userprofile.views import UserProfileTemplateView
+
+from dashboard.views import (
+    DashboardTemplateView, WipTemplateView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,9 +33,12 @@ urlpatterns = [
     #system_services
     path('systemctl-services/', SystemctlServicesTemplateView.as_view(), name='systemctl-services'),
     #traceroutes
-    path('traceroute/', TraceRoutesTemplateView.as_view(), name='traceroute'),
+    path('traceroute/', TraceRoutesFormView.as_view(), name='traceroute'),
+    path('traceroute-post-request/', traceroute_post_request, name='traceroute-post-request'),
     #userprofile
     path('userprofile/', UserProfileTemplateView.as_view(), name='userprofile'),
+    #WIP
+    path('wip/', WipTemplateView.as_view(), name='wip'),
     #dashboard
     path('', DashboardTemplateView.as_view(), name='dashboard'),
 ]
