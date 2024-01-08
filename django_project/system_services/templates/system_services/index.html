@@ -1,12 +1,90 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}
+Systemctl Services
+{% endblock %}
+
+{% block header %}
+<!-- Todo refactor -->
+<style>
+    .card-body {
+        padding: 1rem !important;
+        min-height: 110px;
+    }
+
+    .running {
+        color: green;
+    }
+
+    .exited {
+        color: yellow;
+    }
+
+    .failed {
+        color: red;
+    }
+
+    @media screen and (max-width: 991px) {
+        h5 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+
+        #systemctlServices .card-body {
+            display: block !important;
+        }
+
+        #systemctlServices .card-body div:first-child {
+            width: 100% !important;
+        }
+
+        #systemctlServices .card-body div:first-child p {
+            margin-top: .8rem !important;
+            margin-bottom: .8rem !important;
+        }
+
+        #systemctlServices .card-body div:last-child {
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-A
-{% endblock content %}
+<div class="row sm-pt-0" id="systemctlServices">
+    {% if systemctl_services.result %}
+    {% for service in systemctl_services.result %}
+    <div class="col-lg-6 col-sm-12">
+        <div class="card mb-3">
+            <div class="card-body d-flex justify-content-between" style="align-items: center;">
+                <div style="width:50%">
+                    <h5>{{ service.unit }}</h5>
+                    <p class="mb-0">
+                        {{ service.description }}
+                    </p>
+                </div>
+                <div>
+                    {{ service.load }}
+                </div>
+                <div>
+                    {{ service.active }}
+                </div>
+                <div class={{service.sub}}>
+                    {{ service.sub }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {{ systemctl_services }}
+</div>
+{% endblock %}
 
 {% block footer %}
 {% endblock footer %}
