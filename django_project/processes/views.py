@@ -7,6 +7,10 @@ from utils.ps import get_ps
 class ProcessesTemplateView(TemplateView):
     extra_context = {'page_title': 'Processes'}
     template_name = 'processes/index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['processes'] = get_ps()
+        return context
 
 
 def get_ps_json_view(request):

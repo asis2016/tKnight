@@ -40,29 +40,4 @@ Environment Variables
 {% endblock %}
 
 {% block footer %}
-<script>
-    $.ajax({
-        url: BASE_API_URL + '/environ/',
-        dataType: 'json',
-        success: function (response) {
-            let tbody = $('#environ tbody');
-
-            $.each(response, function (index, item) {
-                // Access each item in the array
-                $.each(item, function (key, value) {
-                    var newRow = $('<tr>');
-                    newRow.append('<td>' + key + '</td>');
-                    newRow.append('<td>' + value + '</td>');
-                    newRow.append('</tr>');
-
-                    tbody.append(newRow);
-                });
-            });
-        },
-        error: function () {
-            console.error('Error fetching data:', error);
-        }
-    });
-
-</script>
 {% endblock footer %}

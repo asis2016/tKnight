@@ -1,7 +1,7 @@
 /**
  * CONSTANTS
  */
-const BASE_API_URL = 'http://127.0.0.1:8000';
+const BASE_API_URL = 'http://127.0.0.1:9005';
 const WS_BASE_API_URL = 'ws://127.0.0.1:8000';
 
 

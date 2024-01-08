@@ -1,12 +1,64 @@
 {% extends 'base.html' %}
-{% load static %}
+
 
 {% block title %}
+Processes
 {% endblock %}
 
 {% block content %}
-P
-{% endblock content %}
+<div class="row mb-4 sm-mb-3" id="processes">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <th> PID </th>
+                                <th> Process name </th>
+                                <th> Terminal </th>
+                                <th> No. of threads </th>
+                                <th> Started time </th>
+                                <th> Status </th>
+                                <th> User </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if processes.result %}
+                            {% for ps in processes.result %}
+                            <tr>
+                                <td>
+                                    {{ ps.pid }}
+                                </td>
+                                <td>
+                                    {{ ps.process_name }}
+                                </td>
+                                <td>
+                                    {{ ps.username }}
+                                </td>
+                                <td>
+                                    {{ ps.created_time }}
+                                </td>
+                                <td>
+                                    {{ ps.terminal }}
+                                </td>
+                                <td>
+                                    {{ ps.num_threads }}
+                                </td>
+                                <td>
+                                    {{ ps.status }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 {% block footer %}
 {% endblock footer %}

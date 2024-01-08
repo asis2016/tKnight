@@ -1,12 +1,63 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}
+LSOF
 {% endblock %}
 
 {% block content %}
-<h1>E</h1>
-{% endblock content %}
+<div class="row mb-4 sm-mb-3" id="tuxLsofPage">
+    <div class="col ">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>PID</th>
+                                <th>command</th>
+                                <th>FD</th>
+                                <th>User</th>
+                                <th>Node</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if lsofs.result %}
+                            {% for lsof in lsofs.result %}
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+                                    {{ lsof.PID }}
+                                </td>
+                                <td>
+                                    {{ lsof.COMMAND }}
+                                </td>
+                                <td>
+                                    {{ lsof.FD }}
+                                </td>
+                                <td>
+                                    {{ lsof.USER }}
+                                </td>
+                                <td>
+                                    {{ lsof.NODE }}
+                                </td>
+                                <td>
+                                    {{ lsof.NAME }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 {% block footer %}
 {% endblock footer %}
