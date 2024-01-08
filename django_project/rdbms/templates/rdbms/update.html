@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="id_name" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="id_name" name="name" maxlength="200" required=""
+                            value="{{ object.name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="id_username" name="username" required=""
+                            value="{{ object.username }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="id_password" name="password" required=""
+                            value="{{ object.password }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_type" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="id_type" name="type" required=""
+                            value="{{ object.type }}">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex" style="justify-content: space-between; align-items: center;">
+                        <button type="submit" class="btn btn-warning">Update</button>
+                        <a href="{% url 'rdbms-manager-list' %}">No, take me back</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

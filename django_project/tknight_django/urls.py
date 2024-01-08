@@ -47,6 +47,8 @@ urlpatterns = [
     
     #vault
     path('vault/', include('vault.urls')),
+    #Rdbms
+    path('rdbms/', include('rdbms.urls')),
 
     
     #dashboard

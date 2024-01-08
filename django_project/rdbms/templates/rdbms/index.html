@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-Primary Vault
+RDBMS List
 {% endblock %}
 
 
@@ -15,7 +15,7 @@ Primary Vault
         {% endif %}
     </div>
     <div class="col d-flex justify-content-end">
-        <a href="{% url 'vault-manager-add' %}" class="btn btn-primary btn-sm">+ Add new credential</a>
+        <a href="{% url 'rdbms-manager-add' %}" class="btn btn-primary btn-sm">+ Add new RDBMS</a>
     </div>
 </div>
 <div class="row mt-4 sm-mt-3">
@@ -27,10 +27,10 @@ Primary Vault
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Username</th>
                             <th>Password</th>
-                            <th>URL</th>
+                            <th>RDBMS Type</th>
                             <th></th>
                         </tr>
                         {% for post in object_list %}
@@ -38,26 +38,19 @@ Primary Vault
                             <td></td>
                             <td>{{ post.name }}</td>
                             <td>{{ post.username }}</td>
-                            <td class="d-none">
-                                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name"
-                                    value="Otto" disabled>
+                            <td>
+                                {{ post.password }}
                             </td>
                             <td>
-                                <span id="passwordForPost{{ post.id }}">{{ post.password }}</span>
-                                <span class="badge copyToClipboard" id="cpPwdBtnForPost{{ post.id }}"
-                                    data-clipboard-target="#passwordForPost{{ post.id }}">
-                                    &#128203;
-                                </span>
-                            </td>
-                            <td>
-                                <a href="{{ post.url|lower|safe }}" target="_blank">{{ post.url|lower }}</a>
+                                {{ post.type }}
                             </td>
                             <td class="d-flex justify-content-end">
-                                <a href="{% url 'vault-manager-detail' post.pk %}"
-                                    class="btn btn-info btn-sm">Detail</a>&nbsp;
-                                <a href="{% url 'vault-manager-update' post.pk %}"
+                                <a href="{% url 'rdbms-manager-detail' post.pk %}" class="btn btn-info btn-sm">
+                                    Show Schemas
+                                </a>&nbsp;
+                                <a href="{% url 'rdbms-manager-update' post.pk %}"
                                     class="btn btn-warning btn-sm">Update</a>&nbsp;
-                                <a href="{% url 'vault-manager-delete' post.pk %}"
+                                <a href="{% url 'rdbms-manager-delete' post.pk %}"
                                     class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
@@ -72,11 +65,3 @@ Primary Vault
     </div>
 </div>
 {% endblock content %}
-
-{% block footer %}
-<script>
-    {% for post in object_list %}
-    new ClipboardJS('#cpPwdBtnForPost{{ post.id }}');
-    {% endfor %}
-</script>
-{% endblock footer %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-danger">You are about to delete</p>
+                    <table class="table">
+                        <tr>
+                            <td>Title</td>
+                            <td>{{ object.name }} </td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>{{ object.username }} </td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>{{ object.password }} </td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>{{ object.type }} </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex" style="justify-content: space-between; align-items: center;">
+                        <button type="submit" class="btn btn-danger">Yes, I'm sure</button>
+                        <a href="{% url 'vault-manager-list' %}">No, take me back</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

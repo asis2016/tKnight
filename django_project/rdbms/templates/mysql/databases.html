@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Primary Vault
+{% endblock %}
+
+
+{% block content %}
+<div class="row mt-4 sm-mt-3">
+    <div class="col-lg-12">
+        {% if result %}
+        <div class="card">
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Engine</th>
+                            <th>Version</th>
+                            <th>Row format</th>
+                            <th>Avg row length</th>
+                            <th>Data length</th>
+                            <th>Max data length</th>
+                            <th>Index length</th>
+                            <th>Free data</th>
+                            <th>Auto increment</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Checked time</th>
+                            <th>Collation</th>
+                            <th>Checksum</th>
+                            <th>Create options</th>
+                            <th>Table comment</th>
+                        </tr>
+                        {% for i in result.result %}
+                        <tr>
+                            <td></td>
+                            <td>
+                                {{i.table_name}}
+                            </td>
+                            <td>
+                                {{i.engine}}
+                            </td>
+                            <td>
+                                {{i.version}}
+                            </td>
+                            <td>
+                                {{ i.row_format }}
+                            </td>
+                            <td>
+                                {{ i.avg_row_length }}
+                            </td>
+                            <td>
+                                {{ i.data_length }}
+                            </td>
+                            <td>
+                                {{ i.max_data_length }}
+                            </td>
+                            <td>
+                                {{ i.index_length }}
+                            </td>
+                            <td>
+                                {{ i.data_free }}
+                            </td>
+                            <td>
+                                {{ i.auto_increment }}
+                            </td>
+                            <td>
+                                {{ i.create_time }}
+                            </td>
+                            <td>
+                                {{ i.update_time }}
+                            </td>
+                            <td>
+                                {{ i.check_time }}
+                            </td>
+                            <td>
+                                {{ i.table_collation }}
+                            </td>
+                            <td>
+                                {{ i.checksum }}
+                            </td>
+                            <td>
+                                {{ i.create_options }}
+                            </td>
+                            <td>
+                                {{ i.table_comment }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">No records found!</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
