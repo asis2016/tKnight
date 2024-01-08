@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 from utils.disk_usage import get_disk_usage
 

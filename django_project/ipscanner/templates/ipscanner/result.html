@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+IP scanner result
+{% endblock %}
+
+{% block content %}
+
+<!-- result -->
+<div class="row mt-4" id="tuxIPScannerResult">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                {% if result.result %}
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> IP </th>
+                                <th> TTL </th>
+                                <th> Time </th>
+                                <th> Is alive? </th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in result.result %}
+                            <tr>
+                                <td>
+                                    {{ i.ip }}
+                                </td>
+                                <td>
+                                   {% if i.ttl %} {{ i.ttl }} {% else %} 0 {% endif %}
+                                </td>
+                                <td>
+                                    {% if i.time %} {{ i.time }} {% else %} 0 {% endif %}
+                                </td>
+                                <td>
+                                    <div class='badge badge-outline-{% if i.aliveStatus is True %}success{% else %}danger{% endif %}'>
+                                        {{ i.aliveStatus }}
+                                    </div>
+                                </td>
+                                {% if i.aliveStatus %}
+                                <td>
+                                    <!-- todo -->
+                                    <a href="/scan-port?hostname=IP" class='btn btn-warning'>Scan ports</a>
+                                </td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock footer %}
