@@ -11,6 +11,6 @@ def read_lsof():
     '''
     Return `$ lsof -n -i`
     '''
-    log.info('read_lsof started.')
+    log.info('/lsof/n/i/ requested.')
     result = get_lsof()
     return result

@@ -47,7 +47,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #
-    'dashboard.apps.DashboardConfig'
+    'dashboard.apps.DashboardConfig',
+    'disks.apps.DisksConfig',
+    'environs.apps.EnvironsConfig',
+    'ipscanner.apps.IpscannerConfig',
+    'lsofs.apps.LsofsConfig',
+    'portscanner.apps.PortscannerConfig',
+    'processes.apps.ProcessesConfig',
+    'traceroutes.apps.TraceroutesConfig',
+    'userprofile.apps.UserprofileConfig',
+    #'.apps.Config',
 ]
 
 MIDDLEWARE = [

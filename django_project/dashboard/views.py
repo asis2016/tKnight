@@ -1,12 +1,10 @@
 from django.views.generic import TemplateView
-from django.http import JsonResponse
 
 # utils
 #from utils.whoami import get_whoami
 from utils.boottime import get_bootime
 from utils.cpu import get_cpu_count
 from utils.disk_partition import get_disk_partition
-from utils.disk_usage import get_disk_usage
 from utils.environ import get_environ
 from utils.ifconfig import get_ifconfig
 from utils.lsof import get_lsof
@@ -48,20 +46,4 @@ class DashboardTemplateView(TemplateView):
         
         return context
 
-
-def get_disk_usage_json_view(request):
-    '''
-    Returns get_disk_usage() from utils as list of JSON objects.
-    '''
-    disk_usage = get_disk_usage()
-    result = disk_usage['result']
-    return JsonResponse(result, safe=False)
-
-
-def get_ps_json_view(request):
-    '''
-    Returns get_disk_usage() from utils as list of JSON objects.
-    '''
-    result = get_ps()
-    return JsonResponse(result, safe=False)
 

@@ -11,6 +11,6 @@ def read_whoami():
     '''
     Return `whoami` from the OS.
     '''
-    log.info('/whoami/ started.')
+    log.info('/whoami/ requested.')
     result = get_whoami()
     return result
