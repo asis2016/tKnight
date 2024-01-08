@@ -8,17 +8,16 @@ from environs.views import EnvironsTemplateView
 from ipscanner.views import IpscannerTemplateView
 from lsofs.views import LsofsTemplateView
 from portscanner.views import PortScannerTemplateView
-from processes.views import get_ps_json_view
+from processes.views import get_ps_json_view, ProcessesTemplateView
+from system_services.views import SystemctlServicesTemplateView
 from traceroutes.views import TraceRoutesTemplateView
 from userprofile.views import UserProfileTemplateView
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #disks
     path('disk-usage/', get_disk_usage_json_view, name='disk-usage'),
-    #environs
+#environs
     path('environs/', EnvironsTemplateView.as_view(), name='environs'),
     #ipscanner
     path('ipscanner/', IpscannerTemplateView.as_view(), name='ipscanner'),
@@ -28,6 +27,9 @@ urlpatterns = [
     path('portscanner/', PortScannerTemplateView.as_view(), name='portscanner'),
     #processes
     path('ps/', get_ps_json_view, name='ps'),
+    path('processes/', ProcessesTemplateView.as_view(), name='processes'),
+    #system_services
+    path('systemctl-services/', SystemctlServicesTemplateView.as_view(), name='systemctl-services'),
     #traceroutes
     path('traceroute/', TraceRoutesTemplateView.as_view(), name='traceroute'),
     #userprofile

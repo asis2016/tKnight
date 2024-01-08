@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'lsofs.apps.LsofsConfig',
     'portscanner.apps.PortscannerConfig',
     'processes.apps.ProcessesConfig',
+    'system_services.apps.SystemServicesConfig',
     'traceroutes.apps.TraceroutesConfig',
     'userprofile.apps.UserprofileConfig',
     #'.apps.Config',

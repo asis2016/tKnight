@@ -20,7 +20,7 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <p class="my-2 text-secondary text-small">DASHBOARD</p>
             <li class="nav-item">
-                <a href="index" class="nav-link active" aria-current="page">
+                <a href="{% url 'dashboard' %}" class="nav-link active" aria-current="page">
                     <i class="bi bi-house-door-fill me-2"></i>
                     Home v.1
                 </a>
@@ -29,7 +29,7 @@
             <!-- accounts -->
             <p class="my-2 text-secondary text-small only-d-lg">ACCOUNT</p>
             <li class="tuxProfileName only-d-lg">
-                <a href="profile" class="nav-link">
+                <a href="{% url 'userprofile' %}" class="nav-link">
                     <i class="bi bi-person-circle me-2"></i>
                     <span>whoami</span>
                 </a>
@@ -37,31 +37,31 @@
             <!-- sysinfo -->
             <p class="my-2 text-secondary text-small">SYS INFO</p>
             <li>
-                <a href="environ" class="nav-link">
+                <a href="{% url 'environs' %}" class="nav-link">
                     <i class="bi bi-card-list me-2"></i>
                     Environment Var
                 </a>
             </li>
             <li>
-                <a href="processes" class="nav-link">
+                <a href="{% url 'processes' %}" class="nav-link">
                     <i class="bi bi-boxes me-2"></i>
                     Processes
                 </a>
             </li>
             <li>
-                <a href="lsof" class="nav-link">
+                <a href="{% url 'lsof' %}" class="nav-link">
                     <i class="bi bi-file-earmark-check me-2"></i>
                     lsof -n -i
                 </a>
             </li>
             <li>
-                <a href="systemctl_services" class="nav-link">
+                <a href="systemctl-services" class="nav-link">
                     <i class="bi bi-display me-2"></i>
                     Systemctl status
                 </a>
             </li>
             <li>
-                <a href="index') }}#tuxDiskPartition" class="nav-link">
+                <a href="{% url 'dashboard' %}#tuxDiskPartition" class="nav-link">
                     <i class="bi bi-device-hdd-fill me-2"></i>
                     Disk Partition
                 </a>
@@ -69,19 +69,19 @@
             <!-- network tools -->
             <p class="my-2 text-secondary text-small">Network tools</p>
             <li>
-                <a class="nav-link" id="scanMyPorts" href="#">
+                <a class="nav-link" id="scanMyPorts" href="{% url 'portscanner' %}">
                     <i class="bi bi-ethernet me-2"></i>
                     Scan my Ports
                 </a>
             </li>
             <li>
-                <a href="ipscanner" class="nav-link">
+                <a href="{% url 'ipscanner' %}" class="nav-link">
                     <i class="bi bi-123 me-2"></i>
                     IP Scanner
                 </a>
             </li>
             <li>
-                <a href="traceroute" class="nav-link">
+                <a href="{% url 'traceroute' %}" class="nav-link">
                     <i class="bi bi-box-seam me-2"></i>
                     Traceroute
                 </a>
@@ -90,7 +90,7 @@
             <p class="my-2 text-secondary text-small">OTHERS</p>
             <li>
                 <!-- "sys logs = timeline" -->
-                <a href="syslog" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="bi bi-body-text me-2"></i>
                     tKnight Log
                 </a>
