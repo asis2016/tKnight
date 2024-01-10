@@ -8,8 +8,9 @@ from django.urls import reverse_lazy
 from .models import RdbmsManager
 
 #utils
-from utils.rdbms.schema import get_schemas
-from utils.rdbms.database import get_database
+from utils.rdbms.tknight_mysql.schema import get_schemas
+from utils.rdbms.tknight_mysql.database import get_database
+from utils.rdbms.tknight_mysql.table import get_describe_table
 
 
 class RdbmsManagerCreateView(CreateView):
@@ -41,7 +42,7 @@ class RdbmsManagerListView(ListView):
 
 class RdbmsManagerDetailView(DetailView):
     model = RdbmsManager
-    extra_context = {'page_title': 'RDBMS detail'}
+    extra_context = {'page_title': 'All schemas'}
     template_name = 'rdbms/detail.html'
     context_object_name = 'object'
     
@@ -62,7 +63,7 @@ class RdbmsManagerDetailView(DetailView):
 
 @csrf_exempt
 @require_POST
-def mysql_db_post_request(request):
+def mysql_show_schema_post_request(request):
     if request.method == 'POST':
         host = request.POST.get('host')
         username = request.POST.get('username')
@@ -71,8 +72,29 @@ def mysql_db_post_request(request):
 
         result = get_database(host, username, secret, db)
         
-        return render(request, 'mysql/databases.html', {
+        return render(request, 'mysql/schemas.html', {
+            'host':host,
+            'username':username,
+            'secret':secret,
+            'db': db,
             'result': result,
-            'page_title': 'MySQL Database'
+            'page_title': 'MySQL Schema and it\'s tables'
         })
 
+
+@csrf_exempt
+@require_POST
+def mysql_describe_table_post_request(request):
+    if request.method == 'POST':
+        host = request.POST.get('host')
+        username = request.POST.get('username')
+        secret = request.POST.get('secret')
+        db = request.POST.get('db')
+        table_name = request.POST.get('table_name')
+        result = get_describe_table(host, username, secret, db, table_name)
+        
+        return render(request, 'mysql/tables.html', {
+            'result': result,
+            'table_name': table_name,
+            'page_title': 'MySQL table described'
+        })

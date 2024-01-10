@@ -10,14 +10,19 @@ Primary Vault
 {% block content %}
 <div class="row mt-4 sm-mt-3">
     <div class="col-lg-12">
-        {% if result %}
+        {% if result.result %}
         <div class="card">
+            <div class="card-header">
+                <h4 class="my-2">
+                    {{ db }} schema
+                </h4>
+            </div>
             <div class="card-body table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
+                            <th>Table Name</th>
                             <th>Engine</th>
                             <th>Version</th>
                             <th>Row format</th>
@@ -38,9 +43,31 @@ Primary Vault
                         {% for i in result.result %}
                         <tr>
                             <td></td>
+                            <!-- this acts as a form itself -->
+                            <!-- todo refactor -->
+                            <style>
+                                button {
+                                    background: none;
+                                    border: 0;
+                                    text-decoration: underline;
+                                }
+                            </style>
                             <td>
-                                {{i.table_name}}
+                                <form method="POST" action="{% url 'rdbms-mysql-describe-table' %}">
+                                    {% csrf_token %}
+                                    <input type="text" value="{{ host }}" name="host" class="d-none">
+                                    <input type="text" value="{{ username }}" name="username" class="d-none">
+                                    <input type="text" value="{{ secret }}" name="secret" class="d-none">
+                                    <input type="text" value="{{ db }}" name="db" class="d-none">
+                                    <input type="text" value="{{i.table_name}}" name="table_name" class="d-none">
+                                    <!-- submit -->
+                                    <button class="bg-none link-offset-2 link-info" type="submit">
+                                        {{i.table_name}}
+                                    </button>
+                                    <!-- submit ends -->
+                                </form>
                             </td>
+                            <!-- form ends -->
                             <td>
                                 {{i.engine}}
                             </td>
@@ -96,7 +123,7 @@ Primary Vault
             </div>
         </div>
         {% else %}
-        <div class="alert alert-warning">No records found!</div>
+        <div class="alert alert-warning">Not found!</div>
         {% endif %}
     </div>
 </div>

@@ -15,43 +15,48 @@ RDBMS List
         {% endif %}
     </div>
     <div class="col d-flex justify-content-end">
-        <a href="{% url 'rdbms-manager-add' %}" class="btn btn-primary btn-sm">+ Add new RDBMS</a>
+        <a href="{% url 'rdbms-manager-add' %}" class="btn btn-info btn-sm">
+            <i class="bi bi-database-add me-1"></i>Add new RDBMS
+        </a>
     </div>
 </div>
 <div class="row mt-4 sm-mt-3">
     <div class="col-lg-12">
         {% if object_list %}
         <div class="card">
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Type</th>
                             <th>Name</th>
                             <th>Username</th>
-                            <th>Password</th>
-                            <th>RDBMS Type</th>
+                            <th>Secret</th>
                             <th></th>
                         </tr>
                         {% for post in object_list %}
                         <tr>
                             <td></td>
+                            <td>
+                                {{ post.type }}
+                            </td>
                             <td>{{ post.name }}</td>
                             <td>{{ post.username }}</td>
                             <td>
                                 {{ post.password }}
                             </td>
-                            <td>
-                                {{ post.type }}
-                            </td>
                             <td class="d-flex justify-content-end">
                                 <a href="{% url 'rdbms-manager-detail' post.pk %}" class="btn btn-info btn-sm">
-                                    Show Schemas
+                                    <i class="bi bi-box-arrow-in-right me-1"></i>Show Schemas
                                 </a>&nbsp;
-                                <a href="{% url 'rdbms-manager-update' post.pk %}"
-                                    class="btn btn-warning btn-sm">Update</a>&nbsp;
+                                <a href="{% url 'rdbms-manager-update' post.pk %}" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square me-1"></i>Update
+                                </a>&nbsp;
                                 <a href="{% url 'rdbms-manager-delete' post.pk %}"
-                                    class="btn btn-danger btn-sm">Delete</a>
+                                    class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash me-1"></i>Trash
+                                </a>
                             </td>
                         </tr>
                         {% endfor %}

@@ -6,7 +6,8 @@ from .views import (
     RdbmsManagerCreateView,
     RdbmsManagerListView,
     #schema
-    mysql_db_post_request
+    mysql_show_schema_post_request,
+    mysql_describe_table_post_request
 )
 
 urlpatterns = [
@@ -15,6 +16,7 @@ urlpatterns = [
     path('<int:pk>/delete/', RdbmsManagerDeleteView.as_view(), name='rdbms-manager-delete'),
     path('create', RdbmsManagerCreateView.as_view(), name='rdbms-manager-add'),
     #mysql
-    path('mysql/database/', mysql_db_post_request, name='rdbms-mysql-database-list'),
+    path('mysql/database/', mysql_show_schema_post_request, name='rdbms-mysql-database-list'),
+    path('mysql/describe/table/', mysql_describe_table_post_request, name='rdbms-mysql-describe-table'),
     path('', RdbmsManagerListView.as_view(), name='rdbms-manager-list'),
 ]

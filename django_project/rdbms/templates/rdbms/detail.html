@@ -3,72 +3,30 @@
 {% block content %}
 <div class="row mb-4">
     <div class="col d-flex justify-content-end">
-        <a href="{% url 'rdbms-manager-list' %}" class="btn btn-primary btn-sm">
+        <a href="{% url 'rdbms-manager-list' %}" class="btn btn-info btn-sm">
             < Go back to the list</a>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-lg-7">
+    {% for schema in schemas.result %}
+    <form method="POST" action="{% url 'rdbms-mysql-database-list' %}" class="col-lg-2 mb-3">
+        {% csrf_token %}
         <div class="card">
-            <div class="card-header">
-                <h6 class="my-2">Schemas found</h6>
-            </div>
             <div class="card-body">
-
-                <ul class="list-group">
-                    {% for schema in schemas.result %}
-                    <form method="POST" action="{% url 'rdbms-mysql-database-list' %}">
-                    {% csrf_token %}
-                    <input type="text" value="{{ schema.name }}" name="db"  class="d-none">
-                    <input type="text" value="{{ object.username }}" name="username" class="d-none">
-                    <input type="text" value="{{ object.password }}" name="password" class="d-none">
-                    <input type="text" value="{{ object.host }}" name="host" class="d-none">
-                    <button class="list-group-item list-group-item-action" type="submit" 
-                    class="btn btn-primary me-2">
-                        {{ schema.name }}
-                    </button>
-                    </form>
-                    {% endfor %}
-                </ul>
-
+                <input type="text" value="{{ schema.name }}" name="db" class="d-none">
+                <input type="text" value="{{ object.username }}" name="username" class="d-none">
+                <input type="text" value="{{ object.password }}" name="password" class="d-none">
+                <input type="text" value="{{ object.host }}" name="host" class="d-none">
+                <i class="bi bi-database-check me-2"></i>{{ schema.name }}
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-secondary btn-sm w-100" type="submit" class="btn btn-primary me-2">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Connect
+                </button>
             </div>
         </div>
-    </div>
-    <div class="col-md-5">
-        <div class="card">
-            <div class="card-header">
-                <h6 class="my-2">Connection string</h6>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ object.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Title</th>
-                        <td>{{ object.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Username</th>
-                        <td>{{ object.username }}</td>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <td>{{ object.password }}</td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td>{{ object.type }}</td>
-                    </tr>
-                    <tr>
-                        <th>Created date</th>
-                        <td>{{ object.datestamp }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
+    </form>
+    {% endfor %}
 </div>
-
 {% endblock content %}
