@@ -11,5 +11,8 @@ def get_dba_users(USERNAME, SECRET, DSN):
             rows = cursor.fetchall()
             columns = [col[0] for col in cursor.description]
             result = [dict(zip(columns, row)) for row in rows]
-            return result
+            return {
+                'result': result
+            }
+        
 

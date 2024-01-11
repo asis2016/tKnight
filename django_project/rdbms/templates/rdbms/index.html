@@ -52,11 +52,11 @@ RDBMS List
                             </td>
                             <td class="d-flex justify-content-end">
                                 {% if post.type == 'MySQL' %}
-                                <a href="{% url 'rdbms-manager-detail' post.pk %}" class="btn btn-info btn-sm me-2">
+                                <a href="{% url 'rdbms-mysql-manager-detail' post.pk %}" class="btn btn-info btn-sm me-2">
                                     <i class="bi bi-box-arrow-in-right me-1"></i>Show MySQL
                                 </a>
                                 {% elif post.type == 'Oracle' %}
-                                <a href="{% url 'rdbms-manager-detail' post.pk %}" class="btn btn-info btn-sm me-2">
+                                <a href="{% url 'rdbms-oracle-manager-detail' post.pk %}" class="btn btn-info btn-sm me-2">
                                     <i class="bi bi-box-arrow-in-right me-1"></i>Show Oracle
                                 </a>
                                 {% endif %}

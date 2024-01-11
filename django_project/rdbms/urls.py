@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
-    RdbmsManagerDetailView,
+    RdbmsMySQLManagerDetailView,
+    RdbmsOracleManagerDetailView,
     RdbmsManagerUpdateView,
     RdbmsManagerDeleteView,
     RdbmsManagerCreateView,
@@ -11,7 +12,8 @@ from .views import (
 )
 
 urlpatterns = [
-    path('<int:pk>/', RdbmsManagerDetailView.as_view(), name='rdbms-manager-detail'),
+    path('<int:pk>/', RdbmsMySQLManagerDetailView.as_view(), name='rdbms-mysql-manager-detail'),
+    path('oracle/<int:pk>/', RdbmsOracleManagerDetailView.as_view(), name='rdbms-oracle-manager-detail'),
     path('<int:pk>/edit/', RdbmsManagerUpdateView.as_view(), name='rdbms-manager-update'),
     path('<int:pk>/delete/', RdbmsManagerDeleteView.as_view(), name='rdbms-manager-delete'),
     path('create', RdbmsManagerCreateView.as_view(), name='rdbms-manager-add'),

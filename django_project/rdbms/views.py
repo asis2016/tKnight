@@ -11,6 +11,7 @@ from .models import RdbmsManager
 from utils.rdbms.tknight_mysql.schema import get_schemas
 from utils.rdbms.tknight_mysql.database import get_database
 from utils.rdbms.tknight_mysql.table import get_describe_table
+from utils.rdbms.tknight_oracle.dba_users import get_dba_users
 
 
 class RdbmsManagerCreateView(CreateView):
@@ -40,7 +41,8 @@ class RdbmsManagerListView(ListView):
     template_name = 'rdbms/index.html'
 
 
-class RdbmsManagerDetailView(DetailView):
+#Only for MySQL
+class RdbmsMySQLManagerDetailView(DetailView):
     model = RdbmsManager
     extra_context = {'page_title': 'All schemas'}
     template_name = 'mysql/detail.html'
@@ -58,6 +60,29 @@ class RdbmsManagerDetailView(DetailView):
 
         #run utils
         context['schemas'] = get_schemas(host, username, secret)
+        return context
+    
+
+#Only for Oracle
+class RdbmsOracleManagerDetailView(DetailView):
+    model = RdbmsManager
+    extra_context = {'page_title': 'DBA Users'}
+    template_name = 'oracle/dba-users.html'
+    context_object_name = 'object'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        #
+        pk = self.kwargs['pk']
+        obj_instance = RdbmsManager.objects.get(pk=pk)
+
+        host = obj_instance.host
+        username = obj_instance.username
+        secret = obj_instance.password
+
+        #run utils
+        result = get_dba_users(USERNAME=username, SECRET=secret, DSN=host)
+        context['dba_users'] = result
         return context
 
 

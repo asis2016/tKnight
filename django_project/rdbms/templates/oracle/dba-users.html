@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+DBA Users
+{% endblock %}
+
+
+{% block content %}
+<div class="row mt-4 sm-mt-3">
+    <div class="col-lg-12">
+        {% if dba_users.result %}
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>USERNAME</th>
+                            <th>USER_ID</th>
+                            <th>PASSWORD</th>
+                            <th>ACCOUNT_STATUS</th>
+                            <th>LOCK_DATE</th>
+                            <th>EXPIRY_DATE</th>
+                            <th>DEFAULT_TABLESPACE</th>
+                            <th>TEMPORARY_TABLESPACE</th>
+                            <th>LOCAL_TEMP_TABLESPACE</th>
+                            <th>CREATED</th>
+                            <th>PROFILE</th>
+                            <th>INITIAL_RSRC_CONSUMER_GROUP</th>
+                            <th>EXTERNAL_NAME</th>
+                            <th>PASSWORD_VERSIONS</th>
+                            <th>EDITIONS_ENABLED</th>
+                            <th>AUTHENTICATION_TYPE</th>
+                            <th>COMMON</th>
+                            <th>LAST_LOGIN</th>
+                            <th>ORACLE_MAINTAINED</th>
+                            <th>INHERITED</th>
+                            <th>DEFAULT_COLLATION</th>
+                            <th>IMPLICIT</th>
+                            <th>ALL_SHARD</th>
+                        </tr>
+                        {% for i in dba_users.result %}
+                        <tr>
+                            <td></td>
+                            <td>{{ i.USERNAME }}</td>
+                            <td>{{ i.USER_ID }}</td>
+                            <td>{{ i.PASSWORD }}</td>
+                            <td>{{ i.ACCOUNT_STATUS }}</td>
+                            <td>{{ i.LOCK_DATE }}</td>
+                            <td>{{ i.EXPIRY_DATE }}</td>
+                            <td>{{ i.DEFAULT_TABLESPACE }}</td>
+                            <td>{{ i.TEMPORARY_TABLESPACE }}</td>
+                            <td>{{ i.LOCAL_TEMP_TABLESPACE }}</td>
+                            <td>{{ i.CREATED }}</td>
+                            <td>{{ i.PROFILE }}</td>
+                            <td>{{ i.INITIAL_RSRC_CONSUMER_GROUP }}</td>
+                            <td>{{ i.EXTERNAL_NAME }}</td>
+                            <td>{{ i.PASSWORD_VERSIONS }}</td>
+                            <td>{{ i.EDITIONS_ENABLED }}</td>
+                            <td>{{ i.AUTHENTICATION_TYPE }}</td>
+                            <td>{{ i.PROXY_ONLY_CONNECT }}</td>
+                            <td>{{ i.COMMON }}</td>
+                            <td>{{ i.LAST_LOGIN }}</td>
+                            <td>{{ i.ORACLE_MAINTAINED }}</td>
+                            <td>{{ i.INHERITED }}</td>
+                            <td>{{ i.DEFAULT_COLLATION }}</td>
+                            <td>{{ i.IMPLICIT }}</td>
+                            <td>{{ i.ALL_SHARD }}</td>
+                        </tr>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">Not found!</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
