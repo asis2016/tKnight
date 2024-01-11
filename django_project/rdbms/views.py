@@ -43,7 +43,7 @@ class RdbmsManagerListView(ListView):
 class RdbmsManagerDetailView(DetailView):
     model = RdbmsManager
     extra_context = {'page_title': 'All schemas'}
-    template_name = 'rdbms/detail.html'
+    template_name = 'mysql/detail.html'
     context_object_name = 'object'
     
     def get_context_data(self, **kwargs):
