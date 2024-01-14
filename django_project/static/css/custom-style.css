@@ -1,0 +1,12 @@
+/* userprofile */
+.profileNameInitials h6 {
+    border: 1px solid var(--bs-primary);
+    background-color: var(--bs-teal);
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 1rem;
+}
