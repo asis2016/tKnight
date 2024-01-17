@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="col-lg-3 col-sm-12 col-xs-12 sm-mt-3" id="tuxBoottime">
     <div class="card cardQuickInfo">
         <div class="card-body">
@@ -6,7 +7,9 @@
                 <h3>
                     {{ boottime.result }}
                 </h3>
-                <p>Opened</p>
+                <p>
+                    {% trans 'Opened' %}
+                </p>
             </div>
             <div>
                 <i class="bi bi-clock-history"></i>
@@ -14,7 +17,9 @@
             {% endif %}
         </div>
         <div class="card-footer text-center">
-            <a href="#">Review this info <i class="bi bi-arrow-right-circle"></i></a>
+            <a href="#">
+                {% trans 'Review this info' %}
+                <i class="bi bi-arrow-right-circle"></i></a>
         </div>
     </div>
 </div>

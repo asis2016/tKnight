@@ -1,6 +1,8 @@
+{% load i18n %}
 <div class="card" id="tuxDiskPartition">
     <div class="card-header">
-        <h6 class="card-title my-2">Disk Partition
+        <h6 class="card-title my-2">
+            {% trans 'Disk' %} {% trans 'Partition' %}
             <span data-bs-toggle="tooltip" data-bs-title="Shows you all partition and it's size."
                 data-bs-placement="bottom">
                 <i class="ms-2 bi bi-info-circle-fill"></i>
@@ -12,12 +14,24 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th> File System </th>
-                        <th> Size </th>
-                        <th class="only-d-lg"> Used </th>
-                        <th class="only-d-lg"> Available </th>
-                        <th> Usage(%) </th>
-                        <th class="only-d-lg"> Mounted on </th>
+                        <th>
+                            {% trans 'File' %} {% trans 'System' %}
+                        </th>
+                        <th>
+                            {% trans 'Size' %}
+                        </th>
+                        <th class="only-d-lg">
+                            {% trans 'Used' %}
+                        </th>
+                        <th class="only-d-lg">
+                            {% trans 'Available' %}
+                        </th>
+                        <th> 
+                            {% trans 'Usage' %}(%)
+                        </th>
+                        <th class="only-d-lg">
+                            {% trans 'Mounted on' %}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

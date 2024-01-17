@@ -1,20 +1,25 @@
+{% load i18n %}
 <div class="row mt-4 sm-mt-3" id="tuxPublicIPDetails">
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <h6 class="card-title">What is my public IP information?</h6>
+                <h6 class="card-title">
+                    {% trans 'What is my public IP information?' %}
+                </h6>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>IP</td>
+                                        <td>
+                                            {% trans 'IP' %}
+                                        </td>
                                         <td class="ip">-</td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Country
+                                            {% trans 'Country' %}
                                         </td>
                                         <td class="countryInfo">
                                             <i class="flag-icon"></i>
@@ -22,23 +27,33 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Zip</td>
+                                        <td>
+                                            {% trans 'Zip' %}
+                                        </td>
                                         <td class="zip">-</td>
                                     </tr>
                                     <tr>
-                                        <td>Longitude</td>
+                                        <td>
+                                            {% trans 'Longitude' %}
+                                        </td>
                                         <td class="lon">-</td>
                                     </tr>
                                     <tr>
-                                        <td>Latitude</td>
+                                        <td>
+                                            {% trans 'Latitude' %}
+                                        </td>
                                         <td class="lat">-</td>
                                     </tr>
                                     <tr>
-                                        <td>ISP</td>
+                                        <td>
+                                            {% trans 'ISP' %}
+                                        </td>
                                         <td class="isp">-</td>
                                     </tr>
                                     <tr>
-                                        <td>Timezone</td>
+                                        <td>
+                                            {% trans 'Timezone' %}
+                                        </td>
                                         <td class="timezone">-</td>
                                     </tr>
                                 </tbody>

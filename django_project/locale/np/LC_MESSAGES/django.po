@@ -1,0 +1,344 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-17 14:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dashboard/templates/dashboard/components/boottime-v2.html:11
+msgid "Opened"
+msgstr "खुल्ला"
+
+#: dashboard/templates/dashboard/components/boottime-v2.html:21
+msgid "Review this info"
+msgstr "समीक्षा गर्नुहोस्"
+
+#: dashboard/templates/dashboard/components/cpu-async.html:5
+msgid "CPU stat"
+msgstr "सि.पी.यु तथ्याङ्क"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:5
+#: templates/sidebar.html:75
+msgid "Disk"
+msgstr "डिस्क"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:5
+#, fuzzy
+#| msgid "partition"
+msgid "Partition"
+msgstr "विभाजन"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:18
+msgid "File"
+msgstr "फाइल"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:18
+#, fuzzy
+#| msgid "Systemctl"
+msgid "System"
+msgstr "सिस्तेम सिटिएल"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:21
+msgid "Size"
+msgstr "आकार"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:24
+#: dashboard/templates/dashboard/components/disk-usage.html:25
+msgid "Used"
+msgstr "प्रयोग गरिएको छ"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:27
+#, fuzzy
+#| msgid "variables"
+msgid "Available"
+msgstr "भेरीएबल्स"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:30
+msgid "Usage"
+msgstr "उपयोग"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:33
+msgid "Mounted on"
+msgstr "मा माउन्ट"
+
+#: dashboard/templates/dashboard/components/disk-usage.html:5
+msgid "Disk usage"
+msgstr "डिस्क प्रयोग"
+
+#: dashboard/templates/dashboard/components/disk-usage.html:18
+msgid "Total"
+msgstr "कुल"
+
+#: dashboard/templates/dashboard/components/disk-usage.html:32
+msgid "Free"
+msgstr "नि:शुल्क"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:5
+#: templates/sidebar.html:40
+msgid "whoami"
+msgstr "हु यम ई"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:5
+#, fuzzy
+#| msgid "status"
+msgid "stats"
+msgstr "स्थिति"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:14
+msgid "Username"
+msgstr "प्रयोगकर्ता नाम"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:23
+msgid "PID"
+msgstr "पीआईडी"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:32
+msgid "Terminal"
+msgstr "टर्मिनल"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
+msgid "Host"
+msgstr "होस्ट"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
+msgid "IPv4"
+msgstr "आईपी भी ४"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:55
+msgid "Boottime"
+msgstr "बुटटाइम"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:64
+msgid "IPv6"
+msgstr "आईपी भी ६"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:73
+msgid "Netmask"
+msgstr "नेटमास्क"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:82
+msgid "Broadcast"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:91
+msgid "MAC"
+msgstr "म्याक"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:100
+#, fuzzy
+#| msgid "Internet speed test"
+msgid "Internet device"
+msgstr "इन्टरनेट गति परीक्षण"
+
+#: dashboard/templates/dashboard/components/lsof.html:8
+msgid "found"
+msgstr "फेला पर्‍यो"
+
+#: dashboard/templates/dashboard/components/lsof.html:17
+msgid "See details"
+msgstr "विवरण हेर्नुहोस्"
+
+#: dashboard/templates/dashboard/components/os.html:23
+msgid "Read more"
+msgstr "थप पढ्नुहोस्"
+
+#: dashboard/templates/dashboard/components/processes.html:5
+#, fuzzy
+#| msgid "system"
+msgid "system"
+msgstr "सिस्तेम सिटिएल"
+
+#: dashboard/templates/dashboard/components/processes.html:5
+#: templates/sidebar.html:57
+msgid "Processes"
+msgstr "पीएस"
+
+#: dashboard/templates/dashboard/components/publicIP.html:8
+msgid "Public IP"
+msgstr "सार्वजनिक IP"
+
+#: dashboard/templates/dashboard/components/publicIP.html:17
+msgid "See my public IP info"
+msgstr "तपाईंको सार्वजनिक IP जानकारी हेर्नुहोस्"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:7
+#, fuzzy
+#| msgid "See my public IP info"
+msgid "What is my public IP information?"
+msgstr "तपाईंको सार्वजनिक IP जानकारी हेर्नुहोस्"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:16
+#: templates/sidebar.html:91
+msgid "IP"
+msgstr "आईपी"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:22
+msgid "Country"
+msgstr "देश"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:31
+msgid "Zip"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:37
+msgid "Longitude"
+msgstr "देशान्तर"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:43
+msgid "Latitude"
+msgstr "अक्षांश"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:49
+msgid "ISP"
+msgstr "आई.एस.पी"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:55
+msgid "Timezone"
+msgstr "टाइमजोन"
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:13
+msgid "sensors"
+msgstr "सेन्सर"
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:31
+msgid "envs"
+msgstr "ईएनभीस"
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:49
+msgid "cores"
+msgstr "कोर्स"
+
+#: dashboard/templates/dashboard/components/speedtest.html:5
+msgid "Internet speed test"
+msgstr "इन्टरनेट गति परीक्षण"
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:24
+msgid "View all"
+msgstr "सबै हेर्नुहोस"
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:34
+msgid "Unit"
+msgstr "एकाइ"
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:37
+#, fuzzy
+#| msgid "status"
+msgid "Status"
+msgstr "स्थिति"
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:40
+msgid "Sub"
+msgstr "सब"
+
+#: templates/components/page-title.html:7
+msgid "Generate report"
+msgstr "प्रतिवेदन सिर्जना गर्नुहोस्"
+
+#: templates/components/page-title.html:10
+msgid "Export"
+msgstr "निर्यात"
+
+#: templates/components/page-title.html:15
+msgid "More options"
+msgstr "थप विकल्पहरू"
+
+#: templates/sidebar.html:23
+msgid "dashboard"
+msgstr "ड्यासबोर्ड"
+
+#: templates/sidebar.html:28
+msgid "Home v.1"
+msgstr "होम भी.१"
+
+#: templates/sidebar.html:34
+msgid "account"
+msgstr "खाता"
+
+#: templates/sidebar.html:46
+msgid "sys"
+msgstr "सिस्टम"
+
+#: templates/sidebar.html:46
+msgid "info"
+msgstr "जानकारी"
+
+#: templates/sidebar.html:51
+msgid "Environment"
+msgstr "इन्भैरोमेन्ट"
+
+#: templates/sidebar.html:51
+msgid "variables"
+msgstr "भेरीएबल्स"
+
+#: templates/sidebar.html:69
+msgid "Systemctl"
+msgstr "सिस्तेम सिटिएल"
+
+#: templates/sidebar.html:69
+msgid "status"
+msgstr "स्थिति"
+
+#: templates/sidebar.html:75
+msgid "partition"
+msgstr "विभाजन"
+
+#: templates/sidebar.html:80
+msgid "Network"
+msgstr "नेटवर्क"
+
+#: templates/sidebar.html:80
+msgid "tools"
+msgstr "उपकरण"
+
+#: templates/sidebar.html:85
+msgid "Scan my ports"
+msgstr "मेरो पोर्टहरू स्क्यान गर्नुहोस्"
+
+#: templates/sidebar.html:91
+msgid "Scanner"
+msgstr "स्क्यानर"
+
+#: templates/sidebar.html:97
+msgid "Traceroute"
+msgstr "त्रेस राउट"
+
+#: templates/sidebar.html:102 templates/sidebar.html:108
+msgid "Vault"
+msgstr "भल्ट"
+
+#: templates/sidebar.html:112 templates/sidebar.html:118
+msgid "RDBMS"
+msgstr "RDBMS"
+
+#: templates/sidebar.html:123
+msgid "Others"
+msgstr "अन्य"
+
+#: templates/sidebar.html:129
+msgid "tKnight"
+msgstr "tKnight"
+
+#: templates/sidebar.html:129
+msgid "log"
+msgstr "लग"
+
+#: templates/sidebar.html:135
+msgid "Swagger"
+msgstr "स्व्यागर"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "processes"
+#~ msgstr "पीएस"

@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
+
 from disks.views import get_disk_usage_json_view
 from environs.views import EnvironsTemplateView
 from ipscanner.views import (
@@ -32,8 +34,7 @@ urlpatterns = [
     path('lsof/', LsofsTemplateView.as_view(), name='lsof'),
     #portscanner
     path('portscanner/', PortScannerTemplateView.as_view(), name='portscanner'),
-    #processes
-    path('ps/', get_ps_json_view, name='ps'),
+    
     path('processes/', ProcessesTemplateView.as_view(), name='processes'),
     #system_services
     path('systemctl-services/', SystemctlServicesTemplateView.as_view(), name='systemctl-services'),
@@ -49,8 +50,17 @@ urlpatterns = [
     path('vault/', include('vault.urls')),
     #Rdbms
     path('rdbms/', include('rdbms.urls')),
+]
 
-    
+urlpatterns += i18n_patterns(
+    #processes
+    path('ps/', get_ps_json_view, name='ps'),
+    prefix_default_language=True,
+)
+
+
+urlpatterns += i18n_patterns(
     #dashboard
     path('', DashboardTemplateView.as_view(), name='dashboard'),
-]
+    prefix_default_language=True,
+)

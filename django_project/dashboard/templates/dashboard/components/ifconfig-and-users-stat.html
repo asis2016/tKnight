@@ -1,13 +1,17 @@
+{% load i18n %}
 <div class="card" id="ifconfigAndUserStat">
     <div class="card-header py-3">
-        <h6 class="m-0">whoami stats</h6>
+        <h6 class="m-0">
+            {% trans 'whoami' %} {% trans 'stats' %}
+        </h6>
     </div>
     <div class="card-body table-responsive">
         <table class="table">
             <tbody>
                 <tr>
                     <td>
-                        <i class="bi bi-person-badge me-2"></i>Username
+                        <i class="bi bi-person-badge me-2"></i>
+                        {% trans 'Username' %}
                     </td>
                     <td class="name">
                         {{ users.result.name }}
@@ -15,7 +19,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-1-square-fill me-2"></i>PID
+                        <i class="bi bi-1-square-fill me-2"></i>
+                        {% trans 'PID' %}
                     </td>
                     <td class="pid">
                         {{ users.result.pid }}
@@ -23,7 +28,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-terminal me-2"></i>Terminal
+                        <i class="bi bi-terminal me-2"></i>
+                        {% trans 'Terminal' %}
                     </td>
                     <td class="terminal">
                         {{ users.result.terminal }}
@@ -31,7 +37,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-laptop me-2"></i>Host & IPv4
+                        <i class="bi bi-laptop me-2"></i>
+                        {% trans 'Host' %} & {% trans 'IPv4' %}
                     </td>
                     <td>
                         <span class="host">
@@ -44,7 +51,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-clock-history me-2"></i>Boottime
+                        <i class="bi bi-clock-history me-2"></i>
+                        {% trans 'Boottime' %}
                     </td>
                     <td class="started">
                         {{ users.result.started }}
@@ -52,7 +60,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-6-square me-2"></i>IPv6
+                        <i class="bi bi-6-square me-2"></i>
+                        {% trans 'IPv6' %}
                     </td>
                     <td class="ipv6">
                         {{ ifconfig.result.inet6.0 }}
@@ -60,7 +69,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-diagram-3 me-2"></i>Netmask
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        {% trans 'Netmask' %}
                     </td>
                     <td class="netmask">
                         {{ ifconfig.result.netmask }}
@@ -68,7 +78,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-broadcast me-2"></i>Broadcast
+                        <i class="bi bi-broadcast me-2"></i>
+                        {% trans 'Broadcast' %}
                     </td>
                     <td class="broadcast">
                         {{ ifconfig.result.broadcast }}
@@ -76,7 +87,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-ethernet me-2"></i>MAC
+                        <i class="bi bi-ethernet me-2"></i>
+                        {% trans 'MAC' %}
                     </td>
                     <td class="ether">
                         {{ ifconfig.result.ether }}
@@ -84,7 +96,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class="bi bi-reception-4 me-2"></i>Internet device
+                        <i class="bi bi-reception-4 me-2"></i>
+                        {% trans 'Internet device' %}
                     </td>
                     <td class="device">
                         {{ ifconfig.result.device }}

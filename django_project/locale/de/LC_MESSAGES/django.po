@@ -1,0 +1,332 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-17 14:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dashboard/templates/dashboard/components/boottime-v2.html:11
+msgid "Opened"
+msgstr "Geöffnet"
+
+#: dashboard/templates/dashboard/components/boottime-v2.html:21
+msgid "Review this info"
+msgstr "Diese info überprüfen"
+
+#: dashboard/templates/dashboard/components/cpu-async.html:5
+msgid "CPU stat"
+msgstr "CPU-Statistik"
+
+#: dashboard/templates/dashboard/components/disk-partition.html:5
+#: templates/sidebar.html:75
+msgid "Disk"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:5
+msgid "Partition"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:18
+msgid "File"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:18
+msgid "System"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:21
+msgid "Size"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:24
+#: dashboard/templates/dashboard/components/disk-usage.html:25
+msgid "Used"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:27
+msgid "Available"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:30
+msgid "Usage"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-partition.html:33
+msgid "Mounted on"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-usage.html:5
+msgid "Disk usage"
+msgstr "Festplattennutzung"
+
+#: dashboard/templates/dashboard/components/disk-usage.html:18
+msgid "Total"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/disk-usage.html:32
+msgid "Free"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:5
+#: templates/sidebar.html:40
+msgid "whoami"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:5
+#, fuzzy
+#| msgid "CPU stat"
+msgid "stats"
+msgstr "CPU-Statistik"
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:14
+msgid "Username"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:23
+msgid "PID"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:32
+msgid "Terminal"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
+msgid "Host"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
+msgid "IPv4"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:55
+msgid "Boottime"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:64
+msgid "IPv6"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:73
+msgid "Netmask"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:82
+msgid "Broadcast"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:91
+msgid "MAC"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:100
+#, fuzzy
+#| msgid "Internet speed test"
+msgid "Internet device"
+msgstr "Internet-Geschwindigkeitstest"
+
+#: dashboard/templates/dashboard/components/lsof.html:8
+msgid "found"
+msgstr "gefunden"
+
+#: dashboard/templates/dashboard/components/lsof.html:17
+msgid "See details"
+msgstr "Details sehen"
+
+#: dashboard/templates/dashboard/components/os.html:23
+msgid "Read more"
+msgstr "Mehr Lesen"
+
+#: dashboard/templates/dashboard/components/processes.html:5
+msgid "system"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/processes.html:5
+#: templates/sidebar.html:57
+msgid "Processes"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIP.html:8
+msgid "Public IP"
+msgstr "Public-IP"
+
+#: dashboard/templates/dashboard/components/publicIP.html:17
+msgid "See my public IP info"
+msgstr "Siehe meine Public-IP-Daten"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:7
+#, fuzzy
+#| msgid "See my public IP info"
+msgid "What is my public IP information?"
+msgstr "Siehe meine Public-IP-Daten"
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:16
+#: templates/sidebar.html:91
+msgid "IP"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:22
+msgid "Country"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:31
+msgid "Zip"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:37
+msgid "Longitude"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:43
+msgid "Latitude"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:49
+msgid "ISP"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/publicIPDetails.html:55
+msgid "Timezone"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:13
+msgid "sensors"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:31
+msgid "envs"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/sensors-env-cpucore.html:49
+msgid "cores"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/speedtest.html:5
+msgid "Internet speed test"
+msgstr "Internet-Geschwindigkeitstest"
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:24
+msgid "View all"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:34
+msgid "Unit"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:37
+msgid "Status"
+msgstr ""
+
+#: dashboard/templates/dashboard/components/systemctl-services.html:40
+msgid "Sub"
+msgstr ""
+
+#: templates/components/page-title.html:7
+msgid "Generate report"
+msgstr ""
+
+#: templates/components/page-title.html:10
+msgid "Export"
+msgstr ""
+
+#: templates/components/page-title.html:15
+msgid "More options"
+msgstr ""
+
+#: templates/sidebar.html:23
+msgid "dashboard"
+msgstr ""
+
+#: templates/sidebar.html:28
+msgid "Home v.1"
+msgstr ""
+
+#: templates/sidebar.html:34
+msgid "account"
+msgstr ""
+
+#: templates/sidebar.html:46
+msgid "sys"
+msgstr ""
+
+#: templates/sidebar.html:46
+msgid "info"
+msgstr ""
+
+#: templates/sidebar.html:51
+msgid "Environment"
+msgstr ""
+
+#: templates/sidebar.html:51
+msgid "variables"
+msgstr ""
+
+#: templates/sidebar.html:69
+msgid "Systemctl"
+msgstr ""
+
+#: templates/sidebar.html:69
+msgid "status"
+msgstr ""
+
+#: templates/sidebar.html:75
+msgid "partition"
+msgstr ""
+
+#: templates/sidebar.html:80
+msgid "Network"
+msgstr ""
+
+#: templates/sidebar.html:80
+msgid "tools"
+msgstr ""
+
+#: templates/sidebar.html:85
+msgid "Scan my ports"
+msgstr "Meine Ports scannen"
+
+#: templates/sidebar.html:91
+#, fuzzy
+#| msgid "IP Scanner"
+msgid "Scanner"
+msgstr "IP-Scannen"
+
+#: templates/sidebar.html:97
+msgid "Traceroute"
+msgstr "Traceroute"
+
+#: templates/sidebar.html:102 templates/sidebar.html:108
+msgid "Vault"
+msgstr "Vault"
+
+#: templates/sidebar.html:112 templates/sidebar.html:118
+msgid "RDBMS"
+msgstr "RDBMS"
+
+#: templates/sidebar.html:123
+msgid "Others"
+msgstr "Sonstige"
+
+#: templates/sidebar.html:129
+msgid "tKnight"
+msgstr "tKnight"
+
+#: templates/sidebar.html:129
+msgid "log"
+msgstr "loggen"
+
+#: templates/sidebar.html:135
+msgid "Swagger"
+msgstr "Swagger"

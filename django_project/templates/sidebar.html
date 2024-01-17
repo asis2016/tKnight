@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <nav id="mainSidebar" class="h-100">
     <div class="d-flex flex-column flex-shrink-0 p-3">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -18,34 +19,42 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <p class="my-2 text-secondary text-small">DASHBOARD</p>
+            <p class="my-2 text-secondary text-small text-uppercase">
+                {% trans 'dashboard' %}
+            </p>
             <li class="nav-item">
                 <a href="{% url 'dashboard' %}" class="nav-link active" aria-current="page">
                     <i class="bi bi-house-door-fill me-2"></i>
-                    Home v.1
+                    {% trans 'Home v.1' %}
                 </a>
             </li>
 
             <!-- accounts -->
-            <p class="my-2 text-secondary text-small only-d-lg">ACCOUNT</p>
+            <p class="my-2 text-secondary text-small only-d-lg text-uppercase">
+                {% trans 'account' %}
+            </p>
             <li class="tuxProfileName only-d-lg">
                 <a href="{% url 'userprofile' %}" class="nav-link">
                     <i class="bi bi-person-circle me-2"></i>
-                    <span>whoami</span>
+                    <span>
+                        {% trans 'whoami' %}
+                    </span>
                 </a>
             </li>
             <!-- sysinfo -->
-            <p class="my-2 text-secondary text-small">SYS INFO</p>
+            <p class="my-2 text-secondary text-small text-uppercase">
+                {% trans 'sys' %} {% trans 'info' %}
+            </p>
             <li>
                 <a href="{% url 'environs' %}" class="nav-link">
                     <i class="bi bi-card-list me-2"></i>
-                    Environment Var
+                    {% trans 'Environment' %} {% trans 'variables' %}
                 </a>
             </li>
             <li>
                 <a href="{% url 'processes' %}" class="nav-link">
                     <i class="bi bi-boxes me-2"></i>
-                    Processes
+                    {% trans 'Processes' %}
                 </a>
             </li>
             <li>
@@ -57,65 +66,73 @@
             <li>
                 <a href="{% url 'systemctl-services' %}" class="nav-link">
                     <i class="bi bi-display me-2"></i>
-                    Systemctl status
+                    {% trans 'Systemctl' %} {% trans 'status' %}
                 </a>
             </li>
             <li>
                 <a href="{% url 'dashboard' %}#tuxDiskPartition" class="nav-link">
                     <i class="bi bi-device-hdd-fill me-2"></i>
-                    Disk Partition
+                    {% trans 'Disk' %} {% trans 'partition' %}
                 </a>
             </li>
             <!-- network tools -->
-            <p class="my-2 text-secondary text-small">Network tools</p>
+            <p class="my-2 text-secondary text-small">
+                {% trans 'Network' %} {% trans 'tools' %}
+            </p>
             <li>
                 <a class="nav-link" id="scanMyPorts" href="{% url 'portscanner' %}">
                     <i class="bi bi-ethernet me-2"></i>
-                    Scan my Ports
+                    {% trans 'Scan my ports' %}
                 </a>
             </li>
             <li>
                 <a href="{% url 'ipscanner' %}" class="nav-link">
                     <i class="bi bi-123 me-2"></i>
-                    IP Scanner
+                    {% trans 'IP' %} {% trans 'Scanner' %}
                 </a>
             </li>
             <li>
                 <a href="{% url 'traceroute' %}" class="nav-link">
                     <i class="bi bi-box-seam me-2"></i>
-                    Traceroute
+                    {% trans 'Traceroute' %}
                 </a>
             </li>
             <!-- Vault -->
-            <p class="my-2 text-secondary text-small">VAULT</p>
+            <p class="my-2 text-secondary text-small text-uppercase">
+                {% trans 'Vault' %}
+            </p>
             <li>
                 <!-- "sys logs = timeline" -->
                 <a href="{% url 'vault-manager-list' %}" class="nav-link">
                     <i class="bi bi-safe2 me-2"></i>
-                    Vault
+                    {% trans 'Vault' %}
                 </a>
             </li>
-            <p class="my-2 text-secondary text-small">RDBMS</p>
+            <p class="my-2 text-secondary text-small">
+                {% trans 'RDBMS' %}
+            </p>
             <li>
                 <!-- "sys logs = timeline" -->
                 <a href="{% url 'rdbms-manager-list' %}" class="nav-link">
                     <i class="bi bi-database me-2"></i>
-                    RDBMS
+                    {% trans 'RDBMS' %}
                 </a>
             </li>
             <!-- others -->
-            <p class="my-2 text-secondary text-small">OTHERS</p>
+            <p class="my-2 text-secondary text-small text-uppercase">
+                {% trans 'Others' %}
+            </p>
             <li>
                 <!-- "sys logs = timeline" -->
                 <a href="#" class="nav-link">
                     <i class="bi bi-body-text me-2"></i>
-                    tKnight Log
+                    {% trans 'tKnight' %} {% trans 'log' %}
                 </a>
             </li>
             <li>
                 <a href="http://127.0.0.1:8000/docs" class="nav-link">
                     <i class="bi bi-file-earmark-text me-2"></i>
-                    Swagger
+                    {% trans 'Swagger' %}
                 </a>
             </li>
         </ul>

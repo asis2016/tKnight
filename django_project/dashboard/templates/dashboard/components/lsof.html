@@ -1,10 +1,11 @@
+{% load i18n %}
 <div class="col-lg-3 col-sm-12 col-xs-12 sm-mt-3" id="tuxHomeLsof">
     <div class="card cardQuickInfo">
         <div class="card-body">
             {% if lsof.total %}
             <div>
                 <h3>{{ lsof.total }}</h3>
-                <p class="text-warning">lsof found</p>
+                <p class="text-warning">LSOF {% trans 'found' %}</p>
             </div>
             <div>
                 <i class="bi bi-file-earmark-check"></i>
@@ -12,7 +13,10 @@
             {% endif %}
         </div>
         <div class="card-footer text-center">
-            <a href="lsof">See details <i class="bi bi-arrow-right-circle"></i></a>
+            <a href="lsof">
+                {% trans 'See details' %}
+                <i class="bi bi-arrow-right-circle"></i>
+            </a>
         </div>
     </div>
 </div>

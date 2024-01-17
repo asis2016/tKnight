@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="row mt-4 sm-mt-3">
     <!-- sensors/temperature -->
     <div class="col-lg-4 col-sm-6 col-xs-6" id="tuxHomepageSensors">
@@ -9,7 +10,7 @@
                 </div>
                 <a class="mb-1 fs-6 link-offset-3 link-danger" href="wip" data-bs-toggle="tooltip"
                     data-bs-placement="bottom" data-bs-title="Temperature sensors">
-                    {{ sensors_temperature.total }} sensors
+                    {{ sensors_temperature.total }} {% trans 'sensors' %}
                 </a>
                 {% endif %}
             </div>
@@ -25,9 +26,9 @@
                 <div class="mb-2">
                     <i class="bi bi-hash fs-1 text-warning"></i>
                 </div>
-                <a class="mb-1 fs-6 link-offset-3 link-warning" href="environ" data-bs-toggle="tooltip"
+                <a class="mb-1 fs-6 link-offset-3 link-warning text-uppercase" href="environ" data-bs-toggle="tooltip"
                     data-bs-placement="bottom" data-bs-title="Environment Variables">
-                    {{ environ.total }} ENVs
+                    {{ environ.total }} {% trans 'envs' %}
                 </a>
                 {% endif %}
             </div>
@@ -43,9 +44,9 @@
                 <div class="mb-2">
                     <i class="bi bi-cpu fs-1 text-info"></i>
                 </div>
-                <a class="mb-1 fs-6 link-offset-3 link-info" href="index" data-bs-toggle="tooltip"
+                <a class="mb-1 fs-6 link-offset-3 link-info text-uppercase" href="index" data-bs-toggle="tooltip"
                     data-bs-placement="bottom" data-bs-title="CPU Core">
-                    {{ cpu_count.result }} CORES
+                    {{ cpu_count.result }} {% trans 'cores' %}
                 </a>
                 {% endif %}
             </div>
