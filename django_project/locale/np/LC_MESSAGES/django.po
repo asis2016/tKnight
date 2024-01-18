@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 08:53+0000\n"
+"POT-Creation-Date: 2024-01-18 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -441,17 +441,30 @@ msgstr "लग"
 msgid "Swagger"
 msgstr "स्व्यागर"
 
-#: templates/top_navigation.html:14
+#: templates/top_navigation.html:16
 msgid "search here"
 msgstr "यहाँ खोज्नुहोस्"
+
+#: templates/top_navigation.html:46 userprofile/views.py:7
+msgid "My Profile"
+msgstr "मेरो प्रोफाईल"
+
+#: templates/top_navigation.html:54
+msgid "Activity log"
+msgstr "गतिविधि लग"
+
+#: templates/top_navigation.html:62
+#: userprofile/templates/userprofile/index.html:54
+msgid "settings"
+msgstr "सेटिंग्स"
+
+#: templates/top_navigation.html:72
+msgid "Sign out"
+msgstr "साइन आउट"
 
 #: userprofile/templates/userprofile/index.html:49
 msgid "describe"
 msgstr "वर्णन"
-
-#: userprofile/templates/userprofile/index.html:54
-msgid "settings"
-msgstr "सेटिंग्स"
 
 #: userprofile/templates/userprofile/index.html:59
 msgid "SSH"
@@ -490,6 +503,7 @@ msgstr "सेटिङ सामग्री जान्छ।"
 msgid "Timeline content goes here."
 msgstr "टाइमलाइन सामग्री यहाँ|"
 
-#: userprofile/views.py:7
-msgid "My Profile"
-msgstr "मेरो प्रोफाईल"
+#, fuzzy
+#~| msgid "settings"
+#~ msgid "Settings"
+#~ msgstr "सेटिंग्स"

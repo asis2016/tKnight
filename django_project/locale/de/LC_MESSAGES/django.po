@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 08:53+0000\n"
+"POT-Creation-Date: 2024-01-18 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -438,16 +438,29 @@ msgstr ""
 msgid "Swagger"
 msgstr ""
 
-#: templates/top_navigation.html:14
+#: templates/top_navigation.html:16
 msgid "search here"
+msgstr ""
+
+#: templates/top_navigation.html:46 userprofile/views.py:7
+msgid "My Profile"
+msgstr ""
+
+#: templates/top_navigation.html:54
+msgid "Activity log"
+msgstr ""
+
+#: templates/top_navigation.html:62
+#: userprofile/templates/userprofile/index.html:54
+msgid "settings"
+msgstr ""
+
+#: templates/top_navigation.html:72
+msgid "Sign out"
 msgstr ""
 
 #: userprofile/templates/userprofile/index.html:49
 msgid "describe"
-msgstr ""
-
-#: userprofile/templates/userprofile/index.html:54
-msgid "settings"
 msgstr ""
 
 #: userprofile/templates/userprofile/index.html:59
@@ -485,8 +498,4 @@ msgstr ""
 
 #: userprofile/templates/userprofile/index.html:179
 msgid "Timeline content goes here."
-msgstr ""
-
-#: userprofile/views.py:7
-msgid "My Profile"
 msgstr ""
