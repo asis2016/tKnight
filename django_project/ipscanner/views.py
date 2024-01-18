@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -6,11 +7,12 @@ from django.http import JsonResponse
 from utils.ip_scanner import get_ips
 from utils.ifconfig import get_ifconfig
 
-class IpscannerTemplateView(TemplateView):
+class IpscannerTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': 'IP Scanner'}
     template_name = 'ipscanner/index.html'
 
 
+#todo > LoginRequiredMixin
 @csrf_exempt
 @require_POST
 def ipscanner_post_request(request):

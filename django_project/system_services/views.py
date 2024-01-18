@@ -1,7 +1,8 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from utils.systemctl_services import get_systemctl_services
 
-class SystemctlServicesTemplateView(TemplateView):
+class SystemctlServicesTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': 'Systemctl Services'}
     template_name = 'system_services/index.html'
 

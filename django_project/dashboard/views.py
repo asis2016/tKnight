@@ -1,3 +1,6 @@
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
 
@@ -19,7 +22,7 @@ from utils.sensors import (
 from utils.users import get_users
 
 
-class DashboardTemplateView(TemplateView):
+class DashboardTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': _('dashboard')}
     template_name = 'dashboard/index.html'
 
@@ -49,6 +52,11 @@ class DashboardTemplateView(TemplateView):
         return context
 
 
-class WipTemplateView(TemplateView):
+class WipTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': 'WIP'}
     template_name = 'wip.html'
+
+
+def password_manager_logout(request):  
+    logout(request)  
+    return redirect('login')  
