@@ -6,7 +6,7 @@ from utils.ps import get_ps
 
 
 class ProcessesTemplateView(TemplateView):
-    extra_context = {'page_title': _('processes')}
+    extra_context = {'page_title': _('Processes')}
     template_name = 'processes/index.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
-LSOF
+{% trans 'LSOF' %}
 {% endblock %}
 
 {% block content %}
@@ -14,11 +15,21 @@ LSOF
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>PID</th>
-                                <th>command</th>
-                                <th>FD</th>
-                                <th>User</th>
-                                <th>Node</th>
+                                <th>
+                                    {% trans 'PID' %}
+                                </th>
+                                <th>
+                                    {% trans 'Command' %}
+                                </th>
+                                <th>
+                                    {% trans 'FD' %}
+                                </th>
+                                <th>
+                                    {% trans 'User' %}
+                                </th>
+                                <th>
+                                    {% trans 'Node' %}
+                                </th>
                                 <th></th>
                             </tr>
                         </thead>

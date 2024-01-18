@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
-IP Scanner
+{% trans 'IP' %} {% trans 'scanner' %}
 {% endblock %}
 
 {% block content %}
@@ -15,7 +16,7 @@ IP Scanner
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">
-                                    Starting IP address
+                                    {% trans 'Starting IP address' %}
                                 </label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="startIPAddressSelectTag" name="start_ip">
@@ -25,7 +26,9 @@ IP Scanner
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Last IP address</label>
+                                <label class="col-sm-3 col-form-label">
+                                    {% trans 'Last IP address' %}
+                                </label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="lastIPAddressSelectTag" name="end_ip">
                                     </select>
@@ -40,7 +43,7 @@ IP Scanner
                             <div class="form-check mb-3">
                                 <label class="form-check-label">
                                     <!--  todo  -->
-                                    <input type="checkbox" class="form-check-input"> Log this IP scan
+                                    <input type="checkbox" class="form-check-input"> {% trans 'Log this IP scan' %}
                                     <i class="input-helper"></i>
                                 </label>
                             </div>
@@ -51,7 +54,9 @@ IP Scanner
                                     data-bs-target="#tuxIPScannerModal">
                                     Start scanning now</button>
 
-                                <a class="btn btn-danger" href="{% url 'dashboard' %}">Cancel and go back!</a>
+                                <a class="btn btn-danger" href="{% url 'dashboard' %}">
+                                    {% trans 'Cancel and go back!' %}
+                                </a>
                             </div>
                             <!-- btn ends -->
                         </div>
@@ -67,17 +72,23 @@ IP Scanner
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">Warning!</h6>
+                    <h6 class="modal-title" id="exampleModalLabel">
+                        {% trans 'Warning!' %}
+                    </h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-warning">Make sure that you are authorized to scan IP addresses. <br>
-                        Illegal scanning may cause legal consequences.</div>
+                    <div class="alert alert-warning">
+                        {% trans 'Make sure that you are authorized to scan IP addresses. Illegal scanning may cause legal consequences.' %}
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">I
-                        agree</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        {% trans 'Exit' %}
+                    </button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">
+                        {% trans 'I agree' %}
+                    </button>
                 </div>
             </div>
         </div>
