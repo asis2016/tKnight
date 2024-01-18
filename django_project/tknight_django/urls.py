@@ -17,11 +17,15 @@ from traceroutes.views import TraceRoutesFormView, traceroute_post_request
 from userprofile.views import UserProfileTemplateView
 
 from dashboard.views import (
-    DashboardTemplateView, WipTemplateView
+    DashboardTemplateView, 
+    WipTemplateView,
+    password_manager_logout
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')), 
+    path('logout/', password_manager_logout, name='pm_logout'),
 ]
 
 urlpatterns += i18n_patterns(

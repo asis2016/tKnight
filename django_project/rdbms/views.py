@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
@@ -15,28 +16,28 @@ from utils.rdbms.tknight_mysql.table import get_describe_table
 from utils.rdbms.tknight_oracle.dba_users import get_dba_users
 
 
-class RdbmsManagerCreateView(CreateView):
+class RdbmsManagerCreateView(LoginRequiredMixin, CreateView):
     model = RdbmsManager
     extra_context = {'page_title': 'Add new RDBMS'}
     template_name = 'rdbms/add.html'
     fields = '__all__'
 
 
-class RdbmsManagerUpdateView(UpdateView):
+class RdbmsManagerUpdateView(LoginRequiredMixin, UpdateView):
     model = RdbmsManager
     extra_context = {'page_title': 'Update RDBMS'}
     template_name = 'rdbms/update.html'
     fields = '__all__'
 
 
-class RdbmsManagerDeleteView(DeleteView):
+class RdbmsManagerDeleteView(LoginRequiredMixin, DeleteView):
     model = RdbmsManager
     template_name = 'rdbms/delete.html'
     extra_context = {'page_title': 'Delete RDBMS'}
     success_url = reverse_lazy('rdbms-manager-list')
 
 
-class RdbmsManagerListView(ListView):
+class RdbmsManagerListView(LoginRequiredMixin, ListView):
     model = RdbmsManager
     extra_context = {
             'page_title':
@@ -46,7 +47,7 @@ class RdbmsManagerListView(ListView):
 
 
 #Only for MySQL
-class RdbmsMySQLManagerDetailView(DetailView):
+class RdbmsMySQLManagerDetailView(LoginRequiredMixin, DetailView):
     model = RdbmsManager
     extra_context = {'page_title': 'All schemas'}
     template_name = 'mysql/detail.html'
@@ -68,7 +69,7 @@ class RdbmsMySQLManagerDetailView(DetailView):
     
 
 #Only for Oracle
-class RdbmsOracleManagerDetailView(DetailView):
+class RdbmsOracleManagerDetailView(LoginRequiredMixin, DetailView):
     model = RdbmsManager
     extra_context = {'page_title': 'DBA Users'}
     template_name = 'oracle/dba-users.html'
@@ -90,6 +91,7 @@ class RdbmsOracleManagerDetailView(DetailView):
         return context
 
 
+# todo > LoginRequiredMixin
 @csrf_exempt
 @require_POST
 def mysql_show_schema_post_request(request):
@@ -111,6 +113,7 @@ def mysql_show_schema_post_request(request):
         })
 
 
+# todo > LoginRequiredMixin
 @csrf_exempt
 @require_POST
 def mysql_describe_table_post_request(request):

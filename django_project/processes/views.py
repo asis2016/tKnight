@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
 from django.shortcuts import render
@@ -5,7 +6,7 @@ from django.http import JsonResponse
 from utils.ps import get_ps
 
 
-class ProcessesTemplateView(TemplateView):
+class ProcessesTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': _('Processes')}
     template_name = 'processes/index.html'
     def get_context_data(self, **kwargs):

@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
 from utils.environ import get_environ
 
-class EnvironsTemplateView(TemplateView):
+class EnvironsTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': _('environ')}
     template_name = 'environs/index.html'
 
