@@ -1,3 +1,4 @@
+{% load i18n %}
 <div id="topNavigation" class="px-3 py-2">
     <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
@@ -10,7 +11,7 @@
             <!-- search form -->
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                 <div class="input-group text-white">
-                    <input type="text" class="form-control form-control-dark text-bg-dark text-white" value="search...">
+                    <input type="text" class="form-control form-control-dark text-bg-dark text-white" value="{% trans 'search here' %}">
                     <a class="btn" href="{% url 'wip' %}">
                         <i class="bi bi-search"></i>
                     </a>
