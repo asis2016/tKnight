@@ -1,4 +1,6 @@
 from django.views.generic import TemplateView
+from django.utils.translation import gettext as _
+
 
 # utils
 #from utils.whoami import get_whoami
@@ -18,7 +20,7 @@ from utils.users import get_users
 
 
 class DashboardTemplateView(TemplateView):
-    extra_context = {'page_title': 'Dashboard'}
+    extra_context = {'page_title': _('dashboard')}
     template_name = 'dashboard/index.html'
 
     def get_context_data(self, **kwargs):

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView
@@ -37,7 +38,10 @@ class RdbmsManagerDeleteView(DeleteView):
 
 class RdbmsManagerListView(ListView):
     model = RdbmsManager
-    extra_context = {'page_title': 'RDBMS manager'}
+    extra_context = {
+            'page_title':
+            _('RDBMS') + ' ' + _('manager')
+    }
     template_name = 'rdbms/index.html'
 
 

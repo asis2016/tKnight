@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}
@@ -45,17 +46,17 @@ My Profile
                         <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details"
                             aria-selected="true">
-                            Details
+                            {% trans 'describe' %}
                         </button>
                         <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-settings"
                             aria-selected="false">
-                            Settings
+                            {% trans 'settings' %}
                         </button>
                         <button class="nav-link" id="nav-timeline-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-timeline" type="button" role="tab" aria-controls="nav-timeline"
                             aria-selected="false">
-                            SSH Keys
+                            {% trans 'SSH' %}  {% trans 'keys' %}
                         </button>
                     </div>
                 </nav>
@@ -102,7 +103,7 @@ My Profile
                             <!-- $ hostnamectl |grep "Hardware Vendor" -->
                             <div class="row mb-3">
                                 <label for="inputHardwareVendor" class="col-sm-2 col-form-label">
-                                    Hardware vendor
+                                    {% trans 'Hardware' %}  {% trans 'vendor' %}
                                 </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputHardwareVendor" value="{{ profile.result.hardwareVendor }}"
@@ -115,7 +116,7 @@ My Profile
                             <!-- $ hostnamectl |grep "Hardware Vendor" -->
                             <div class="row mb-3">
                                 <label for="inputHardwareModel" class="col-sm-2 col-form-label">
-                                    Hardware model
+                                    {% trans 'Hardware' %}  {% trans 'model' %}
                                 </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputHardwareModel" value="{{ profile.result.hardwareModel }}" disabled>
@@ -127,7 +128,7 @@ My Profile
                             <!-- $ hostnamectl |grep "Architecture" -->
                             <div class="row mb-3">
                                 <label for="inputArchitecture" class="col-sm-2 col-form-label">
-                                    Architecture
+                                    {% trans 'architecture' %}
                                 </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputArchitecture" value="{{ profile.result.architecture }}" disabled>
@@ -139,7 +140,7 @@ My Profile
                             <!-- $ hostnamectl |grep "Kernel" -->
                             <div class="row mb-3">
                                 <label for="inputKernel" class="col-sm-2 col-form-label">
-                                    Kernel
+                                    {% trans 'kernel' %}
                                 </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputKernel" value="{{ profile.result.kernel }}" disabled>
@@ -167,7 +168,7 @@ My Profile
                     <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab"
                         tabindex="0">
                         <div class="px-4 py-4">
-                            Settings content goes here.
+                            {% trans 'Settings content goes here.' %}
                         </div>
                     </div>
                     <!-- nav-settings ends -->
@@ -175,7 +176,7 @@ My Profile
                     <div class="tab-pane fade" id="nav-timeline" role="tabpanel" aria-labelledby="nav-timeline-tab"
                         tabindex="0">
                         <div class="px-4 py-4">
-                            Timeline content goes here.
+                            {% trans 'Timeline content goes here.' %}
                         </div>
                     </div>
                     <!-- nav-timeline ends -->

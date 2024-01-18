@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 14:08+0000\n"
+"POT-Creation-Date: 2024-01-18 07:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,6 +242,30 @@ msgstr "स्थिति"
 msgid "Sub"
 msgstr "सब"
 
+#: dashboard/views.py:23 templates/sidebar.html:23
+msgid "dashboard"
+msgstr "ड्यासबोर्ड"
+
+#: environs/views.py:6
+#, fuzzy
+#| msgid "Environment"
+msgid "environ"
+msgstr "इन्भैरोमेन्ट"
+
+#: processes/views.py:9
+#, fuzzy
+#| msgid "Processes"
+msgid "processes"
+msgstr "पीएस"
+
+#: rdbms/views.py:43 templates/sidebar.html:112 templates/sidebar.html:118
+msgid "RDBMS"
+msgstr "आर.दि.बि.एम.एस"
+
+#: rdbms/views.py:43
+msgid "manager"
+msgstr "व्यवस्थापक"
+
 #: templates/components/page-title.html:7
 msgid "Generate report"
 msgstr "प्रतिवेदन सिर्जना गर्नुहोस्"
@@ -253,10 +277,6 @@ msgstr "निर्यात"
 #: templates/components/page-title.html:15
 msgid "More options"
 msgstr "थप विकल्पहरू"
-
-#: templates/sidebar.html:23
-msgid "dashboard"
-msgstr "ड्यासबोर्ड"
 
 #: templates/sidebar.html:28
 msgid "Home v.1"
@@ -281,6 +301,14 @@ msgstr "इन्भैरोमेन्ट"
 #: templates/sidebar.html:51
 msgid "variables"
 msgstr "भेरीएबल्स"
+
+#: templates/sidebar.html:63
+msgid "LSOF"
+msgstr "एल एस ओ एफ"
+
+#: templates/sidebar.html:63
+msgid "-n -i"
+msgstr "-एन -आई"
 
 #: templates/sidebar.html:69
 msgid "Systemctl"
@@ -318,17 +346,13 @@ msgstr "त्रेस राउट"
 msgid "Vault"
 msgstr "भल्ट"
 
-#: templates/sidebar.html:112 templates/sidebar.html:118
-msgid "RDBMS"
-msgstr "RDBMS"
-
 #: templates/sidebar.html:123
 msgid "Others"
 msgstr "अन्य"
 
 #: templates/sidebar.html:129
 msgid "tKnight"
-msgstr "tKnight"
+msgstr "टि-नाईट"
 
 #: templates/sidebar.html:129
 msgid "log"
@@ -338,7 +362,56 @@ msgstr "लग"
 msgid "Swagger"
 msgstr "स्व्यागर"
 
+#: userprofile/templates/userprofile/index.html:49
+msgid "describe"
+msgstr "वर्णन"
+
+#: userprofile/templates/userprofile/index.html:54
+msgid "settings"
+msgstr "सेटिंग्स"
+
+#: userprofile/templates/userprofile/index.html:59
+msgid "SSH"
+msgstr ""
+
+#: userprofile/templates/userprofile/index.html:59
+msgid "keys"
+msgstr ""
+
+#: userprofile/templates/userprofile/index.html:106
+#: userprofile/templates/userprofile/index.html:119
+msgid "Hardware"
+msgstr "हार्डवेयर"
+
+#: userprofile/templates/userprofile/index.html:106
+msgid "vendor"
+msgstr "बिक्रेता"
+
+#: userprofile/templates/userprofile/index.html:119
+msgid "model"
+msgstr "नमुना"
+
+#: userprofile/templates/userprofile/index.html:131
+msgid "architecture"
+msgstr "आर्किटेक्चर"
+
+#: userprofile/templates/userprofile/index.html:143
+msgid "kernel"
+msgstr "कर्नेल"
+
+#: userprofile/templates/userprofile/index.html:171
+msgid "Settings content goes here."
+msgstr "सेटिङ सामग्री जान्छ।"
+
+#: userprofile/templates/userprofile/index.html:179
+msgid "Timeline content goes here."
+msgstr "टाइमलाइन सामग्री यहाँ|"
+
+#: userprofile/views.py:7
+msgid "My Profile"
+msgstr "मेरो प्रोफाईल"
+
 #, fuzzy
-#~| msgid "Processes"
-#~ msgid "processes"
-#~ msgstr "पीएस"
+#~| msgid "details"
+#~ msgid "details"
+#~ msgstr "विवरण हेर्नुहोस्"
