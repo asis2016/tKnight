@@ -52,12 +52,11 @@ def get_traceroute(hostname: str):
                     if len(ip) > 1:
                         ip = ip[1].split(')')
                         ip_list.append(ip[0])
-
             return ip_list
-        
         
         my_location = get_location(get_my_ip())
         traceroute_ip_list = run_traceroute(hostname)
+        
         geo_list = [my_location] + [get_location(ip) for ip in traceroute_ip_list if ip]
         geo_list = [loc for loc in geo_list if loc] # Filter out None values from the list
         

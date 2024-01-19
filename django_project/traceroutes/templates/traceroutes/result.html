@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
-Traceroute
+{% trans 'Traceroute' %}
 {% endblock %}
 
 {% block content %}
@@ -19,10 +20,18 @@ Traceroute
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>IP</th>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                        <th>Location</th>
+                                        <th>
+                                            {% trans 'IP' %}
+                                        </th>
+                                        <th>
+                                            {% trans 'Latitude' %}
+                                        </th>
+                                        <th>
+                                            {% trans 'Longitude' %}
+                                        </th>
+                                        <th>
+                                            {% trans 'Location' %}
+                                        </th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -67,13 +76,13 @@ Traceroute
         </div>
         <div>
             <p>
-                Tracerouting on <span>{{ hostname }}</span>
+                {% trans 'Tracerouting' %}
             </p>
             <p>
-                It may take some time.
+                {% trans 'It may take some time.' %}
             </p>
             <p>
-                Please wait...
+                {% trans 'Please wait...' %}
             </p>
         </div>
     </div>
@@ -90,7 +99,6 @@ Traceroute
      * Plot map 
      */
     const plotMap = (data, hostname) => {
-
         let dataList = [];
 
         // Iterate over the array to create the desired output format

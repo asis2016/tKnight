@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
-Traceroute
+{% trans 'Traceroute' %}
 {% endblock %}
 
 {% block content %}
@@ -16,7 +17,7 @@ Traceroute
                         <div class="col-md-8">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">
-                                    Hostname
+                                    {% trans 'Hostname' %}
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control " id="traceRouteInput"
@@ -29,18 +30,21 @@ Traceroute
                 <div class="card-footer">
                     <div class="row">
                         <div class="col">
-                            <div class="form-check mb-3">
+                            <div class="form-check mb-3 d-none">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input"> Log this traceroute
+                                    <input type="checkbox" class="form-check-input">
+                                    {% trans 'Log this traceroute' %}                             
                                     <i class="input-helper"></i>
                                     <i class="input-helper"></i></label>
                             </div>
 
                             <div class="d-grid gap-2 d-md-block">
-                                <button type="submit" class="btn btn-primary me-2" id="traceRouteSubmitBtn">
-                                    Traceroute now
+                                <button type="submit" class="btn btn-info me-2" id="traceRouteSubmitBtn">
+                                    <i class="bi bi-play"></i> {% trans 'Traceroute now' %}
                                 </button>
-                                <a class="btn btn-danger me-2" href="{% url 'dashboard' %}">Cancel and go back!</a>
+                                <a class="btn btn-danger me-2" href="{% url 'dashboard' %}">
+                                    <i class="bi bi-reply"></i> {% trans 'Cancel and go back!' %}
+                                </a>
                             </div>
 
                         </div>

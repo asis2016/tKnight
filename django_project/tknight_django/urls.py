@@ -17,12 +17,6 @@ from system_services.views import (
     get_systemctl_services_json_view
 )
 
-from ipscanner.views import (
-    IpscannerTemplateView,
-    get_ifconfig_as_json,
-    ipscanner_post_request
-)
-
 from dashboard.views import (
     DashboardTemplateView, 
     WipTemplateView,
@@ -42,12 +36,9 @@ urlpatterns += i18n_patterns(
     #traceroutes
     path('traceroute/', TraceRoutesFormView.as_view(), name='traceroute'),
     path('traceroute-post-request/', traceroute_post_request, name='traceroute-post-request'),
-    #vault
-    path('vault/', include('vault.urls')),
+
     #environs
     path('environs/', EnvironsTemplateView.as_view(), name='environs'),
-    path('ipscanner-post-request/', ipscanner_post_request, name='ipscanner-post-request'),
-    path('ipscanner/', IpscannerTemplateView.as_view(), name='ipscanner'),
     #lsofs
     path('lsof/', LsofsTemplateView.as_view(), name='lsof'),
     #portscanner
@@ -55,14 +46,19 @@ urlpatterns += i18n_patterns(
     path('processes/', ProcessesTemplateView.as_view(), name='processes'),
     #wip
     path('wip/', WipTemplateView.as_view(), name='wip'),
-    #rdbms
-    path('rdbms/', include('rdbms.urls')),
+
     #profile
     path('userprofile/', UserProfileTemplateView.as_view(), name='userprofile'),
     
+    #rdbms
+    path('rdbms/', include('rdbms.urls')),
+    #ipscanner
+    path('ipscanner/', include('ipscanner.urls')),
+    #vault
+    path('vault/', include('vault.urls')),
+
     #dashboard
     #json_view
-    path('json/ifconfig/', get_ifconfig_as_json, name='json-ifconfig'),
     path('json/ps/', get_ps_json_view, name='json-ps'),
     path('json/disk/usage/', get_disk_usage_json_view, name='json-disk-usage'),
     path('json/sensors/battery/', get_sensors_battery_json_view, name='json-sensors-battery'),

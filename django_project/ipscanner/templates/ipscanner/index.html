@@ -9,11 +9,11 @@
 <form method="POST" action="{% url 'ipscanner-post-request' %}">
     {% csrf_token %}
     <div class="row sm-pt-0" id="tuxIPScannerForm">
-        <div class="col-12">
+        <div class="col-8   ">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">
                                     {% trans 'Starting IP address' %}
@@ -24,7 +24,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">
                                     {% trans 'Last IP address' %}
@@ -40,7 +42,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col">
-                            <div class="form-check mb-3">
+                            <div class="form-check mb-3 d-none">
                                 <label class="form-check-label">
                                     <!--  todo  -->
                                     <input type="checkbox" class="form-check-input"> {% trans 'Log this IP scan' %}
@@ -50,12 +52,13 @@
 
                             <!-- btn -->
                             <div class="d-grid gap-2 d-md-block">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-info me-2" data-bs-toggle="modal"
                                     data-bs-target="#tuxIPScannerModal">
-                                    Start scanning now</button>
+                                    <i class="bi bi-play"></i> Start scanning now
+                                </button>
 
                                 <a class="btn btn-danger" href="{% url 'dashboard' %}">
-                                    {% trans 'Cancel and go back!' %}
+                                    <i class="bi bi-reply"></i> {% trans 'Cancel and go back!' %}
                                 </a>
                             </div>
                             <!-- btn ends -->
@@ -79,14 +82,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-warning">
-                        {% trans 'Make sure that you are authorized to scan IP addresses. Illegal scanning may cause legal consequences.' %}
+                        {% trans 'Make sure that you are authorized to scan IP addresses. Illegal scanning may cause
+                        legal consequences.' %}
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         {% trans 'Exit' %}
                     </button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="startIPScanSubmitBtn">
+                    <button type="submit" class="btn btn-info" data-bs-dismiss="modal" id="startIPScanSubmitBtn">
                         {% trans 'I agree' %}
                     </button>
                 </div>
@@ -103,7 +107,7 @@
      * for 'tuxPublicIPAddress'
      */
     $.ajax({
-        url: BASE_API_URL + '/ifconfig/',
+        url: BASE_API_URL + '/ipscanner/json/',
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
