@@ -39,10 +39,12 @@ urlpatterns += i18n_patterns(
 
     #environs
     path('environs/', EnvironsTemplateView.as_view(), name='environs'),
+    
     #lsofs
     path('lsof/', LsofsTemplateView.as_view(), name='lsof'),
     #portscanner
-    path('portscanner/', PortScannerTemplateView.as_view(), name='portscanner'),
+    path('portscanner', PortScannerTemplateView.as_view(), name='portscanner'),
+    
     path('processes/', ProcessesTemplateView.as_view(), name='processes'),
     #wip
     path('wip/', WipTemplateView.as_view(), name='wip'),

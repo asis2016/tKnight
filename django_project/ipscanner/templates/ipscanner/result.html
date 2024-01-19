@@ -51,8 +51,7 @@
                                 </td>
                                 {% if i.aliveStatus %}
                                 <td>
-                                    <!-- todo -->
-                                    <a href="/scan-port?hostname=IP" class='btn btn-warning'>
+                                    <a href="{% url 'portscanner'%}?q={{i.ip}}" class='btn btn-warning'>
                                         <i class="bi bi-play"></i> {% trans 'Scan ports' %}
                                     </a>
                                 </td>

@@ -9,7 +9,7 @@
 <!-- result -->
 <div class="row" id="tuxPortScannerResult">
     <!-- spinner -->
-    <div class="col-12 text-center col1">
+    <div class="col-12 text-center col1 d-none">
         <div class="spinner-border text-primary spinner" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -25,9 +25,10 @@
             </p>
         </div>
     </div>
-    <div class="col-md-6 col2 d-none">
+    <div class="col-md-6 col2">
         <div class="card">
             <div class="card-body">
+                {% if result %}
                 <div class="table-responsive">
                     <table class="table text-white">
                         <thead>
@@ -52,6 +53,19 @@
                                     {% trans 'Open ports' %}
                                 </td>
                                 <td class="openPortList">
+                                    <ul>
+                                        {% for i in result.result %}
+                                        <li>{{ i }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {% trans 'Total ports opened' %}
+                                </td>
+                                <td>
+                                    {{ result.totalOpenPorts }}
                                 </td>
                             </tr>
                         </thead>
@@ -59,48 +73,12 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- No records found! -->
+                {% else %}
+                <div class="alert alert-warning mb-0">No records found!</div>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
-
-{% block footer %}
-
-<script>
-    $.ajax({
-        url: BASE_API_URL + '/scan-port?hostname={{ hostname }}',
-        dataType: 'json',
-        method: 'POST',
-        // Automate.sh
-        headers: {'Content-Type': 'application/json' },
-        success: function (response) {
-            // Make .col1 display none
-            $('#tuxPortScannerResult .col1').attr('style', 'display: none !important');
-
-            // Make .col2 display block
-            $('#tuxPortScannerResult .col2').attr('style', 'display: block !important');
-
-            if (response['totalOpenPorts'] >= 1) {
-
-                let newUl = $('<ul>');
-
-                $.each(response['result'], function (index, item) {
-                    newUl.append(`<li class='p-2'>${item}</li>`);
-                });
-
-                $('#tuxPortScannerResult .openPortList').append(newUl);
-
-            } else {
-                $('#tuxPortScannerResult .openPortList').append('No ports are opened.');
-            };
-
-
-        },
-        error: function () {
-            console.error('Failed to fetch external IP address');
-        }
-    });
-</script>
-
-{% endblock footer %}

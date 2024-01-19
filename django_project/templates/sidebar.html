@@ -80,7 +80,7 @@
                 {% trans 'Network' %} {% trans 'tools' %}
             </p>
             <li>
-                <a class="nav-link" id="scanMyPorts" href="{% url 'portscanner' %}">
+                <a class="nav-link" id="scanMyPorts" href="{% url 'portscanner'%}?q={{ ifconfig.result.inet }}">
                     <i class="bi bi-ethernet me-2"></i>
                     {% trans 'Scan my ports' %}
                 </a>
