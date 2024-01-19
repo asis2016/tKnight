@@ -17,21 +17,17 @@ from system_services.views import SystemctlServicesTemplateView
 from traceroutes.views import TraceRoutesFormView, traceroute_post_request
 from userprofile.views import UserProfileTemplateView
 
-
-
 from dashboard.views import (
     DashboardTemplateView, 
     WipTemplateView,
-    password_manager_logout
+    password_manager_logout,
+    get_sensors_battery_json_view
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), 
     path('logout/', password_manager_logout, name='pm_logout'),
-    # Your other URL patterns
-    path('<str:language>/set-language/', set_language, name='set_language'),
-    # ...
 ]
 
 urlpatterns += i18n_patterns(
@@ -50,7 +46,7 @@ urlpatterns += i18n_patterns(
     path('ifconfig/', get_ifconfig_as_json, name='ifconfig'),
     path('ipscanner-post-request/', ipscanner_post_request, name='ipscanner-post-request'),
     path('ipscanner/', IpscannerTemplateView.as_view(), name='ipscanner'),
-       #lsofs
+    #lsofs
     path('lsof/', LsofsTemplateView.as_view(), name='lsof'),
     #portscanner
     path('portscanner/', PortScannerTemplateView.as_view(), name='portscanner'),
@@ -63,6 +59,9 @@ urlpatterns += i18n_patterns(
     path('rdbms/', include('rdbms.urls')),
     #profile
     path('userprofile/', UserProfileTemplateView.as_view(), name='userprofile'),
+    #sensors
+    path('sensors/battery/', get_sensors_battery_json_view, name='ps'),
+    
     #dashboard
     path('', DashboardTemplateView.as_view(), name='dashboard'),
     prefix_default_language=False,  # Do not include language prefix for the default language

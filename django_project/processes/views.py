@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
-from django.shortcuts import render
 from django.http import JsonResponse
 from utils.ps import get_ps
 

@@ -28,28 +28,7 @@ $(document).ready(function () {
     //     }
     // });
 
-    /**
-     * for 'tuxBattery'
-     */
-    // $.ajax({
-    //     url: BASE_API_URL + '/sensors/battery/',
-    //     dataType: 'JSON',
-    //     success: function (data) {
-    //         // percent left
-    //         let percent = data['result']['percent'].toFixed(2);
-    //         $('#tuxBattery a').attr('data-bs-original-title', `${percent}% remaining`)
-
-    //         // If power is plugged
-    //         if (data['result']['power_plugged']) {
-    //             $('#tuxBattery .bi').addClass('bi-battery-charging');
-    //         } else {
-    //             $('#tuxBattery .bi').addClass('bi-battery-half');
-    //         }
-    //     },
-    //     error: function () {
-    //         console.error('Failed to fetch battery sensor data');
-    //     }
-    // });
+    
 
     /**
      * GET ifconfig
