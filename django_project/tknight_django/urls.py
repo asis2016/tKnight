@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import set_language
 
 from disks.views import get_disk_usage_json_view
 from environs.views import EnvironsTemplateView
@@ -16,6 +17,8 @@ from system_services.views import SystemctlServicesTemplateView
 from traceroutes.views import TraceRoutesFormView, traceroute_post_request
 from userprofile.views import UserProfileTemplateView
 
+
+
 from dashboard.views import (
     DashboardTemplateView, 
     WipTemplateView,
@@ -26,6 +29,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), 
     path('logout/', password_manager_logout, name='pm_logout'),
+    # Your other URL patterns
+    path('<str:language>/set-language/', set_language, name='set_language'),
+    # ...
 ]
 
 urlpatterns += i18n_patterns(

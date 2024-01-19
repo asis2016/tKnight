@@ -2,7 +2,7 @@
 {% load i18n %}
 <nav id="mainSidebar" class="h-100">
     <div class="d-flex flex-column flex-shrink-0 p-3">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="{% url 'dashboard' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <!-- logo for LG screen -->
             <span class="fs-4 logo-lg only-d-lg">
                 <img class="img-xs" src="{% static 'images/logo.png' %}" alt="">

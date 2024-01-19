@@ -4,9 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
 
-
 # utils
-#from utils.whoami import get_whoami
 from utils.boottime import get_bootime
 from utils.cpu import get_cpu_count
 from utils.disk_partition import get_disk_partition
@@ -14,7 +12,6 @@ from utils.environ import get_environ
 from utils.ifconfig import get_ifconfig
 from utils.lsof import get_lsof
 from utils.os_release import get_os_release
-from utils.ps import get_ps
 from utils.systemctl_services import get_systemctl_services
 from utils.sensors import (
     get_sensors_temperature,
@@ -35,20 +32,9 @@ class DashboardTemplateView(LoginRequiredMixin, TemplateView):
         context['lsof'] = get_lsof()
         context['ifconfig'] = get_ifconfig()
         context['os_release'] = get_os_release()
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
-        #context[''] =
         context['systemctl'] = get_systemctl_services()
         context['sensors_temperature'] = get_sensors_temperature()
         context['users'] = get_users()
-        #context[''] =
-        
         return context
 
 

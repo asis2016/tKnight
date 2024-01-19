@@ -1,9 +1,8 @@
 /**
  * CONSTANTS
  */
-const BASE_API_URL = 'http://127.0.0.1:9005';
+const BASE_API_URL = 'http://127.0.0.1:9001';
 const WS_BASE_API_URL = 'ws://127.0.0.1:8000';
-
 
 $(document).ready(function () {
     /**
