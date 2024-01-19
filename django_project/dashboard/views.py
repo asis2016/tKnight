@@ -14,7 +14,8 @@ from utils.lsof import get_lsof
 from utils.os_release import get_os_release
 from utils.systemctl_services import get_systemctl_services
 from utils.sensors import (
-    get_sensors_temperature
+    get_sensors_temperature,
+    get_sensors_battery
 )
 from django.http import JsonResponse
 from utils.users import get_users
@@ -43,12 +44,14 @@ class WipTemplateView(LoginRequiredMixin, TemplateView):
     extra_context = {'page_title': 'WIP'}
     template_name = 'wip.html'
 
+
 def get_sensors_battery_json_view(request):
     '''
     Returns get_disk_usage() from utils as list of JSON objects.
     '''
     result = get_sensors_battery()
     return JsonResponse(result, safe=False)
+
 
 def password_manager_logout(request):  
     logout(request)  

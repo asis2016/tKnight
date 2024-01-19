@@ -54,7 +54,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-        url: BASE_API_URL + '/disk-usage/',
+        url: BASE_API_URL + '/json/disk/usage/',
         dataType: 'JSON',
         success: function (response) {
             let totalDiskUsageInBytes = bytesToGB(response['total']);
@@ -111,7 +111,7 @@ $(document).ready(function () {
      * for tuxHomepageProcesses (System processes)
      */
     $.ajax({
-        url: BASE_API_URL + '/ps/',
+        url: BASE_API_URL + '/json/ps/',
         dataType: 'JSON',
         success: function (response) {
             let status_count = response['status_count'];
@@ -162,7 +162,7 @@ $(document).ready(function () {
      * for 'tuxBattery'
      */
     $.ajax({
-        url: BASE_API_URL + '/sensors/battery/',
+        url: BASE_API_URL + '/json/sensors/battery/',
         dataType: 'JSON',
         success: function (data) {
             // percent left
@@ -180,6 +180,35 @@ $(document).ready(function () {
             console.error('Failed to fetch battery sensor data');
         }
     });
+
+    /**
+     * for tuxHomepageSystemctlServices
+     */
+    $.ajax({
+        url: BASE_API_URL + '/json/systemctl/services/',
+        dataType: 'JSON',
+        success: function (response) {
+            var tbody = $('#tuxHomepageSystemctlServices tbody');
+
+            $.each(response['result'], function (index, item) {
+                var newRow = $('<tr>');
+                newRow.append('<td>' + item['unit'] + '</td>');
+                newRow.append(`<td><div class="badge badge-outline-${item['active']}">${item['active']}</div></td>`);
+                newRow.append('<td>' + item['sub'] + '</td>');
+                // Append the row to the tbody
+                tbody.append(newRow);
+
+                // only 10 of it.
+                if (index >= 7) {
+                    return false; // This will break out of the $.each loop
+                }
+            });
+        },
+        error: function () {
+            console.error('Error fetching data:', error);
+        }
+    });
+    //tuxHomepageSystemctlServices ends
 
     /**
      * for "tuxSpeedTest"
@@ -208,32 +237,5 @@ $(document).ready(function () {
 
 
 
-    /**
-     * for tuxHomepageSystemctlServices
-     */
-    // $.ajax({
-    //     url: BASE_API_URL + '/systemctl/services/',
-    //     dataType: 'JSON',
-    //     success: function (response) {
-    //         var tbody = $('#tuxHomepageSystemctlServices tbody');
 
-    //         $.each(response['result'], function (index, item) {
-    //             var newRow = $('<tr>');
-    //             newRow.append('<td>' + item['unit'] + '</td>');
-    //             newRow.append(`<td><div class="badge badge-outline-${item['active']}">${item['active']}</div></td>`);
-    //             newRow.append('<td>' + item['sub'] + '</td>');
-    //             // Append the row to the tbody
-    //             tbody.append(newRow);
-
-    //             // only 10 of it.
-    //             if (index >= 7) {
-    //                 return false; // This will break out of the $.each loop
-    //             }
-    //         });
-    //     },
-    //     error: function () {
-    //         console.error('Error fetching data:', error);
-    //     }
-    // });
-    // tuxHomepageSystemctlServices ends
 });
