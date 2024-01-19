@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="row">
@@ -8,30 +9,44 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="id_name" class="form-label">Title</label>
+                        <label for="id_name" class="form-label">
+                            {% trans 'Title' %}
+                        </label>
                         <input type="text" class="form-control" id="id_name" name="name" maxlength="200" required=""
                             value="{{ object.name }}">
                     </div>
                     <div class="mb-3">
-                        <label for="id_username" class="form-label">Username</label>
+                        <label for="id_username" class="form-label">
+                            {% trans 'Username' %}
+                        </label>
                         <input type="text" class="form-control" id="id_username" name="username" required=""
                             value="{{ object.username }}">
                     </div>
                     <div class="mb-3">
-                        <label for="id_password" class="form-label">Password</label>
+                        <label for="id_password" class="form-label">
+                            {% trans 'Secret' %}
+                        </label>
                         <input type="text" class="form-control" id="id_password" name="password" required=""
                             value="{{ object.password }}">
                     </div>
                     <div class="mb-3">
-                        <label for="id_url" class="form-label">URL</label>
+                        <label for="id_url" class="form-label">
+                            {% trans 'URL' %}
+                        </label>
                         <input type="text" class="form-control" id="id_url" name="url" required=""
                             value="{{ object.url }}">
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex" style="justify-content: space-between; align-items: center;">
-                        <button type="submit" class="btn btn-warning">Update</button>
-                        <a href="{% url 'vault-manager-list' %}">No, take me back</button>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="bi bi-pencil-square me-1"></i>
+                            {% trans 'Update' %}
+                        </button>
+                        <a href="{% url 'vault-manager-list' %}" class="link-offset-2">
+                            <i class="bi bi-reply me-1"></i>
+                            {% trans 'No, take me back!' %}
+                        </button>
                     </div>
                 </div>
 

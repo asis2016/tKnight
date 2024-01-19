@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="row mb-4">
     <div class="col d-flex justify-content-end">
-        <a href="{% url 'vault-manager-list' %}" class="btn btn-primary btn-sm">
-            < Go back to the list</a>
+        <a href="{% url 'vault-manager-list' %}" class="btn btn-info btn-sm">
+            <i class="bi bi-reply me-2"></i>{% trans 'Go back to the list' %}
+        </a>
     </div>
 </div>
 <div class="row">
@@ -13,27 +15,39 @@
             <div class="card-body">
                 <table class="table">
                     <tr>
-                        <th>Id</th>
+                        <th>
+                            {% trans 'Id' %}
+                        </th>
                         <td>{{ object.id }}</td>
                     </tr>
                     <tr>
-                        <th>Title</th>
+                        <th>
+                            {% trans 'Title' %}
+                        </th>
                         <td>{{ object.name }}</td>
                     </tr>
                     <tr>
-                        <th>Username</th>
+                        <th>
+                            {% trans 'Username' %}
+                        </th>
                         <td>{{ object.username }}</td>
                     </tr>
                     <tr>
-                        <th>Password</th>
+                        <th>
+                            {% trans 'Secret' %}
+                        </th>
                         <td>{{ object.password }}</td>
                     </tr>
                     <tr>
-                        <th>URL</th>
+                        <th>
+                            {% trans 'URL' %}
+                        </th>
                         <td>{{ object.url }}</td>
                     </tr>
                     <tr>
-                        <th>Created date</th>
+                        <th>
+                            {% trans 'Created Date' %}
+                        </th>
                         <td>{{ object.datestamp }}</td>
                     </tr>
                 </table>

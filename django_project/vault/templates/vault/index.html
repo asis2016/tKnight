@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
 {% load static %}
 
 {% block title %}
@@ -31,17 +30,31 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Title</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>URL</th>
+                            <th>
+                                {% trans 'ID' %}
+                            </th>
+                            <th>
+                                {% trans 'Title' %}
+                            </th>
+                            <th>
+                                {% trans 'Username' %}
+                            </th>
+                            <th>
+                                {% trans 'URL' %}
+                            </th>
+                            <th>
+                                {% trans 'Created Date' %}
+                            </th>
                             <th></th>
                         </tr>
                         {% for post in object_list %}
                         <tr>
                             <td></td>
+                            <td>{{ post.id }}</td>
                             <td>{{ post.name }}</td>
                             <td>{{ post.username }}</td>
+                            <td>{{ post.url }}</td>
+                            <td>{{ post.datestamp }}</td>
                             <td class="d-none">
                                 <input type="text" class="form-control" id="validationDefault02" placeholder="Last name"
                                     value="Otto" disabled>
@@ -52,9 +65,6 @@
                                     data-clipboard-target="#passwordForPost{{ post.id }}">
                                     &#128203;
                                 </span>
-                            </td>
-                            <td>
-                                <a href="{{ post.url|lower|safe }}" target="_blank">{{ post.url|lower }}</a>
                             </td>
                             <!-- td: options -->
                             <td class="d-flex justify-content-end">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 09:01+0000\n"
+"POT-Creation-Date: 2024-01-19 17:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,6 +91,8 @@ msgid "stats"
 msgstr "स्थिति"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:14
+#: vault/templates/vault/detail.html:31 vault/templates/vault/index.html:40
+#: vault/templates/vault/update.html:20
 msgid "Username"
 msgstr "प्रयोगकर्ता नाम"
 
@@ -140,6 +142,7 @@ msgid "found"
 msgstr "फेला पर्‍यो"
 
 #: dashboard/templates/dashboard/components/lsof.html:17
+#: vault/templates/vault/index.html:73
 msgid "See details"
 msgstr "विवरण हेर्नुहोस्"
 
@@ -167,6 +170,7 @@ msgstr "सार्वजनिक आईपी जानकारी"
 #: dashboard/templates/dashboard/components/publicIPDetails.html:16
 #: ipscanner/templates/ipscanner/index.html:5
 #: ipscanner/templates/ipscanner/result.html:21 templates/sidebar.html:91
+#: traceroutes/templates/traceroutes/result.html:24
 msgid "IP"
 msgstr "आईपी"
 
@@ -179,10 +183,12 @@ msgid "Zip"
 msgstr ""
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:37
+#: traceroutes/templates/traceroutes/result.html:30
 msgid "Longitude"
 msgstr "देशान्तर"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:43
+#: traceroutes/templates/traceroutes/result.html:27
 msgid "Latitude"
 msgstr "अक्षांश"
 
@@ -236,7 +242,7 @@ msgstr "सब"
 msgid "Home"
 msgstr ""
 
-#: dashboard/views.py:23 templates/sidebar.html:23
+#: dashboard/views.py:25 templates/sidebar.html:23
 msgid "dashboard"
 msgstr "ड्यासबोर्ड"
 
@@ -252,7 +258,7 @@ msgstr ""
 msgid "Values"
 msgstr ""
 
-#: environs/views.py:6
+#: environs/views.py:7
 msgid "environ"
 msgstr ""
 
@@ -264,33 +270,28 @@ msgstr "स्क्यानर"
 msgid "Starting IP address"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:30
+#: ipscanner/templates/ipscanner/index.html:32
 msgid "Last IP address"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:46
+#: ipscanner/templates/ipscanner/index.html:48
 msgid "Log this IP scan"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:58
+#: ipscanner/templates/ipscanner/index.html:61
+#: traceroutes/templates/traceroutes/index.html:46
 msgid "Cancel and go back!"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:76
+#: ipscanner/templates/ipscanner/index.html:79
 msgid "Warning!"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:82
-msgid ""
-"Make sure that you are authorized to scan IP addresses. Illegal scanning may "
-"cause legal consequences."
-msgstr ""
-
-#: ipscanner/templates/ipscanner/index.html:87
+#: ipscanner/templates/ipscanner/index.html:91
 msgid "Exit"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:90
+#: ipscanner/templates/ipscanner/index.html:94
 msgid "I agree"
 msgstr ""
 
@@ -337,19 +338,21 @@ msgstr ""
 
 #: portscanner/templates/portscanner/index.html:5
 msgid "Port Scanner"
-msgstr ""
+msgstr "पोर्ट स्क्यानर"
 
 #: portscanner/templates/portscanner/index.html:18
 msgid "Port scanning on"
-msgstr ""
+msgstr "पोर्ट स्क्यानिङ"
 
 #: portscanner/templates/portscanner/index.html:21
+#: traceroutes/templates/traceroutes/result.html:82
 msgid "It may take some time."
-msgstr ""
+msgstr "केही समय लाग्न सक्छ।"
 
 #: portscanner/templates/portscanner/index.html:24
+#: traceroutes/templates/traceroutes/result.html:85
 msgid "Please wait..."
-msgstr ""
+msgstr "कृपया प्रतीक्षा गर्नुहोस् ..."
 
 #: portscanner/templates/portscanner/index.html:36
 msgid "Target IP"
@@ -359,11 +362,11 @@ msgstr ""
 msgid "Open ports"
 msgstr ""
 
-#: rdbms/views.py:43 templates/sidebar.html:112 templates/sidebar.html:118
+#: rdbms/views.py:44 templates/sidebar.html:112 templates/sidebar.html:118
 msgid "RDBMS"
 msgstr "आर.दि.बि.एम.एस"
 
-#: rdbms/views.py:43
+#: rdbms/views.py:44
 msgid "manager"
 msgstr "व्यवस्थापक"
 
@@ -378,6 +381,12 @@ msgstr "निर्यात"
 #: templates/components/page-title.html:15
 msgid "More options"
 msgstr "थप विकल्पहरू"
+
+#: templates/registration/login.html:35
+#, fuzzy
+#| msgid "Sign out"
+msgid "Sign in"
+msgstr "साइन आउट"
 
 #: templates/sidebar.html:28
 msgid "Home v.1"
@@ -417,7 +426,8 @@ msgstr "उपकरण"
 msgid "Scan my ports"
 msgstr "मेरो पोर्टहरू स्क्यान गर्नुहोस्"
 
-#: templates/sidebar.html:97
+#: templates/sidebar.html:97 traceroutes/templates/traceroutes/index.html:5
+#: traceroutes/templates/traceroutes/result.html:5
 msgid "Traceroute"
 msgstr "त्रेस राउट"
 
@@ -425,42 +435,62 @@ msgstr "त्रेस राउट"
 msgid "Vault"
 msgstr "भल्ट"
 
-#: templates/sidebar.html:123
-msgid "Others"
-msgstr "अन्य"
-
-#: templates/sidebar.html:129
-msgid "tKnight"
-msgstr "टि-नाईट"
-
-#: templates/sidebar.html:129
-msgid "log"
-msgstr "लग"
-
-#: templates/sidebar.html:135
-msgid "Swagger"
-msgstr "स्व्यागर"
-
-#: templates/top_navigation.html:16
+#: templates/top_navigation.html:17
 msgid "search here"
 msgstr "यहाँ खोज्नुहोस्"
 
-#: templates/top_navigation.html:46 userprofile/views.py:7
+#: templates/top_navigation.html:61 userprofile/views.py:8
 msgid "My Profile"
 msgstr "मेरो प्रोफाईल"
 
-#: templates/top_navigation.html:54
-msgid "Activity log"
-msgstr "गतिविधि लग"
-
-#: templates/top_navigation.html:62
+#: templates/top_navigation.html:69
 #: userprofile/templates/userprofile/index.html:54
 msgid "settings"
 msgstr "सेटिंग्स"
 
-#: templates/top_navigation.html:72
+#: templates/top_navigation.html:79
 msgid "Sign out"
 msgstr "साइन आउट"
+
+#: tknight_django/settings.py:137
+msgid "English"
+msgstr "अंग्रेजी"
+
+#: tknight_django/settings.py:138
+msgid "German"
+msgstr "जर्मन"
+
+#: tknight_django/settings.py:139
+msgid "Nepali"
+msgstr "नेपाली"
+
+#: traceroutes/templates/traceroutes/index.html:20
+#, fuzzy
+#| msgid "Host"
+msgid "Hostname"
+msgstr "होस्ट"
+
+#: traceroutes/templates/traceroutes/index.html:36
+#, fuzzy
+#| msgid "Traceroute"
+msgid "Log this traceroute"
+msgstr "त्रेस राउट"
+
+#: traceroutes/templates/traceroutes/index.html:43
+#, fuzzy
+#| msgid "Traceroute"
+msgid "Traceroute now"
+msgstr "त्रेस राउट"
+
+#: traceroutes/templates/traceroutes/result.html:33
+msgid "Location"
+msgstr ""
+
+#: traceroutes/templates/traceroutes/result.html:79
+#, fuzzy
+#| msgid "Traceroute"
+msgid "Tracerouting"
+msgstr "त्रेस राउट"
 
 #: userprofile/templates/userprofile/index.html:49
 msgid "describe"
@@ -502,6 +532,81 @@ msgstr "सेटिङ सामग्री जान्छ।"
 #: userprofile/templates/userprofile/index.html:179
 msgid "Timeline content goes here."
 msgstr "टाइमलाइन सामग्री यहाँ|"
+
+#: vault/templates/vault/detail.html:8
+msgid "Go back to the list"
+msgstr "सूचीमा फर्कनुहोस्"
+
+#: vault/templates/vault/detail.html:19
+msgid "Id"
+msgstr "आईडी"
+
+#: vault/templates/vault/detail.html:25 vault/templates/vault/index.html:37
+#: vault/templates/vault/update.html:13
+msgid "Title"
+msgstr "शीर्षक"
+
+#: vault/templates/vault/detail.html:37 vault/templates/vault/update.html:27
+msgid "Secret"
+msgstr "पासवर्ड"
+
+#: vault/templates/vault/detail.html:43 vault/templates/vault/index.html:43
+#: vault/templates/vault/update.html:34
+msgid "URL"
+msgstr "उ.र.ल"
+
+#: vault/templates/vault/detail.html:49 vault/templates/vault/index.html:46
+msgid "Created Date"
+msgstr "सिर्जना गरिएको मिति"
+
+#: vault/templates/vault/index.html:6 vault/templates/vault/index.html:14
+msgid "Primary"
+msgstr "प्राथमिक"
+
+#: vault/templates/vault/index.html:6 vault/templates/vault/index.html:14
+#, fuzzy
+#| msgid "Vault"
+msgid "vault"
+msgstr "भल्ट"
+
+#: vault/templates/vault/index.html:20
+msgid "Add new credential"
+msgstr "नयाँ प्रमाण थप्नुहोस्"
+
+#: vault/templates/vault/index.html:34
+msgid "ID"
+msgstr "आईडी"
+
+#: vault/templates/vault/index.html:77 vault/templates/vault/update.html:44
+msgid "Update"
+msgstr "अपडेट गर्नुहोस्"
+
+#: vault/templates/vault/index.html:81
+msgid "Delete"
+msgstr "मेट्नुहोस्"
+
+#: vault/templates/vault/index.html:92
+msgid "No records found!"
+msgstr "कुनै रेकर्ड भेटिएन!"
+
+#: vault/templates/vault/update.html:47
+msgid "No, take me back!"
+msgstr ""
+
+#~ msgid "Others"
+#~ msgstr "अन्य"
+
+#~ msgid "tKnight"
+#~ msgstr "टि-नाईट"
+
+#~ msgid "log"
+#~ msgstr "लग"
+
+#~ msgid "Swagger"
+#~ msgstr "स्व्यागर"
+
+#~ msgid "Activity log"
+#~ msgstr "गतिविधि लग"
 
 #, fuzzy
 #~| msgid "settings"
