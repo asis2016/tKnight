@@ -14,8 +14,7 @@ from utils.lsof import get_lsof
 from utils.os_release import get_os_release
 from utils.systemctl_services import get_systemctl_services
 from utils.sensors import (
-    get_sensors_temperature,
-    get_sensors_battery
+    get_sensors_temperature
 )
 from django.http import JsonResponse
 from utils.users import get_users
@@ -35,7 +34,7 @@ class DashboardTemplateView(LoginRequiredMixin, TemplateView):
         context['ifconfig'] = get_ifconfig()
         context['os_release'] = get_os_release()
         context['systemctl'] = get_systemctl_services()
-        context['sensors_battery'] = get_sensors_battery()
+        context['sensors_temperature'] = get_sensors_temperature()
         context['users'] = get_users()
         return context
 
