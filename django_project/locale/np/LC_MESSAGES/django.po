@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 17:00+0000\n"
+"POT-Creation-Date: 2024-01-20 18:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,21 +91,26 @@ msgid "stats"
 msgstr "स्थिति"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:14
-#: vault/templates/vault/detail.html:31 vault/templates/vault/index.html:40
-#: vault/templates/vault/update.html:20
+#: rdbms/templates/rdbms/add.html:30 rdbms/templates/rdbms/delete.html:23
+#: rdbms/templates/rdbms/index.html:38 vault/templates/vault/add.html:23
+#: vault/templates/vault/delete.html:23 vault/templates/vault/detail.html:31
+#: vault/templates/vault/index.html:40 vault/templates/vault/update.html:20
 msgid "Username"
 msgstr "प्रयोगकर्ता नाम"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:23
 #: lsofs/templates/lsofs/index.html:19
+#: processes/templates/processes/index.html:18
 msgid "PID"
 msgstr "पीआईडी"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:32
+#: processes/templates/processes/index.html:24
 msgid "Terminal"
 msgstr "टर्मिनल"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
+#: rdbms/templates/rdbms/add.html:23 rdbms/templates/rdbms/index.html:44
 msgid "Host"
 msgstr "होस्ट"
 
@@ -142,7 +147,7 @@ msgid "found"
 msgstr "फेला पर्‍यो"
 
 #: dashboard/templates/dashboard/components/lsof.html:17
-#: vault/templates/vault/index.html:73
+#: lsofs/templates/lsofs/index.html:34 vault/templates/vault/index.html:73
 msgid "See details"
 msgstr "विवरण हेर्नुहोस्"
 
@@ -180,7 +185,7 @@ msgstr "देश"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:31
 msgid "Zip"
-msgstr ""
+msgstr "जिप कोड"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:37
 #: traceroutes/templates/traceroutes/result.html:30
@@ -223,6 +228,7 @@ msgstr "सिस्तेम सिटिएल"
 
 #: dashboard/templates/dashboard/components/systemctl-services.html:22
 #: dashboard/templates/dashboard/components/systemctl-services.html:39
+#: processes/templates/processes/index.html:33 templates/sidebar.html:69
 msgid "Status"
 msgstr "स्थिति"
 
@@ -251,16 +257,17 @@ msgid "Environment variables"
 msgstr "इन्भैरोमेन्ट भेरीएबल्स"
 
 #: environs/templates/environs/index.html:18
-msgid "Keys"
-msgstr ""
+#: userprofile/templates/userprofile/index.html:59
+msgid "keys"
+msgstr "किज"
 
 #: environs/templates/environs/index.html:21
 msgid "Values"
-msgstr ""
+msgstr "भ्यालुज"
 
 #: environs/views.py:7
 msgid "environ"
-msgstr ""
+msgstr "इन्भैरोमेन्ट भेरीएबल्स"
 
 #: ipscanner/templates/ipscanner/index.html:5 templates/sidebar.html:91
 msgid "scanner"
@@ -268,75 +275,83 @@ msgstr "स्क्यानर"
 
 #: ipscanner/templates/ipscanner/index.html:19
 msgid "Starting IP address"
-msgstr ""
+msgstr "सुरुको आईपी ठेगाना"
 
 #: ipscanner/templates/ipscanner/index.html:32
 msgid "Last IP address"
-msgstr ""
+msgstr "अन्त्यको आईपी ठेगाना"
 
 #: ipscanner/templates/ipscanner/index.html:48
 msgid "Log this IP scan"
 msgstr ""
 
-#: ipscanner/templates/ipscanner/index.html:61
+#: ipscanner/templates/ipscanner/index.html:62
+#: rdbms/templates/rdbms/delete.html:47
 #: traceroutes/templates/traceroutes/index.html:46
+#: vault/templates/vault/delete.html:47 vault/templates/vault/update.html:48
 msgid "Cancel and go back!"
-msgstr ""
+msgstr "रद्द र फिर्ता जानुहोस्!"
 
-#: ipscanner/templates/ipscanner/index.html:79
+#: ipscanner/templates/ipscanner/index.html:80
 msgid "Warning!"
-msgstr ""
+msgstr "सावधान"
 
-#: ipscanner/templates/ipscanner/index.html:91
+#: ipscanner/templates/ipscanner/index.html:92
 msgid "Exit"
-msgstr ""
+msgstr "बाहिर निस्कनुहोस्"
 
-#: ipscanner/templates/ipscanner/index.html:94
+#: ipscanner/templates/ipscanner/index.html:95
+#: rdbms/templates/rdbms/delete.html:44 vault/templates/vault/delete.html:44
 msgid "I agree"
-msgstr ""
+msgstr "म सहमत छु"
 
-#: ipscanner/templates/ipscanner/result.html:5
+#: ipscanner/templates/ipscanner/result.html:5 ipscanner/views.py:26
 msgid "IP scanner result"
-msgstr ""
+msgstr "आईपी स्क्यानर नतिजा"
 
 #: ipscanner/templates/ipscanner/result.html:24
 msgid "TTL"
-msgstr ""
+msgstr "टी.टी.एल"
 
 #: ipscanner/templates/ipscanner/result.html:27
 msgid "Time"
-msgstr ""
+msgstr "समय"
 
 #: ipscanner/templates/ipscanner/result.html:30
 msgid "Is alive?"
-msgstr ""
+msgstr "खुला छ ?"
 
-#: ipscanner/templates/ipscanner/result.html:56
-#: portscanner/templates/portscanner/index.html:44
+#: ipscanner/templates/ipscanner/result.html:55
+#: portscanner/templates/portscanner/index.html:45
 msgid "Scan ports"
-msgstr ""
+msgstr "पोर्टहरू स्क्यान गर्नुहोस्"
 
 #: lsofs/templates/lsofs/index.html:5 templates/sidebar.html:63
 msgid "LSOF"
-msgstr "एल एस ओ एफ"
+msgstr "एल.एस.ओ.एफ"
 
 #: lsofs/templates/lsofs/index.html:22
 msgid "Command"
-msgstr ""
+msgstr "आदेश"
 
 #: lsofs/templates/lsofs/index.html:25
 msgid "FD"
-msgstr ""
+msgstr "एफ.दि"
 
 #: lsofs/templates/lsofs/index.html:28
+#: processes/templates/processes/index.html:36
 msgid "User"
-msgstr ""
+msgstr "प्रयोगकर्ता"
 
 #: lsofs/templates/lsofs/index.html:31
 msgid "Node"
-msgstr ""
+msgstr "नोड"
 
-#: portscanner/templates/portscanner/index.html:5
+#: lsofs/views.py:8
+msgid "LSOFs"
+msgstr "एल.एस.ओ.एफ"
+
+#: portscanner/templates/portscanner/index.html:5 portscanner/views.py:9
 msgid "Port Scanner"
 msgstr "पोर्ट स्क्यानर"
 
@@ -354,21 +369,93 @@ msgstr "केही समय लाग्न सक्छ।"
 msgid "Please wait..."
 msgstr "कृपया प्रतीक्षा गर्नुहोस् ..."
 
-#: portscanner/templates/portscanner/index.html:36
+#: portscanner/templates/portscanner/index.html:37
 msgid "Target IP"
-msgstr ""
+msgstr "लक्ष्य आईपी"
 
-#: portscanner/templates/portscanner/index.html:52
+#: portscanner/templates/portscanner/index.html:53
 msgid "Open ports"
-msgstr ""
+msgstr "खुल्ला पोर्टहरू"
 
-#: rdbms/views.py:44 templates/sidebar.html:112 templates/sidebar.html:118
-msgid "RDBMS"
-msgstr "आर.दि.बि.एम.एस"
+#: portscanner/templates/portscanner/index.html:65
+msgid "Total ports opened"
+msgstr "कुल खुल्ला पोर्टहरू"
 
-#: rdbms/views.py:44
-msgid "manager"
-msgstr "व्यवस्थापक"
+#: processes/templates/processes/index.html:21
+msgid "Process name"
+msgstr "पीएसको नाम"
+
+#: processes/templates/processes/index.html:27
+msgid "No. of threads"
+msgstr "थ्रेदको सङ्ख्या"
+
+#: processes/templates/processes/index.html:30
+msgid "Started time"
+msgstr "सुरु भएको समय"
+
+#: rdbms/templates/mysql/detail.html:8 vault/templates/vault/detail.html:8
+msgid "Go back to the list"
+msgstr "सूचीमा फर्कनुहोस्"
+
+#: rdbms/templates/mysql/detail.html:27
+msgid "Connect"
+msgstr "भित्र जानुहोस्"
+
+#: rdbms/templates/rdbms/add.html:17 rdbms/templates/rdbms/delete.html:17
+#: vault/templates/vault/add.html:17 vault/templates/vault/delete.html:17
+#: vault/templates/vault/detail.html:25 vault/templates/vault/index.html:37
+#: vault/templates/vault/update.html:13
+msgid "Title"
+msgstr "शीर्षक"
+
+#: rdbms/templates/rdbms/add.html:37 rdbms/templates/rdbms/delete.html:29
+#: rdbms/templates/rdbms/index.html:41 vault/templates/vault/add.html:29
+#: vault/templates/vault/delete.html:29 vault/templates/vault/detail.html:37
+#: vault/templates/vault/update.html:27
+msgid "Secret"
+msgstr "पासवर्ड"
+
+#: rdbms/templates/rdbms/add.html:44 rdbms/templates/rdbms/delete.html:35
+#: rdbms/templates/rdbms/index.html:32
+msgid "Type"
+msgstr "प्रकार"
+
+#: rdbms/templates/rdbms/add.html:52 vault/templates/vault/add.html:43
+msgid "Save"
+msgstr "सिर्जना गर्नुहोस्"
+
+#: rdbms/templates/rdbms/add.html:55 vault/templates/vault/add.html:46
+msgid "Go back"
+msgstr "सूचीमा फर्कनुहोस्"
+
+#: rdbms/templates/rdbms/delete.html:12 vault/templates/vault/delete.html:12
+msgid "You are about to delete"
+msgstr "तपाईं मेट्न लाग्दै हुनुहुन्छ"
+
+#: rdbms/templates/rdbms/index.html:18
+msgid "Add new RDBMS"
+msgstr "नयाँ आर.दि.बि.एम.एस थप्नुहोस्"
+
+#: rdbms/templates/rdbms/index.html:35
+msgid "Name"
+msgstr "नाम"
+
+#: rdbms/templates/rdbms/index.html:64
+msgid "Show MySQL"
+msgstr "माई एस.कु.ल देखाउनुहोस्"
+
+#: rdbms/templates/rdbms/index.html:67 vault/templates/vault/index.html:77
+#: vault/templates/vault/update.html:44
+msgid "Update"
+msgstr "अपडेट गर्नुहोस्"
+
+#: rdbms/templates/rdbms/index.html:70
+msgid "Trash"
+msgstr "मेट्नुहोस्"
+
+#: rdbms/templates/rdbms/index.html:81 vault/templates/vault/index.html:92
+msgid "No records found!"
+msgstr "कुनै रेकर्ड भेटिएन!"
 
 #: templates/components/page-title.html:7
 msgid "Generate report"
@@ -408,12 +495,6 @@ msgstr "जानकारी"
 msgid "-n -i"
 msgstr "-एन -आई"
 
-#: templates/sidebar.html:69
-#, fuzzy
-#| msgid "stats"
-msgid "status"
-msgstr "स्थिति"
-
 #: templates/sidebar.html:80
 msgid "Network"
 msgstr "नेटवर्क"
@@ -435,6 +516,10 @@ msgstr "त्रेस राउट"
 msgid "Vault"
 msgstr "भल्ट"
 
+#: templates/sidebar.html:112 templates/sidebar.html:118
+msgid "RDBMS"
+msgstr "आर.दि.बि.एम.एस"
+
 #: templates/top_navigation.html:17
 msgid "search here"
 msgstr "यहाँ खोज्नुहोस्"
@@ -452,21 +537,19 @@ msgstr "सेटिंग्स"
 msgid "Sign out"
 msgstr "साइन आउट"
 
-#: tknight_django/settings.py:137
+#: tknight_django/settings.py:139
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: tknight_django/settings.py:138
+#: tknight_django/settings.py:140
 msgid "German"
 msgstr "जर्मन"
 
-#: tknight_django/settings.py:139
+#: tknight_django/settings.py:141
 msgid "Nepali"
 msgstr "नेपाली"
 
 #: traceroutes/templates/traceroutes/index.html:20
-#, fuzzy
-#| msgid "Host"
 msgid "Hostname"
 msgstr "होस्ट"
 
@@ -477,8 +560,6 @@ msgid "Log this traceroute"
 msgstr "त्रेस राउट"
 
 #: traceroutes/templates/traceroutes/index.html:43
-#, fuzzy
-#| msgid "Traceroute"
 msgid "Traceroute now"
 msgstr "त्रेस राउट"
 
@@ -498,11 +579,7 @@ msgstr "वर्णन"
 
 #: userprofile/templates/userprofile/index.html:59
 msgid "SSH"
-msgstr ""
-
-#: userprofile/templates/userprofile/index.html:59
-msgid "keys"
-msgstr ""
+msgstr "एस.एस.एच"
 
 #: userprofile/templates/userprofile/index.html:106
 #: userprofile/templates/userprofile/index.html:119
@@ -533,27 +610,15 @@ msgstr "सेटिङ सामग्री जान्छ।"
 msgid "Timeline content goes here."
 msgstr "टाइमलाइन सामग्री यहाँ|"
 
-#: vault/templates/vault/detail.html:8
-msgid "Go back to the list"
-msgstr "सूचीमा फर्कनुहोस्"
-
-#: vault/templates/vault/detail.html:19
-msgid "Id"
-msgstr "आईडी"
-
-#: vault/templates/vault/detail.html:25 vault/templates/vault/index.html:37
-#: vault/templates/vault/update.html:13
-msgid "Title"
-msgstr "शीर्षक"
-
-#: vault/templates/vault/detail.html:37 vault/templates/vault/update.html:27
-msgid "Secret"
-msgstr "पासवर्ड"
-
+#: vault/templates/vault/add.html:35 vault/templates/vault/delete.html:35
 #: vault/templates/vault/detail.html:43 vault/templates/vault/index.html:43
 #: vault/templates/vault/update.html:34
 msgid "URL"
 msgstr "उ.र.ल"
+
+#: vault/templates/vault/detail.html:19
+msgid "Id"
+msgstr "आईडी"
 
 #: vault/templates/vault/detail.html:49 vault/templates/vault/index.html:46
 msgid "Created Date"
@@ -569,7 +634,7 @@ msgstr "प्राथमिक"
 msgid "vault"
 msgstr "भल्ट"
 
-#: vault/templates/vault/index.html:20
+#: vault/templates/vault/index.html:20 vault/views.py:11
 msgid "Add new credential"
 msgstr "नयाँ प्रमाण थप्नुहोस्"
 
@@ -577,21 +642,28 @@ msgstr "नयाँ प्रमाण थप्नुहोस्"
 msgid "ID"
 msgstr "आईडी"
 
-#: vault/templates/vault/index.html:77 vault/templates/vault/update.html:44
-msgid "Update"
-msgstr "अपडेट गर्नुहोस्"
-
 #: vault/templates/vault/index.html:81
 msgid "Delete"
 msgstr "मेट्नुहोस्"
 
-#: vault/templates/vault/index.html:92
-msgid "No records found!"
-msgstr "कुनै रेकर्ड भेटिएन!"
+#: vault/views.py:18
+msgid "Primary Vault"
+msgstr "प्राथमिक भल्ट"
 
-#: vault/templates/vault/update.html:47
-msgid "No, take me back!"
-msgstr ""
+#: vault/views.py:24
+msgid "Update Credential"
+msgstr "प्रमाण अपडेट गर्नुहोस्"
+
+#: vault/views.py:32
+msgid "Delete credential"
+msgstr "प्रमाण मेट्नुहोस्"
+
+#: vault/views.py:38
+msgid "Credential Detail"
+msgstr "प्रमाण विवरण"
+
+#~ msgid "manager"
+#~ msgstr "व्यवस्थापक"
 
 #~ msgid "Others"
 #~ msgstr "अन्य"

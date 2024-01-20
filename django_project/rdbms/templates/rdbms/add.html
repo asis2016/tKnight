@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
 Add new RDBMS
@@ -12,35 +13,47 @@ Add new RDBMS
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="id_name" class="form-label">Title</label>
+                        <label for="id_name" class="form-label">
+                            {% trans 'Title'%}
+                        </label>
                         <input type="text" class="form-control" id="id_name" name="name" maxlength="200" required="" autocomplete="off" placeholder="Your RDBMS name">
                     </div>
                     <div class="mb-3">
-                        <label for="id_hostname" class="form-label">Hostname</label>
+                        <label for="id_hostname" class="form-label">
+                            {% trans 'Host'%}
+                        </label>
                         <input type="text" class="form-control" id="id_hostname" name="host" required="" 
                         autocomplete="off" placeholder="127.0.0.1:3306">
                     </div>
                     <div class="mb-3">
-                        <label for="id_username" class="form-label">Username</label>
+                        <label for="id_username" class="form-label">
+                            {% trans 'Username'%}
+                        </label>
                         <input type="text" class="form-control" id="id_username" name="username" required="" 
                         autocomplete="off" placeholder="Root username">
                     </div>
                     <div class="mb-3">
-                        <label for="id_password" class="form-label">Password</label>
+                        <label for="id_password" class="form-label">
+                            {% trans 'Secret'%}
+                        </label>
                         <input type="text" class="form-control" id="id_password" name="password" required="" 
                         autocomplete="off" placeholder="Root password">
                     </div>
                     <div class="mb-3">
-                        <label for="id_type" class="form-label">Type</label>
+                        <label for="id_type" class="form-label">
+                            {% trans 'Type'%}
+                        </label>
                         <input type="text" class="form-control" id="id_type" name="type" required="" autocomplete="off" value="MySQL">
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex" style="justify-content: space-between; align-items: center;">
                         <button type="submit" class="btn btn-info">
-                            <i class="bi bi-floppy me-1"></i>Save now
+                            <i class="bi bi-floppy me-1"></i> {% trans 'Save' %}
                         </button>
-                        <a href="{% url 'rdbms-manager-list' %}" class="link-offset-2">< Go back</button>
+                        <a href="{% url 'rdbms-manager-list' %}" class="link-offset-2">
+                            <i class="bi bi-reply"></i> {% trans 'Go back' %}
+                        </button>
                     </div>
                 </div>
             </div>

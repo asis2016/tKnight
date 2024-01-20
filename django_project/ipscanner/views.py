@@ -1,3 +1,4 @@
+from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -8,7 +9,7 @@ from utils.ip_scanner import get_ips
 from utils.ifconfig import get_ifconfig
 
 class IpscannerTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': 'IP Scanner'}
+    extra_context = {'page_title': 'IP Scanner', 'display': 'd-none'}
     template_name = 'ipscanner/index.html'
 
 
@@ -22,7 +23,7 @@ def ipscanner_post_request(request):
         result = get_ips(start_ip=start_ip, end_ip=end_ip)
         return render(request, 'ipscanner/result.html', {
             'result': result,
-            'page_title': 'IP Scanner result'
+            'page_title': _('IP scanner result'),
         })
 
 

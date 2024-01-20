@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="row">
@@ -7,30 +8,44 @@
             {% csrf_token %}
             <div class="card">
                 <div class="card-body">
-                    <p class="text-danger">You are about to delete</p>
+                    <p class="text-danger">
+                        {% trans 'You are about to delete' %}
+                    </p>
                     <table class="table">
                         <tr>
-                            <td>Title</td>
+                            <td>
+                                {% trans 'Title' %}
+                            </td>
                             <td>{{ object.name }} </td>
                         </tr>
                         <tr>
-                            <td>Username</td>
+                            <td>
+                                {% trans 'Username' %}
+                            </td>
                             <td>{{ object.username }} </td>
                         </tr>
                         <tr>
-                            <td>Password</td>
+                            <td>
+                                {% trans 'Secret' %}
+                            </td>
                             <td>{{ object.password }} </td>
                         </tr>
                         <tr>
-                            <td>URL</td>
+                            <td>
+                                {% trans 'URL' %}
+                            </td>
                             <td>{{ object.url }} </td>
                         </tr>
                     </table>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex" style="justify-content: space-between; align-items: center;">
-                        <button type="submit" class="btn btn-danger">Yes, I'm sure</button>
-                        <a href="{% url 'vault-manager-list' %}">No, take me back</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-exclamation-triangle-fill"></i> {% trans 'I agree' %}
+                        </button>
+                        <a href="{% url 'vault-manager-list' %}">
+                            <i class="bi bi-reply"></i> {% trans 'Cancel and go back!' %}
+                        </button>
                     </div>
                 </div>
             </div>

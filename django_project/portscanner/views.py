@@ -1,11 +1,14 @@
+from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
-from django.http import JsonResponse
 from utils.port_scanner import get_port_scanner
 
 
 class PortScannerTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': 'Port Scanner'}
+    extra_context = {
+                'page_title': _('Port Scanner'),
+                'display': 'd-none'
+                }
     template_name = 'portscanner/index.html'
     
     def get_context_data(self, **kwargs):

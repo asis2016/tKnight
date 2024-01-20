@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="row">
@@ -7,22 +8,32 @@
             {% csrf_token %}
             <div class="card">
                 <div class="card-body">
-                    <p class="text-danger">You are about to delete</p>
+                    <p class="text-danger">
+                        {% trans 'You are about to delete' %}
+                    </p>
                     <table class="table">
                         <tr>
-                            <td>Title</td>
+                            <td>
+                                {% trans 'Title' %}
+                            </td>
                             <td>{{ object.name }} </td>
                         </tr>
                         <tr>
-                            <td>Username</td>
+                            <td>
+                                {% trans 'Username' %}
+                            </td>
                             <td>{{ object.username }} </td>
                         </tr>
                         <tr>
-                            <td>Password</td>
+                            <td>
+                                {% trans 'Secret' %}
+                            </td>
                             <td>{{ object.password }} </td>
                         </tr>
                         <tr>
-                            <td>Type</td>
+                            <td>
+                                {% trans 'Type' %}
+                            </td>
                             <td>{{ object.type }} </td>
                         </tr>
                     </table>
@@ -30,9 +41,11 @@
                 <div class="card-footer">
                     <div class="d-flex" style="justify-content: space-between; align-items: center;">
                         <button type="submit" class="btn btn-danger">
-                            <i class="bi bi-trash me-1"></i>Yes, I'm sure
+                            <i class="bi bi-exclamation-triangle-fill"></i> {% trans 'I agree' %}
                         </button>
-                        <a href="{% url 'rdbms-manager-list' %}" class="link-offset-2">< No, take me back</button>
+                        <a href="{% url 'rdbms-manager-list' %}" class="link-offset-2">
+                            <i class="bi bi-reply"></i> {% trans 'Cancel and go back!' %}
+                        </button>
                     </div>
                 </div>
             </div>

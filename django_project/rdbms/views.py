@@ -18,14 +18,17 @@ from utils.rdbms.tknight_oracle.dba_users import get_dba_users
 
 class RdbmsManagerCreateView(LoginRequiredMixin, CreateView):
     model = RdbmsManager
-    extra_context = {'page_title': 'Add new RDBMS'}
+    extra_context = {
+        'page_title': 'Add new RDBMS',
+        'display': 'd-none'
+    }
     template_name = 'rdbms/add.html'
     fields = '__all__'
 
 
 class RdbmsManagerUpdateView(LoginRequiredMixin, UpdateView):
     model = RdbmsManager
-    extra_context = {'page_title': 'Update RDBMS'}
+    extra_context = {'page_title': 'Update RDBMS', 'display': 'd-none'}
     template_name = 'rdbms/update.html'
     fields = '__all__'
 
@@ -33,23 +36,20 @@ class RdbmsManagerUpdateView(LoginRequiredMixin, UpdateView):
 class RdbmsManagerDeleteView(LoginRequiredMixin, DeleteView):
     model = RdbmsManager
     template_name = 'rdbms/delete.html'
-    extra_context = {'page_title': 'Delete RDBMS'}
+    extra_context = {'page_title': 'Delete RDBMS', 'display': 'd-none'}
     success_url = reverse_lazy('rdbms-manager-list')
 
 
 class RdbmsManagerListView(LoginRequiredMixin, ListView):
     model = RdbmsManager
-    extra_context = {
-            'page_title':
-            _('RDBMS') + ' ' + _('manager')
-    }
+    extra_context = {'page_title': 'RDBMS Manager', 'display': 'd-none'}
     template_name = 'rdbms/index.html'
 
 
 #Only for MySQL
 class RdbmsMySQLManagerDetailView(LoginRequiredMixin, DetailView):
     model = RdbmsManager
-    extra_context = {'page_title': 'All schemas'}
+    extra_context = {'page_title': 'All schemas', 'display': 'd-none'}
     template_name = 'mysql/detail.html'
     context_object_name = 'object'
     
@@ -71,7 +71,7 @@ class RdbmsMySQLManagerDetailView(LoginRequiredMixin, DetailView):
 #Only for Oracle
 class RdbmsOracleManagerDetailView(LoginRequiredMixin, DetailView):
     model = RdbmsManager
-    extra_context = {'page_title': 'DBA Users'}
+    extra_context = {'page_title': 'DBA Users', 'display': 'd-none'}
     template_name = 'oracle/dba-users.html'
     context_object_name = 'object'
     
@@ -109,7 +109,8 @@ def mysql_show_schema_post_request(request):
             'secret':secret,
             'db': db,
             'result': result,
-            'page_title': 'MySQL Schema and it\'s tables'
+            'page_title': 'MySQL Schema and it\'s tables',
+            'display': 'd-none'
         })
 
 
@@ -128,5 +129,6 @@ def mysql_describe_table_post_request(request):
         return render(request, 'mysql/tables.html', {
             'result': result,
             'table_name': table_name,
-            'page_title': 'MySQL table described'
+            'page_title': 'MySQL table described', 
+            'display': 'd-none'
         })

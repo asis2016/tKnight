@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 
 class UserProfileTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': _('My Profile')}
+    extra_context = {'page_title': _('My Profile'), 'display': 'd-none'}
     template_name = 'userprofile/index.html'
 
     def get_context_data(self, **kwargs):

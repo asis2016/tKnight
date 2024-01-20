@@ -4,7 +4,7 @@ from utils.systemctl_services import get_systemctl_services
 from django.http import JsonResponse
 
 class SystemctlServicesTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': 'Systemctl Services'}
+    extra_context = {'page_title': 'Systemctl Services', 'display': 'd-none'}
     template_name = 'system_services/index.html'
 
     def get_context_data(self, **kwargs):

@@ -22,7 +22,7 @@ from utils.users import get_users
 
 
 class DashboardTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': _('dashboard')}
+    extra_context = {'page_title': _('dashboard'), 'display': 'd-none'}
     template_name = 'dashboard/index.html'
 
     def get_context_data(self, **kwargs):
@@ -41,7 +41,7 @@ class DashboardTemplateView(LoginRequiredMixin, TemplateView):
 
 
 class WipTemplateView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': 'WIP'}
+    extra_context = {'page_title': 'WIP', 'display': 'd-none'}
     template_name = 'wip.html'
 
 

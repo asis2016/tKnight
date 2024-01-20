@@ -7,7 +7,7 @@ from utils.traceroute import get_traceroute
 
 
 class TraceRoutesFormView(LoginRequiredMixin, TemplateView):
-    extra_context = {'page_title': 'Traceroute'}
+    extra_context = {'page_title': 'Traceroute', 'display': 'd-none'}
     template_name = 'traceroutes/index.html'
 
 
@@ -22,5 +22,6 @@ def traceroute_post_request(request):
         return render(request, 'traceroutes/result.html', {
             'hostname': hostname,
             'result': result,
-            'page_title': 'Traceroute result'
+            'page_title': 'Traceroute result',
+            'display': 'd-none'
         })

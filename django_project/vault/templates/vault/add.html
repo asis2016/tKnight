@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}
 Add credential
@@ -12,29 +13,37 @@ Add credential
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="id_name" class="form-label">Title</label>
+                        <label for="id_name" class="form-label">
+                            {% trans 'Title' %}
+                        </label>
                         <input type="text" class="form-control" id="id_name" name="name" maxlength="200" required="" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="id_username" class="form-label">Username</label>
+                        <label for="id_username" class="form-label">
+                            {% trans 'Username' %}
+                        </label>
                         <input type="text" class="form-control" id="id_username" name="username" required="" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="id_password" class="form-label">Password</label>
+                        <label for="id_password" class="form-label">
+                            {% trans 'Secret' %}
+                        </label>
                         <input type="text" class="form-control" id="id_password" name="password" required="" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="id_url" class="form-label">URL</label>
+                        <label for="id_url" class="form-label">
+                            {% trans 'URL' %}
+                        </label>
                         <input type="text" class="form-control" id="id_url" name="url" required="" autocomplete="off">
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex" style="justify-content: space-between; align-items: center;">
                         <button type="submit" class="btn btn-info">
-                            Save
+                            <i class="bi bi-floppy me-1"></i> {% trans 'Save' %}
                         </button>
-                        <a href="{% url 'vault-manager-list' %}">
-                            Go back
+                        <a href="{% url 'vault-manager-list' %}" class="link-offset-2">
+                            <i class="bi bi-reply"></i> {% trans 'Go back' %}
                         </button>
                     </div>
                 </div>
