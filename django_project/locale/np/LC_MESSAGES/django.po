@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-20 18:06+0000\n"
+"POT-Creation-Date: 2024-01-21 07:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,7 @@ msgid "found"
 msgstr "फेला पर्‍यो"
 
 #: dashboard/templates/dashboard/components/lsof.html:17
-#: lsofs/templates/lsofs/index.html:34 vault/templates/vault/index.html:73
+#: lsofs/templates/lsofs/index.html:34 vault/templates/vault/index.html:61
 msgid "See details"
 msgstr "विवरण हेर्नुहोस्"
 
@@ -444,7 +444,7 @@ msgstr "नाम"
 msgid "Show MySQL"
 msgstr "माई एस.कु.ल देखाउनुहोस्"
 
-#: rdbms/templates/rdbms/index.html:67 vault/templates/vault/index.html:77
+#: rdbms/templates/rdbms/index.html:67 vault/templates/vault/index.html:65
 #: vault/templates/vault/update.html:44
 msgid "Update"
 msgstr "अपडेट गर्नुहोस्"
@@ -453,7 +453,7 @@ msgstr "अपडेट गर्नुहोस्"
 msgid "Trash"
 msgstr "मेट्नुहोस्"
 
-#: rdbms/templates/rdbms/index.html:81 vault/templates/vault/index.html:92
+#: rdbms/templates/rdbms/index.html:81 vault/templates/vault/index.html:80
 msgid "No records found!"
 msgstr "कुनै रेकर्ड भेटिएन!"
 
@@ -642,7 +642,7 @@ msgstr "नयाँ प्रमाण थप्नुहोस्"
 msgid "ID"
 msgstr "आईडी"
 
-#: vault/templates/vault/index.html:81
+#: vault/templates/vault/index.html:69
 msgid "Delete"
 msgstr "मेट्नुहोस्"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-20 18:06+0000\n"
+"POT-Creation-Date: 2024-01-21 07:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr "Nutzung"
 
 #: dashboard/templates/dashboard/components/disk-partition.html:33
 msgid "Mounted on"
-msgstr ""
+msgstr "Montiert auf"
 
 #: dashboard/templates/dashboard/components/disk-usage.html:18
 msgid "Total"
@@ -115,7 +115,7 @@ msgstr "Host"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:41
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:55
 msgid "Boottime"
@@ -123,11 +123,11 @@ msgstr "Bootzeit"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:64
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:73
 msgid "Netmask"
-msgstr ""
+msgstr "Netzmaske"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:82
 msgid "Broadcast"
@@ -135,18 +135,18 @@ msgstr ""
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:91
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 #: dashboard/templates/dashboard/components/ifconfig-and-users-stat.html:100
 msgid "Internet device"
-msgstr ""
+msgstr "Internet-Gerät"
 
 #: dashboard/templates/dashboard/components/lsof.html:8
 msgid "found"
 msgstr "gefunden"
 
 #: dashboard/templates/dashboard/components/lsof.html:17
-#: lsofs/templates/lsofs/index.html:34 vault/templates/vault/index.html:73
+#: lsofs/templates/lsofs/index.html:34 vault/templates/vault/index.html:61
 msgid "See details"
 msgstr "Siehe Details"
 
@@ -176,7 +176,7 @@ msgstr "Wie lauten meine öffentlichen IP-Daten?"
 #: ipscanner/templates/ipscanner/result.html:21 templates/sidebar.html:91
 #: traceroutes/templates/traceroutes/result.html:24
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:22
 msgid "Country"
@@ -198,7 +198,7 @@ msgstr "Breitengrad"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:49
 msgid "ISP"
-msgstr ""
+msgstr "ISP"
 
 #: dashboard/templates/dashboard/components/publicIPDetails.html:55
 msgid "Timezone"
@@ -210,11 +210,11 @@ msgstr "Sensoren"
 
 #: dashboard/templates/dashboard/components/sensors-env-cpucore.html:31
 msgid "envs"
-msgstr ""
+msgstr "envs"
 
 #: dashboard/templates/dashboard/components/sensors-env-cpucore.html:49
 msgid "cores"
-msgstr ""
+msgstr "cores"
 
 #: dashboard/templates/dashboard/components/speedtest.html:5
 msgid "Internet speed test"
@@ -258,15 +258,15 @@ msgstr "Umgebungsvariablen"
 #: environs/templates/environs/index.html:18
 #: userprofile/templates/userprofile/index.html:59
 msgid "keys"
-msgstr ""
+msgstr "Schlüssel"
 
 #: environs/templates/environs/index.html:21
 msgid "Values"
-msgstr ""
+msgstr "Werte"
 
 #: environs/views.py:7
 msgid "environ"
-msgstr ""
+msgstr "environ"
 
 #: ipscanner/templates/ipscanner/index.html:5 templates/sidebar.html:91
 msgid "scanner"
@@ -278,11 +278,11 @@ msgstr "Start-IP-Adresse"
 
 #: ipscanner/templates/ipscanner/index.html:32
 msgid "Last IP address"
-msgstr ""
+msgstr "Letzte IP-Adresse"
 
 #: ipscanner/templates/ipscanner/index.html:48
 msgid "Log this IP scan"
-msgstr ""
+msgstr "Diesen IP-Scan loggen"
 
 #: ipscanner/templates/ipscanner/index.html:62
 #: rdbms/templates/rdbms/delete.html:47
@@ -302,7 +302,7 @@ msgstr ""
 #: ipscanner/templates/ipscanner/index.html:95
 #: rdbms/templates/rdbms/delete.html:44 vault/templates/vault/delete.html:44
 msgid "I agree"
-msgstr ""
+msgstr "Ich stimme zu"
 
 #: ipscanner/templates/ipscanner/result.html:5 ipscanner/views.py:26
 msgid "IP scanner result"
@@ -310,11 +310,11 @@ msgstr ""
 
 #: ipscanner/templates/ipscanner/result.html:24
 msgid "TTL"
-msgstr ""
+msgstr "TTL"
 
 #: ipscanner/templates/ipscanner/result.html:27
 msgid "Time"
-msgstr ""
+msgstr "Ziet"
 
 #: ipscanner/templates/ipscanner/result.html:30
 msgid "Is alive?"
@@ -323,24 +323,24 @@ msgstr ""
 #: ipscanner/templates/ipscanner/result.html:55
 #: portscanner/templates/portscanner/index.html:45
 msgid "Scan ports"
-msgstr ""
+msgstr "Ports scannen"
 
 #: lsofs/templates/lsofs/index.html:5 templates/sidebar.html:63
 msgid "LSOF"
-msgstr ""
+msgstr "LSOF"
 
 #: lsofs/templates/lsofs/index.html:22
 msgid "Command"
-msgstr ""
+msgstr "Befehl"
 
 #: lsofs/templates/lsofs/index.html:25
 msgid "FD"
-msgstr ""
+msgstr "FD"
 
 #: lsofs/templates/lsofs/index.html:28
 #: processes/templates/processes/index.html:36
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #: lsofs/templates/lsofs/index.html:31
 msgid "Node"
@@ -348,11 +348,11 @@ msgstr ""
 
 #: lsofs/views.py:8
 msgid "LSOFs"
-msgstr ""
+msgstr "LSOFs"
 
 #: portscanner/templates/portscanner/index.html:5 portscanner/views.py:9
 msgid "Port Scanner"
-msgstr ""
+msgstr "Port-Scannen"
 
 #: portscanner/templates/portscanner/index.html:18
 msgid "Port scanning on"
@@ -366,7 +366,7 @@ msgstr ""
 #: portscanner/templates/portscanner/index.html:24
 #: traceroutes/templates/traceroutes/result.html:85
 msgid "Please wait..."
-msgstr ""
+msgstr "Bitte warten..."
 
 #: portscanner/templates/portscanner/index.html:37
 msgid "Target IP"
@@ -400,7 +400,7 @@ msgstr "Zurück zur Liste"
 
 #: rdbms/templates/mysql/detail.html:27
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: rdbms/templates/rdbms/add.html:17 rdbms/templates/rdbms/delete.html:17
 #: vault/templates/vault/add.html:17 vault/templates/vault/delete.html:17
@@ -423,7 +423,7 @@ msgstr ""
 
 #: rdbms/templates/rdbms/add.html:52 vault/templates/vault/add.html:43
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: rdbms/templates/rdbms/add.html:55 vault/templates/vault/add.html:46
 msgid "Go back"
@@ -445,16 +445,16 @@ msgstr ""
 msgid "Show MySQL"
 msgstr ""
 
-#: rdbms/templates/rdbms/index.html:67 vault/templates/vault/index.html:77
+#: rdbms/templates/rdbms/index.html:67 vault/templates/vault/index.html:65
 #: vault/templates/vault/update.html:44
 msgid "Update"
 msgstr ""
 
 #: rdbms/templates/rdbms/index.html:70
 msgid "Trash"
-msgstr ""
+msgstr "Löschen"
 
-#: rdbms/templates/rdbms/index.html:81 vault/templates/vault/index.html:92
+#: rdbms/templates/rdbms/index.html:81 vault/templates/vault/index.html:80
 msgid "No records found!"
 msgstr "Keine Aufzeichnungen gefunden!"
 
@@ -480,11 +480,11 @@ msgstr ""
 
 #: templates/sidebar.html:34
 msgid "account"
-msgstr ""
+msgstr "Konto"
 
 #: templates/sidebar.html:46
 msgid "sys"
-msgstr ""
+msgstr "System"
 
 #: templates/sidebar.html:46
 msgid "info"
@@ -509,7 +509,7 @@ msgstr "Meine Ports scannen"
 #: templates/sidebar.html:97 traceroutes/templates/traceroutes/index.html:5
 #: traceroutes/templates/traceroutes/result.html:5
 msgid "Traceroute"
-msgstr ""
+msgstr "Traceroute"
 
 #: templates/sidebar.html:102 templates/sidebar.html:108
 msgid "Vault"
@@ -517,7 +517,7 @@ msgstr "Tresor"
 
 #: templates/sidebar.html:112 templates/sidebar.html:118
 msgid "RDBMS"
-msgstr ""
+msgstr "RDBMS"
 
 #: templates/top_navigation.html:17
 msgid "search here"
@@ -550,7 +550,7 @@ msgstr "Nepalesisch"
 
 #: traceroutes/templates/traceroutes/index.html:20
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: traceroutes/templates/traceroutes/index.html:36
 msgid "Log this traceroute"
@@ -579,15 +579,15 @@ msgstr "SSH"
 #: userprofile/templates/userprofile/index.html:106
 #: userprofile/templates/userprofile/index.html:119
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #: userprofile/templates/userprofile/index.html:106
 msgid "vendor"
-msgstr ""
+msgstr "Anbieter"
 
 #: userprofile/templates/userprofile/index.html:119
 msgid "model"
-msgstr ""
+msgstr "modell"
 
 #: userprofile/templates/userprofile/index.html:131
 msgid "architecture"
@@ -621,7 +621,7 @@ msgstr "Erstelldatum"
 
 #: vault/templates/vault/index.html:6 vault/templates/vault/index.html:14
 msgid "Primary"
-msgstr ""
+msgstr "Primäre"
 
 #: vault/templates/vault/index.html:6 vault/templates/vault/index.html:14
 msgid "vault"
@@ -635,13 +635,13 @@ msgstr "Neuen Berechtigungsnachweis hinzufügen"
 msgid "ID"
 msgstr "ID"
 
-#: vault/templates/vault/index.html:81
+#: vault/templates/vault/index.html:69
 msgid "Delete"
 msgstr "Löschen"
 
 #: vault/views.py:18
 msgid "Primary Vault"
-msgstr ""
+msgstr "Primärer Tresor"
 
 #: vault/views.py:24
 #, fuzzy
@@ -657,7 +657,7 @@ msgstr "Neuen Berechtigungsnachweis hinzufügen"
 
 #: vault/views.py:38
 msgid "Credential Detail"
-msgstr ""
+msgstr "Berechtigungsnachweis Detail"
 
 #, fuzzy
 #~| msgid "See details"

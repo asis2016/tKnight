@@ -111,7 +111,7 @@ $(document).ready(function () {
      * for tuxHomepageProcesses (System processes)
      */
     $.ajax({
-        url: BASE_API_URL + '/json/ps/',
+        url: BASE_API_URL + '/ps/json/',
         dataType: 'JSON',
         success: function (response) {
             let status_count = response['status_count'];
@@ -185,7 +185,7 @@ $(document).ready(function () {
      * for tuxHomepageSystemctlServices
      */
     $.ajax({
-        url: BASE_API_URL + '/json/systemctl/services/',
+        url: BASE_API_URL + '/systemctl-services/json/',
         dataType: 'JSON',
         success: function (response) {
             var tbody = $('#tuxHomepageSystemctlServices tbody');
