@@ -116,6 +116,26 @@
     <script src="https://asis2016.github.io/bootstrap-5-admin-template/static/js/script.js"></script>
     <script src="{% static 'js/base.js' %}"></script>
 
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var languageSwitcher = document.getElementById('language-switcher');
+        
+            if (languageSwitcher) {
+                languageSwitcher.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    var languageCode = e.target.getAttribute('data-language-code');
+                    if (languageCode) {
+                        window.location.href = '{% url "set_language" %}?language=' + languageCode;
+                    }
+                });
+            }
+        });
+        </script>
+
+
     {% block footer %}
     {% endblock footer %}
 </body>

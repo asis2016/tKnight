@@ -15,10 +15,16 @@ from dashboard.views import (
     get_sensors_battery_json_view
 )
 
+
+###
+from django.views.i18n import set_language
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), 
     path('logout/', password_manager_logout, name='pm_logout'),
+    
 ]
 
 urlpatterns += i18n_patterns(
@@ -41,13 +47,11 @@ urlpatterns += i18n_patterns(
     #wip
     path('wip/', WipTemplateView.as_view(), name='wip'),
 
-    
-
     #dashboard
     #json_view
     path('json/disk/usage/', get_disk_usage_json_view, name='json-disk-usage'),
     path('json/sensors/battery/', get_sensors_battery_json_view, name='json-sensors-battery'),
-    
     path('', DashboardTemplateView.as_view(), name='dashboard'),
+    path('i18n/', include('django.conf.urls.i18n')),
     prefix_default_language=True,  # Do not include language prefix for the default language
 )
